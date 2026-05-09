@@ -1,0 +1,11 @@
+C:\Projects\Customer_Relationship_Management\Persistence\bin\Debug\net8.0\Persistence.deps.json
+C:\Projects\Customer_Relationship_Management\Persistence\bin\Debug\net8.0\Persistence.dll
+C:\Projects\Customer_Relationship_Management\Persistence\bin\Debug\net8.0\Persistence.pdb
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfoInputs.cache
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfo.cs
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\Persistence.dll
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\refint\Persistence.dll
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\Persistence.pdb
+C:\Projects\Customer_Relationship_Management\Persistence\obj\Debug\net8.0\ref\Persistence.dll

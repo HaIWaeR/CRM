@@ -1,0 +1,321 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projects\\Customer_Relationship_Management\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F975CBDA-C9A0-40B8-94A7-E6011CE73F5A}|Customer_Relationship_Management\\WebApi.csproj|c:\\projects\\customer_relationship_management\\customer_relationship_management\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F975CBDA-C9A0-40B8-94A7-E6011CE73F5A}|Customer_Relationship_Management\\WebApi.csproj|solutionrelative:customer_relationship_management\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F975CBDA-C9A0-40B8-94A7-E6011CE73F5A}|Customer_Relationship_Management\\WebApi.csproj|c:\\projects\\customer_relationship_management\\customer_relationship_management\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F975CBDA-C9A0-40B8-94A7-E6011CE73F5A}|Customer_Relationship_Management\\WebApi.csproj|solutionrelative:customer_relationship_management\\webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\warehouseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\warehouseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\storagezone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\storagezone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\stockitementity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\stockitementity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\productentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\productentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\materialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\materialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\orderentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\orderentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\cliententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\cliententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\entities\\branchentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\branchentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\enums\\storagezonetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\storagezonetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\enums\\product\u0441ategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\product\u0441ategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\projects\\customer_relationship_management\\domain\\enums\\branchstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\branchstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\projects\\customer_relationship_management\\application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F975CBDA-C9A0-40B8-94A7-E6011CE73F5A}|Customer_Relationship_Management\\WebApi.csproj|c:\\projects\\customer_relationship_management\\customer_relationship_management\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F975CBDA-C9A0-40B8-94A7-E6011CE73F5A}|Customer_Relationship_Management\\WebApi.csproj|solutionrelative:customer_relationship_management\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cde3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Customer_Relationship_Management\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Customer_Relationship_Management\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Customer_Relationship_Management\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Customer_Relationship_Management\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:57:57.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\UserRole.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\UserRole.cs",
+              "RelativeToolTip": "Domain\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:49:37.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "StorageZoneType.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\StorageZoneType.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\StorageZoneType.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\StorageZoneType.cs",
+              "RelativeToolTip": "Domain\\Enums\\StorageZoneType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:49:19.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Product\u0421ategory.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\Product\u0421ategory.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\Product\u0421ategory.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\Product\u0421ategory.cs",
+              "RelativeToolTip": "Domain\\Enums\\Product\u0421ategory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:48:47.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\OrderStatus.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\OrderStatus.cs",
+              "RelativeToolTip": "Domain\\Enums\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:48:11.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "BranchStatus.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\BranchStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\BranchStatus.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Enums\\BranchStatus.cs",
+              "RelativeToolTip": "Domain\\Enums\\BranchStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:47:27.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WarehouseEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\WarehouseEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\WarehouseEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\WarehouseEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\WarehouseEntity.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:46:06.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\UserEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\UserEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\UserEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\UserEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:45:46.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StorageZone.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\StorageZone.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\StorageZone.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\StorageZone.cs",
+              "RelativeToolTip": "Domain\\Entities\\StorageZone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:44:54.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StockItemEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\StockItemEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\StockItemEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\StockItemEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\StockItemEntity.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:43:15.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\ProductEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\ProductEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\ProductEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\ProductEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:42:44.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrderEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\OrderEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\OrderEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\OrderEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\OrderEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:42:04.363Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MaterialEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\MaterialEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\MaterialEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\MaterialEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\MaterialEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:41:43.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ClientEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\ClientEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\ClientEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\ClientEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\ClientEntity.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA5wAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:41:00.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BranchEntity.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\BranchEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\BranchEntity.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Domain\\Entities\\BranchEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\BranchEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:40:45.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Application\\Class1.cs",
+              "RelativeDocumentMoniker": "Application\\Class1.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Application\\Class1.cs",
+              "RelativeToolTip": "Application\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:38:30.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebApi.csproj",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Customer_Relationship_Management\\WebApi.csproj",
+              "RelativeDocumentMoniker": "Customer_Relationship_Management\\WebApi.csproj",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Customer_Relationship_Management\\WebApi.csproj",
+              "RelativeToolTip": "Customer_Relationship_Management\\WebApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-09T16:05:27.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\Customer_Relationship_Management\\Customer_Relationship_Management\\Program.cs",
+              "RelativeDocumentMoniker": "Customer_Relationship_Management\\Program.cs",
+              "ToolTip": "C:\\Projects\\Customer_Relationship_Management\\Customer_Relationship_Management\\Program.cs",
+              "RelativeToolTip": "Customer_Relationship_Management\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T16:05:13.19Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
