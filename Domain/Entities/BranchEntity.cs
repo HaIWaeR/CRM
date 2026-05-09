@@ -11,7 +11,7 @@ namespace Domain.Entities
         public string? ContactPhone { get; set; }
         public string? ContactEmail { get; set; }
         public string? Description { get; set; }
-        public DateTime CreatedAt { get; }
+        public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 }

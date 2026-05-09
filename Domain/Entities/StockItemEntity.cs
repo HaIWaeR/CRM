@@ -2,12 +2,12 @@
 {
     public class StockItemEntity
     {
-        public Guid Id { get; }
-        public int Quantity { get; private set; }
-        public Guid WarehouseId { get; private set; }
-        public Guid? StorageZoneId { get; private set; }
-        public Guid? ProductId { get; private set; }
-        public Guid? MaterialId { get; private set; }
-        public DateTime LastUpdate { get; private set; }
+        public Guid Id { get; set; }
+        public int Quantity { get; set; }
+        public Guid WarehouseId { get; set; }
+        public Guid? StorageZoneId { get; set; }
+        public Guid? ProductId { get; set; }
+        public Guid? MaterialId { get; set; }
+        public DateTime LastUpdate { get; set; }
     }
 }

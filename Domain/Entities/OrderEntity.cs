@@ -4,16 +4,16 @@ namespace Domain.Entities
 {
     public class OrderEntity
     {
-        public Guid Id { get; }
-        public Guid? ClientId { get; private set; }
-        public ClientEntity? Client { get; private set; }
-        public string OrderNumber { get; private set; }
-        public string ServiceName { get; private set; }
-        public decimal Price { get; private set; }
-        public OrderStatus Status { get; private set; }
-        public string? Description { get; private set; }
-        public string? Address { get; private set; }
-        public DateTime CreatedAt { get; }
-        public DateTime? UpdatedAt { get; private set; }
+        public Guid Id { get; set; }
+        public Guid? ClientId { get; set; }
+        public ClientEntity? Client { get; set; }
+        public string OrderNumber { get; set; }
+        public string ServiceName { get; set; }
+        public decimal Price { get; set; }
+        public OrderStatus Status { get; set; }
+        public string? Description { get; set; }
+        public string? Address { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

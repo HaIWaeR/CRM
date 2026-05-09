@@ -2,18 +2,18 @@
 {
     public class MaterialEntity
     {
-        public Guid Id { get; }
-        public string Name { get; private set; }
-        public string Article { get; private set; }
-        public int Quantity { get; private set; }
-        public string? Description { get; private set; }
-        public string UnitMeasurement { get; private set; }
-        public decimal PriceUnit { get; private set; }
-        public string? CellZone { get; private set; }
-        public string? Supplier { get; private set; }
-        public string? ContactSupplier { get; private set; }
-        public string? AdditionInforamtion { get; private set; }
-        public DateTime CreatedAt { get; }
-        public DateTime? UpdatedAt { get; private set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Article { get; set; }
+        public int Quantity { get; set; }
+        public string? Description { get; set; }
+        public string UnitMeasurement { get; set; }
+        public decimal PriceUnit { get; set; }
+        public string? CellZone { get; set; }
+        public string? Supplier { get; set; }
+        public string? ContactSupplier { get; set; }
+        public string? AdditionInforamtion { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }
