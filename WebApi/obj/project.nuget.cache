@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CVOre90/hJ0=",
+  "dgSpecHash": "zqBSAC6o6aA=",
   "success": true,
   "projectFilePath": "C:\\Users\\argument\\OneDrive\\Рабочий стол\\CRM\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\argument\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\argument\\.nuget\\packages\\mediatr\\14.1.0\\mediatr.14.1.0.nupkg.sha512",
+    "C:\\Users\\argument\\.nuget\\packages\\mediatr\\14.0.0\\mediatr.14.0.0.nupkg.sha512",
     "C:\\Users\\argument\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\argument\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\argument\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

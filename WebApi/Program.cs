@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using Persistence;
+using System;
+
 namespace WebApi
 {
     public class Program
@@ -13,6 +17,8 @@ namespace WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<ApplicationContext>(options =>
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
@@ -29,6 +35,12 @@ namespace WebApi
 
 
             app.MapControllers();
+
+            using (IServiceScope scope = app.Services.CreateScope())
+            {
+                ApplicationContext context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+                context.Database.Migrate();
+            }
 
             app.Run();
         }
