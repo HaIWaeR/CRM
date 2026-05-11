@@ -5,7 +5,7 @@ namespace Domain.Entities
     public class ProductEntity
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;  
         public decimal Price { get; set; }
         public ProductCategory Category { get; set; }
         public string? Article { get; set; }
@@ -15,5 +15,6 @@ namespace Domain.Entities
         public bool IsService { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public List<StockItemEntity> StockItems { get; set; } = [];
     }
 }

@@ -18,5 +18,7 @@ namespace Persistence
         public DbSet<StorageZone> Storages { get; set; }
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<WarehouseEntity> Warehouses { get; set; }
+        public DbSet<TaskEntity> Tasks { get; set; }
+        public DbSet<SupplierMaterialEntity> SupplierMaterials { get; set; }
     }
 }
