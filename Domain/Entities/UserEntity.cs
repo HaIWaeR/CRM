@@ -10,8 +10,8 @@ namespace Domain.Entities
         public bool IsActive { get; set; }
         public string? Email { get; set; }
         public string PasswordHash { get; set; } = string.Empty;
-        public DateTime CreateAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         public Guid? BranchId { get; set; }
         public BranchEntity? Branch { get; set; }

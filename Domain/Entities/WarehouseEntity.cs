@@ -15,8 +15,8 @@ namespace Domain.Entities
         public string? ContactPerson { get; set; }
         public string? ContactPhone { get; set; }
         public string? Description { get; set; }
-        public DateTime CreateAt { get; set; }
-        public DateTime? UpdateAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
 
         public Guid? BranchId { get; set; }
         public BranchEntity? Branch { get; set; }

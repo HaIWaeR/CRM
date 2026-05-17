@@ -9,7 +9,7 @@ namespace Persistence
            : base(options)
         {
         }
-        public DbSet<BranchEntity> Branchs { get; set; }
+        public DbSet<BranchEntity> Branches { get; set; }
         public DbSet<ClientEntity> Clients { get; set; }
         public DbSet<MaterialEntity> Materials { get; set; }
         public DbSet<OrderEntity> Orders { get; set; }
@@ -20,5 +20,6 @@ namespace Persistence
         public DbSet<WarehouseEntity> Warehouses { get; set; }
         public DbSet<TaskEntity> Tasks { get; set; }
         public DbSet<SupplierMaterialEntity> SupplierMaterials { get; set; }
+        public DbSet<SupplierEntity> Suppliers { get; set; }
     }
 }

@@ -1,6 +1,9 @@
 
+using Application.Interfaces.Repositories;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Persistence.Repositories;
 using System;
 
 namespace WebApi
@@ -19,6 +22,10 @@ namespace WebApi
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<ApplicationContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IClientRepository, ClientRepository>();
+            builder.Services.AddScoped<IBranchRepository, BranchRepository>();
+            builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(Application.Behavior.Client.CreateClientCommand).Assembly));
 
             var app = builder.Build();
 

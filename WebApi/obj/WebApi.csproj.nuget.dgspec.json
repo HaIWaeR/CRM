@@ -54,6 +54,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[14.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -291,7 +297,7 @@
           "dependencies": {
             "MediatR": {
               "target": "Package",
-              "version": "[14.0.0, )"
+              "version": "[14.1.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
