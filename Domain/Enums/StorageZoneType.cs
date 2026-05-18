@@ -2,7 +2,7 @@
 {
     public enum StorageZoneType
     {
-        Product = 0,
+        Product = 1,
         Service = 2,
         Material = 3
     }

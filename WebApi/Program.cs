@@ -1,10 +1,10 @@
 
 using Application.Interfaces.Repositories;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Persistence.Repositories;
-using System;
+using System.IO.IsolatedStorage;
 
 namespace WebApi
 {
@@ -25,6 +25,17 @@ namespace WebApi
 
             builder.Services.AddScoped<IClientRepository, ClientRepository>();
             builder.Services.AddScoped<IBranchRepository, BranchRepository>();
+            builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IStockItemRepository, StockItemRepository>();
+            builder.Services.AddScoped<IStorageZoneRepository, StorageZoneRepository>();
+            builder.Services.AddScoped<IWarehouseRoomRepository, WarehouseRoomRepository>();
+            builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+            builder.Services.AddScoped<ISupplierMaterialRepository, SupplierMaterialRepository>();
+            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+
             builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(Application.Behavior.Client.CreateClientCommand).Assembly));
 
             var app = builder.Build();

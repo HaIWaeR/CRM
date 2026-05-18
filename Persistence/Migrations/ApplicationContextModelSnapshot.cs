@@ -266,7 +266,7 @@ namespace Persistence.Migrations
                     b.ToTable("StockItems");
                 });
 
-            modelBuilder.Entity("Domain.Entities.StorageZone", b =>
+            modelBuilder.Entity("Domain.Entities.StorageZoneEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -461,7 +461,7 @@ namespace Persistence.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Domain.Entities.WarehouseEntity", b =>
+            modelBuilder.Entity("Domain.Entities.WarehouseRoomEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -528,11 +528,11 @@ namespace Persistence.Migrations
                         .WithMany("StockItems")
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("Domain.Entities.StorageZone", "StorageZone")
+                    b.HasOne("Domain.Entities.StorageZoneEntity", "StorageZone")
                         .WithMany("StockItems")
                         .HasForeignKey("StorageZoneId");
 
-                    b.HasOne("Domain.Entities.WarehouseEntity", "Warehouse")
+                    b.HasOne("Domain.Entities.WarehouseRoomEntity", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -547,9 +547,9 @@ namespace Persistence.Migrations
                     b.Navigation("Warehouse");
                 });
 
-            modelBuilder.Entity("Domain.Entities.StorageZone", b =>
+            modelBuilder.Entity("Domain.Entities.StorageZoneEntity", b =>
                 {
-                    b.HasOne("Domain.Entities.WarehouseEntity", "Warehouse")
+                    b.HasOne("Domain.Entities.WarehouseRoomEntity", "Warehouse")
                         .WithMany("StorageZones")
                         .HasForeignKey("WarehouseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -601,7 +601,7 @@ namespace Persistence.Migrations
                     b.Navigation("Branch");
                 });
 
-            modelBuilder.Entity("Domain.Entities.WarehouseEntity", b =>
+            modelBuilder.Entity("Domain.Entities.WarehouseRoomEntity", b =>
                 {
                     b.HasOne("Domain.Entities.BranchEntity", "Branch")
                         .WithMany("Warehouses")
@@ -636,7 +636,7 @@ namespace Persistence.Migrations
                     b.Navigation("StockItems");
                 });
 
-            modelBuilder.Entity("Domain.Entities.StorageZone", b =>
+            modelBuilder.Entity("Domain.Entities.StorageZoneEntity", b =>
                 {
                     b.Navigation("StockItems");
                 });
@@ -646,7 +646,7 @@ namespace Persistence.Migrations
                     b.Navigation("SupplierMaterials");
                 });
 
-            modelBuilder.Entity("Domain.Entities.WarehouseEntity", b =>
+            modelBuilder.Entity("Domain.Entities.WarehouseRoomEntity", b =>
                 {
                     b.Navigation("StorageZones");
                 });

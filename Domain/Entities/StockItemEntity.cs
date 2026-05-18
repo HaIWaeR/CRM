@@ -7,10 +7,10 @@
         public DateTime LastUpdate { get; set; }
 
         public Guid WarehouseId { get; set; }
-        public WarehouseEntity? Warehouse { get; set; }
+        public WarehouseRoomEntity? Warehouse { get; set; }
 
         public Guid? StorageZoneId { get; set; }
-        public StorageZone? StorageZone { get; set; }
+        public StorageZoneEntity? StorageZone { get; set; }
 
         public Guid? ProductId { get; set; }
         public ProductEntity? Product { get; set; }

@@ -18,6 +18,6 @@ namespace Domain.Entities
 
         public List<UserEntity> Users { get; set; } = [];
         public List<OrderEntity> Orders { get; set; } = [];
-        public List<WarehouseEntity> Warehouses { get; set; } = [];
+        public List<WarehouseRoomEntity> Warehouses { get; set; } = [];
     }
 }
