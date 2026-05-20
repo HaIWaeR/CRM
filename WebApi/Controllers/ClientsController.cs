@@ -1,7 +1,9 @@
 ﻿using Application.Behavior.Client;
-using Application.DTO.Client;
+using Domain.Entities;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.DTO.Client;
 
 namespace WebApi.Controllers
 {
@@ -18,27 +20,27 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<ClientDto>> GetAllClientsAsync()
         {
-            GetAllClientsQuery query = new GetAllClientsQuery();
-            return await mediator.Send(query);
+            List<ClientEntity> clients = await mediator.Send(new GetAllClientsQuery());
+            return clients.Adapt<List<ClientDto>>();
         }
 
         [HttpGet("{id}")]
         public async Task<ClientDto?> GetClientByIdAsync(Guid id)
         {
-            GetClientByIdQuery query = new GetClientByIdQuery { Id = id };
-
-            return await mediator.Send(query);
+            ClientEntity? client = await mediator.Send(new GetClientByIdQuery { Id = id });
+            return client.Adapt<ClientDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<ClientDto?> UpdateClientAsync(Guid id, [FromBody] UpdateClientCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            ClientEntity? update = await mediator.Send(command);
+            return update?.Adapt<ClientDto>();
         }
 
         [HttpDelete("{id}")]
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteClientAsync(Guid id)
         {
             return await mediator.Send(new DeleteClientCommand { Id = id });
         }

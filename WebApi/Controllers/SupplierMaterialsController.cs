@@ -1,7 +1,10 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.DTO;
+﻿using Application.Behavior.Supplier;
 using Application.Behavior.SupplierMaterial;
+using Domain.Entities;
+using Mapster;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using WebApi.DTO.SupplierMaterial;
 
 namespace WebApi.Controllers
 {
@@ -18,20 +21,23 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<SupplierMaterialDto>> GetAllSupplierMaterialsAsync()
         {
-            return await mediator.Send(new GetAllSupplierMaterialsQuery());
+            List<SupplierMaterialEntity> supplierMaterials = await mediator.Send(new GetAllSupplierMaterialsQuery());
+            return supplierMaterials.Adapt<List<SupplierMaterialDto>>();
         }
 
         [HttpGet("{id}")]
         public async Task<SupplierMaterialDto?> GetSupplierMaterialByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetSupplierMaterialByIdQuery { Id = id });
+            SupplierMaterialEntity? supplierMaterial = await mediator.Send(new GetSupplierMaterialByIdQuery { Id = id });
+            return supplierMaterial.Adapt<SupplierMaterialDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<SupplierMaterialDto?> UpdateSupplierMaterialAsync(Guid id, [FromBody] UpdateSupplierMaterialCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            SupplierMaterialEntity? update = await mediator.Send(command);
+            return update.Adapt<SupplierMaterialDto>();
         }
 
         [HttpDelete("{id}")]

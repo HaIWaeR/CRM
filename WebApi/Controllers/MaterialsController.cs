@@ -1,7 +1,9 @@
 ﻿using Application.Behavior.Material;
-using Application.DTO;
+using WebApi.DTO.Material;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Domain.Entities;
+using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -18,20 +20,25 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<MaterialDto>> GetAllMaterialsAsync()
         {
-            return await mediator.Send(new GetAllMaterialsQuery());
+            List<MaterialEntity> materials = await mediator.Send(new GetAllMaterialsQuery());
+            return materials.Adapt<List<MaterialDto>>();
+
         }
 
         [HttpGet("{id}")]
         public async Task<MaterialDto?> GetMaterialByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetMaterialByIdQuery { Id = id });
+            MaterialEntity? material = await mediator.Send(new GetMaterialByIdQuery { Id = id });
+            return material.Adapt<MaterialDto>();
+
         }
 
         [HttpPut("{id}")]
         public async Task<MaterialDto?> UpdateMaterialAsync(Guid id, [FromBody] UpdateMaterialCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            MaterialEntity? update = await mediator.Send(command);
+            return update.Adapt<MaterialDto>();
         }
 
         [HttpDelete("{id}")]

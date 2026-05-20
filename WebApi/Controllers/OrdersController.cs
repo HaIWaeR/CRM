@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.DTO;
+using WebApi.DTO.Order;
 using Application.Behavior.Orders;
+using Domain.Entities;
+using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -18,20 +20,24 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<OrderDto>> GetAllOrdersAsync()
         {
-            return await mediator.Send(new GetAllOrdersQuery());
+            List<OrderEntity> orders = await mediator.Send(new GetAllOrdersQuery());
+            return orders.Adapt<List<OrderDto>>();
+
         }
 
         [HttpGet("{id}")]
         public async Task<OrderDto?> GetOrderByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetOrderByIdQuery { Id = id });
+            OrderEntity? order = await mediator.Send(new GetOrderByIdQuery { Id = id });
+            return order.Adapt<OrderDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<OrderDto?> UpdateOrderAsync(Guid id, [FromBody] UpdateOrderCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            OrderEntity? update = await mediator.Send(command);
+            return update.Adapt<OrderDto>();
         }
 
         [HttpDelete("{id}")]

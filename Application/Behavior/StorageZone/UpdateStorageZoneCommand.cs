@@ -1,12 +1,11 @@
-﻿using Application.DTO;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 
 namespace Application.Behavior.StorageZone
 {
-    public class UpdateStorageZoneCommand : IRequest<StorageZoneDto?>
+    public class UpdateStorageZoneCommand : IRequest<StorageZoneEntity?>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -16,9 +15,9 @@ namespace Application.Behavior.StorageZone
         public Guid WarehouseId { get; set; }
     }
 
-    public class UpdateStorageZoneCommandHandler(IStorageZoneRepository repository) : IRequestHandler<UpdateStorageZoneCommand, StorageZoneDto?>
+    public class UpdateStorageZoneCommandHandler(IStorageZoneRepository repository) : IRequestHandler<UpdateStorageZoneCommand, StorageZoneEntity?>
     {
-        public async Task<StorageZoneDto?> Handle(UpdateStorageZoneCommand command, CancellationToken cancellationToken)
+        public async Task<StorageZoneEntity?> Handle(UpdateStorageZoneCommand command, CancellationToken cancellationToken)
         {
             StorageZoneEntity? zone = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Зона хранения с ID {command.Id} не найдена");
             zone.Name = command.Name;
@@ -28,17 +27,8 @@ namespace Application.Behavior.StorageZone
             zone.WarehouseId = command.WarehouseId;
             zone.UpdatedAt = DateTime.UtcNow;
             await repository.UpdateAsync(zone);
-            return new StorageZoneDto
-            {
-                Id = zone.Id,
-                Name = zone.Name,
-                Code = zone.Code,
-                ZoneType = zone.ZoneType,
-                MaxCapacity = zone.MaxCapacity,
-                WarehouseId = zone.WarehouseId,
-                CreatedAt = zone.CreatedAt,
-                UpdatedAt = zone.UpdatedAt
-            };
+
+            return zone;
         }
     }
 }

@@ -35,7 +35,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.Branch.BranchDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Branch.BranchDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.Branch.BranchDto",
+        "Type": "WebApi.DTO.Branch.BranchDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -92,7 +92,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.Branch.BranchDto",
+        "Type": "WebApi.DTO.Branch.BranchDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -164,7 +164,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.Client.ClientDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Client.ClientDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -190,7 +190,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.Client.ClientDto",
+        "Type": "WebApi.DTO.Client.ClientDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -221,7 +221,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.Client.ClientDto",
+        "Type": "WebApi.DTO.Client.ClientDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -233,7 +233,7 @@
   },
   {
     "ContainingType": "WebApi.Controllers.ClientsController",
-    "Method": "DeleteAsync",
+    "Method": "DeleteClientAsync",
     "RelativePath": "api/Clients/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -293,7 +293,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.MaterialDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Material.MaterialDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -319,7 +319,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.MaterialDto",
+        "Type": "WebApi.DTO.Material.MaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -350,7 +350,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.MaterialDto",
+        "Type": "WebApi.DTO.Material.MaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -422,7 +422,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.OrderDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Order.OrderDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -448,7 +448,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.OrderDto",
+        "Type": "WebApi.DTO.Order.OrderDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -479,7 +479,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.OrderDto",
+        "Type": "WebApi.DTO.Order.OrderDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -551,7 +551,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.ProductDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Product.ProductDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -577,7 +577,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.ProductDto",
+        "Type": "WebApi.DTO.Product.ProductDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -608,7 +608,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.ProductDto",
+        "Type": "WebApi.DTO.Product.ProductDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -680,7 +680,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.StockItemDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.StockItem.StockItemDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -706,7 +706,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.StockItemDto",
+        "Type": "WebApi.DTO.StockItem.StockItemDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -737,7 +737,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.StockItemDto",
+        "Type": "WebApi.DTO.StockItem.StockItemDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -809,7 +809,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.StorageZoneDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.StorageZone.StorageZoneDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -835,7 +835,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.StorageZoneDto",
+        "Type": "WebApi.DTO.StorageZone.StorageZoneDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -866,7 +866,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.StorageZoneDto",
+        "Type": "WebApi.DTO.StorageZone.StorageZoneDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -938,7 +938,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.SupplierMaterialDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.SupplierMaterial.SupplierMaterialDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -964,7 +964,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.SupplierMaterialDto",
+        "Type": "WebApi.DTO.SupplierMaterial.SupplierMaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -995,7 +995,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.SupplierMaterialDto",
+        "Type": "WebApi.DTO.SupplierMaterial.SupplierMaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1067,7 +1067,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.SupplierDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Supplier.SupplierDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1093,7 +1093,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.SupplierDto",
+        "Type": "WebApi.DTO.Supplier.SupplierDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1124,7 +1124,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.SupplierDto",
+        "Type": "WebApi.DTO.Supplier.SupplierDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1196,7 +1196,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.TaskDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Task.TaskDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1222,7 +1222,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.TaskDto",
+        "Type": "WebApi.DTO.Task.TaskDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1253,7 +1253,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.TaskDto",
+        "Type": "WebApi.DTO.Task.TaskDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1325,7 +1325,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.UserDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.User.UserDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1351,7 +1351,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.UserDto",
+        "Type": "WebApi.DTO.User.UserDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1382,7 +1382,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.UserDto",
+        "Type": "WebApi.DTO.User.UserDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1454,7 +1454,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.DTO.WarehouseRoomDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.WarehouseRoom.WarehouseRoomDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1480,7 +1480,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.WarehouseRoomDto",
+        "Type": "WebApi.DTO.WarehouseRoom.WarehouseRoomDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1511,7 +1511,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.DTO.WarehouseRoomDto",
+        "Type": "WebApi.DTO.WarehouseRoom.WarehouseRoomDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

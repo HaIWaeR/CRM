@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.DTO;
+using WebApi.DTO.StorageZone;
 using Application.Behavior.StorageZone;
+using Domain.Entities;
+using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -18,20 +20,23 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<StorageZoneDto>> GetAllStorageZonesAsync()
         {
-            return await mediator.Send(new GetAllStorageZonesQuery());
+            List<StorageZoneEntity> storageZones = await mediator.Send(new GetAllStorageZonesQuery());
+            return storageZones.Adapt<List<StorageZoneDto>>();
         }
 
         [HttpGet("{id}")]
         public async Task<StorageZoneDto?> GetStorageZoneByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetStorageZoneByIdQuery { Id = id });
+            StorageZoneEntity? storageZone = await mediator.Send(new GetStorageZoneByIdQuery { Id = id });
+            return storageZone.Adapt<StorageZoneDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<StorageZoneDto?> UpdateStorageZoneAsync(Guid id, [FromBody] UpdateStorageZoneCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            StorageZoneEntity? update = await mediator.Send(command);
+            return update.Adapt<StorageZoneDto>();
         }
 
         [HttpDelete("{id}")]

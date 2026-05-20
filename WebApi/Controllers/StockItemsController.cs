@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.DTO;
+using WebApi.DTO.StockItem;
 using Application.Behavior.StockItem;
+using Domain.Entities;
+using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -18,22 +20,24 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<StockItemDto>> GetAllStockItemsAsync()
         {
-            return await mediator.Send(new GetAllStockItemsQuery());
+            List<StockItemEntity> stockItems = await mediator.Send(new GetAllStockItemsQuery());
+            return stockItems.Adapt<List<StockItemDto>>();
         }
 
         [HttpGet("{id}")]
         public async Task<StockItemDto?> GetStockItemByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetStockItemByIdQuery { Id = id });
+            StockItemEntity? stockItem = await mediator.Send(new GetStockItemByIdQuery { Id = id });
+            return stockItem.Adapt<StockItemDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<StockItemDto?> UpdateStockItemAsync(Guid id, [FromBody] UpdateStockItemCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            StockItemEntity? update = await mediator.Send(command);
+            return update.Adapt<StockItemDto>();
         }
-
         [HttpDelete("{id}")]
         public async Task<bool> DeleteStockItemAsync(Guid id)
         {

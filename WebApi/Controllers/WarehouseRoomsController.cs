@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.DTO;
+using WebApi.DTO.WarehouseRoom;
 using Application.Behavior.WarehouseRoom;
+using Domain.Entities;
+using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -18,20 +20,23 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<WarehouseRoomDto>> GetAllWarehouseRoomsAsync()
         {
-            return await mediator.Send(new GetAllWarehouseRoomsQuery());
+            List<WarehouseRoomEntity> warehouses = await mediator.Send(new GetAllWarehouseRoomsQuery());
+            return warehouses.Adapt<List<WarehouseRoomDto>>();
         }
 
         [HttpGet("{id}")]
         public async Task<WarehouseRoomDto?> GetWarehouseRoomByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetWarehouseRoomByIdQuery { Id = id });
+            WarehouseRoomEntity? warehouse = await mediator.Send(new GetWarehouseRoomByIdQuery { Id = id });
+            return warehouse.Adapt<WarehouseRoomDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<WarehouseRoomDto?> UpdateWarehouseRoomAsync(Guid id, [FromBody] UpdateWarehouseRoomCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            WarehouseRoomEntity? update = await mediator.Send(command);
+            return update.Adapt<WarehouseRoomDto>();
         }
 
         [HttpDelete("{id}")]

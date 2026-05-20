@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using Domain.Entities;
 using Application.Interfaces.Repositories;
-using Application.DTO.Client;
 
 namespace Application.Behavior.Client;
 
-public class UpdateClientCommand : IRequest<ClientDto?>
+public class UpdateClientCommand : IRequest<ClientEntity?>
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
@@ -16,9 +15,9 @@ public class UpdateClientCommand : IRequest<ClientDto?>
     public string? Notes { get; set; }
 }
 
-public class UpdateClientCommandHandler(IClientRepository repository) : IRequestHandler<UpdateClientCommand, ClientDto?>
+public class UpdateClientCommandHandler(IClientRepository repository) : IRequestHandler<UpdateClientCommand, ClientEntity?>
 {
-    public async Task<ClientDto?> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
+    public async Task<ClientEntity?> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
     {
         ClientEntity? client = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Клиент с ID {command.Id} не найден");
 
@@ -32,15 +31,6 @@ public class UpdateClientCommandHandler(IClientRepository repository) : IRequest
 
         await repository.UpdateAsync(client);
 
-        return new ClientDto
-        {
-            Id = client.Id,
-            Name = client.Name,
-            Phone = client.Phone,
-            Email = client.Email,
-            Telegram = client.Telegram,
-            Address = client.Address,
-            Notes = client.Notes
-        };
+        return client;
     }
 }

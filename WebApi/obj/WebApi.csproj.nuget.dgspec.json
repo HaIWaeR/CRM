@@ -295,6 +295,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.2-pre02, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[14.1.0, )"

@@ -1,12 +1,11 @@
-﻿using Application.DTO;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 
 namespace Application.Behavior.Material
 {
-    public class UpdateMaterialCommand : IRequest<MaterialDto?>
+    public class UpdateMaterialCommand : IRequest<MaterialEntity?>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -19,9 +18,9 @@ namespace Application.Behavior.Material
         public string? AdditionInforamtion { get; set; }
     }
 
-    public class UpdateMaterialCommandHandler(IMaterialRepository repository) : IRequestHandler<UpdateMaterialCommand, MaterialDto?>
+    public class UpdateMaterialCommandHandler(IMaterialRepository repository) : IRequestHandler<UpdateMaterialCommand, MaterialEntity?>
     {
-        public async Task<MaterialDto?> Handle(UpdateMaterialCommand command, CancellationToken cancellationToken)
+        public async Task<MaterialEntity?> Handle(UpdateMaterialCommand command, CancellationToken cancellationToken)
         {
             MaterialEntity? material = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Материал с ID {command.Id} не найден");
 
@@ -37,18 +36,7 @@ namespace Application.Behavior.Material
 
             await repository.UpdateAsync(material);
 
-            return new MaterialDto
-            {
-                Id = material.Id,
-                Name = material.Name,
-                Article = material.Article,
-                Quantity = material.Quantity,
-                PriceUnit = material.PriceUnit,
-                UnitMeasurement = material.UnitMeasurement,
-                Description = material.Description,
-                CellZone = material.CellZone,
-                AdditionInforamtion = material.AdditionInforamtion
-            };
+            return material;
         }
     }
 

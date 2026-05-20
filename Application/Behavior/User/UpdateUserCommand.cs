@@ -1,12 +1,11 @@
-﻿using Application.DTO;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 
 namespace Application.Behavior.User
 {
-    public class UpdateUserCommand : IRequest<UserDto?>
+    public class UpdateUserCommand : IRequest<UserEntity?>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -17,9 +16,9 @@ namespace Application.Behavior.User
         public Guid? BranchId { get; set; }
     }
 
-    public class UpdateUserCommandHandler(IUserRepository repository) : IRequestHandler<UpdateUserCommand, UserDto?>
+    public class UpdateUserCommandHandler(IUserRepository repository) : IRequestHandler<UpdateUserCommand, UserEntity?>
     {
-        public async Task<UserDto?> Handle(UpdateUserCommand command, CancellationToken cancellationToken)
+        public async Task<UserEntity?> Handle(UpdateUserCommand command, CancellationToken cancellationToken)
         {
             UserEntity? user = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Пользователь с ID {command.Id} не найден");
             user.Name = command.Name;
@@ -30,17 +29,8 @@ namespace Application.Behavior.User
             user.BranchId = command.BranchId;
             user.UpdatedAt = DateTime.UtcNow;
             await repository.UpdateAsync(user);
-            return new UserDto
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Role = user.Role,
-                IsActive = user.IsActive,
-                Email = user.Email,
-                BranchId = user.BranchId,
-                CreatedAt = user.CreatedAt,
-                UpdatedAt = user.UpdatedAt
-            };
+
+            return user;
         }
     }
 }

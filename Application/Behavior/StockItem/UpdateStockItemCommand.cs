@@ -1,11 +1,10 @@
 ﻿using MediatR;
 using Domain.Entities;
 using Application.Interfaces.Repositories;
-using Application.DTO;
 
 namespace Application.Behavior.StockItem
 {
-    public class UpdateStockItemCommand : IRequest<StockItemDto?>
+    public class UpdateStockItemCommand : IRequest<StockItemEntity?>
     {
         public Guid Id { get; set; }
         public int Quantity { get; set; }
@@ -15,9 +14,9 @@ namespace Application.Behavior.StockItem
         public Guid? MaterialId { get; set; }
     }
 
-    public class UpdateStockItemCommandHandler(IStockItemRepository repository) : IRequestHandler<UpdateStockItemCommand, StockItemDto?>
+    public class UpdateStockItemCommandHandler(IStockItemRepository repository) : IRequestHandler<UpdateStockItemCommand, StockItemEntity?>
     {
-        public async Task<StockItemDto?> Handle(UpdateStockItemCommand command, CancellationToken cancellationToken)
+        public async Task<StockItemEntity?> Handle(UpdateStockItemCommand command, CancellationToken cancellationToken)
         {
             StockItemEntity? item = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Остаток с ID {command.Id} не найден");
             item.Quantity = command.Quantity;
@@ -27,16 +26,8 @@ namespace Application.Behavior.StockItem
             item.MaterialId = command.MaterialId;
             item.LastUpdate = DateTime.UtcNow;
             await repository.UpdateAsync(item);
-            return new StockItemDto
-            {
-                Id = item.Id,
-                Quantity = item.Quantity,
-                LastUpdate = item.LastUpdate,
-                WarehouseId = item.WarehouseId,
-                StorageZoneId = item.StorageZoneId,
-                ProductId = item.ProductId,
-                MaterialId = item.MaterialId
-            };
+
+            return item;
         }
     }
 }

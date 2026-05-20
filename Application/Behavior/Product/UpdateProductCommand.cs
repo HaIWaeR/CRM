@@ -1,12 +1,11 @@
-﻿using Application.DTO;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 
 namespace Application.Behavior.Product
 {
-    public class UpdateProductCommand : IRequest<ProductDto?>
+    public class UpdateProductCommand : IRequest<ProductEntity?>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
@@ -19,9 +18,9 @@ namespace Application.Behavior.Product
         public bool IsService { get; set; }
     }
 
-    public class UpdateProductCommandHandler(IProductRepository repository) : IRequestHandler<UpdateProductCommand, ProductDto?>
+    public class UpdateProductCommandHandler(IProductRepository repository) : IRequestHandler<UpdateProductCommand, ProductEntity?>
     {
-        public async Task<ProductDto?> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
+        public async Task<ProductEntity?> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
         {
             ProductEntity? product = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Товар с ID {command.Id} не найден");
             product.Name = command.Name;
@@ -34,18 +33,8 @@ namespace Application.Behavior.Product
             product.IsService = command.IsService;
             product.UpdatedAt = DateTime.UtcNow;
             await repository.UpdateAsync(product);
-            return new ProductDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Category = product.Category,
-                Article = product.Article,
-                Description = product.Description,
-                Attributes = product.Attributes,
-                IsActive = product.IsActive,
-                IsService = product.IsService
-            };
+
+            return product;
         }
     }
 }

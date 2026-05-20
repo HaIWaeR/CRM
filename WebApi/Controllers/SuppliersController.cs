@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Application.DTO;
+using WebApi.DTO.Supplier;
 using Application.Behavior.Supplier;
+using Domain.Entities;
+using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -18,20 +20,23 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<SupplierDto>> GetAllSuppliersAsync()
         {
-            return await mediator.Send(new GetAllSuppliersQuery());
+            List<SupplierEntity> suppliers = await mediator.Send(new GetAllSuppliersQuery());
+            return suppliers.Adapt<List<SupplierDto>>();
         }
 
         [HttpGet("{id}")]
         public async Task<SupplierDto?> GetSupplierByIdAsync(Guid id)
         {
-            return await mediator.Send(new GetSupplierByIdQuery { Id = id });
+            SupplierEntity? supplier = await mediator.Send(new GetSupplierByIdQuery { Id = id });
+            return supplier.Adapt<SupplierDto>();
         }
 
         [HttpPut("{id}")]
         public async Task<SupplierDto?> UpdateSupplierAsync(Guid id, [FromBody] UpdateSupplierCommand command)
         {
             command.Id = id;
-            return await mediator.Send(command);
+            SupplierEntity? update = await mediator.Send(command);
+            return update.Adapt<SupplierDto>();
         }
 
         [HttpDelete("{id}")]

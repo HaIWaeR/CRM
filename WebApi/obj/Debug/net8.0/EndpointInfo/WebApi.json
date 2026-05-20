@@ -3148,6 +3148,17 @@
         },
         "additionalProperties": false
       },
+      "InstallTaskStatus": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "MaterialDto": {
         "type": "object",
         "properties": {
@@ -3519,7 +3530,7 @@
             "nullable": true
           },
           "status": {
-            "$ref": "#/components/schemas/TaskStatus"
+            "$ref": "#/components/schemas/InstallTaskStatus"
           },
           "clientId": {
             "type": "string",
