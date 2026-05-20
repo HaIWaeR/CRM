@@ -23,18 +23,7 @@ namespace WebApi
             builder.Services.AddDbContext<ApplicationContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddScoped<IBranchRepository, BranchRepository>();
-            builder.Services.AddScoped<IClientRepository, ClientRepository>();
-            builder.Services.AddScoped<IMaterialRepository, MaterialRepository>();
-            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
-            builder.Services.AddScoped<IProductRepository, ProductRepository>();
-            builder.Services.AddScoped<IStockItemRepository, StockItemRepository>();
-            builder.Services.AddScoped<IStorageZoneRepository, StorageZoneRepository>();
-            builder.Services.AddScoped<ISupplierMaterialRepository, SupplierMaterialRepository>();
-            builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
-            builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddScoped<IWarehouseRoomRepository, WarehouseRoomRepository>();
+            builder.Services.AddPersistence(builder.Configuration);
 
             builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(Application.Behavior.Client.CreateClientCommand).Assembly));
 
