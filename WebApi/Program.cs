@@ -1,5 +1,11 @@
 
+using Application.Behavior.Client;
+using Application.Behavior.User;
 using Application.Interfaces.Repositories;
+using Application.PipelineBehaviors;
+using Application.Validators;
+using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 using Persistence.Repositories;
@@ -18,14 +24,15 @@ namespace WebApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-                
-
-            builder.Services.AddDbContext<ApplicationContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddPersistence(builder.Configuration);
 
-            builder.Services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(typeof(Application.Behavior.Client.CreateClientCommand).Assembly));
+            builder.Services.AddValidatorsFromAssembly(typeof(CreateUserCommandValidator).Assembly);
+
+            builder.Services.AddMediatR(configuration => {
+                configuration.RegisterServicesFromAssembly(typeof(CreateUserCommandValidator).Assembly);
+                configuration.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
+            });
 
             var app = builder.Build();
 

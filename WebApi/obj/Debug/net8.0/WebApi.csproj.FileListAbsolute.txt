@@ -1,11 +1,14 @@
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\appsettings.json
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\libman.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.staticwebassets.endpoints.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.exe
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.deps.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.runtimeconfig.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.pdb
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Humanizer.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Mapster.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Mapster.Core.dll
@@ -127,4 +130,3 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\r
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\ref\WebApi.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\libman.json

@@ -9,7 +9,7 @@ namespace Application.Behavior.Material
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string Article { get; set; } = string.Empty;
+        public string CategoryCode { get; set; } = "GEN";
         public int Quantity { get; set; }
         public decimal PriceUnit { get; set; }
         public UnitMeasurement UnitMeasurement { get; set; }
@@ -22,10 +22,28 @@ namespace Application.Behavior.Material
     {
         public async Task<MaterialEntity?> Handle(UpdateMaterialCommand command, CancellationToken cancellationToken)
         {
-            MaterialEntity? material = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Материал с ID {command.Id} не найден");
+            MaterialEntity? material = await repository.GetByIdAsync(command.Id)
+                ?? throw new Exception($"Материал с ID {command.Id} не найден");
+
+            if (command.CategoryCode != material.CategoryCode)
+            {
+                string prefix = command.CategoryCode.ToUpper();
+                string? lastArticle = await repository.GetLastArticleByCategoryAsync(prefix);
+
+                int nextNumber = 1;
+                if (lastArticle != null)
+                {
+                    string lastNumberPart = lastArticle.Split('-').Last();
+                    if (int.TryParse(lastNumberPart, out int parsedNumber))
+                    {
+                        nextNumber = parsedNumber + 1;
+                    }
+                }
+                material.Article = $"{prefix}-{nextNumber:D3}";
+                material.CategoryCode = command.CategoryCode;
+            }
 
             material.Name = command.Name;
-            material.Article = command.Article;
             material.Quantity = command.Quantity;
             material.PriceUnit = command.PriceUnit;
             material.UnitMeasurement = command.UnitMeasurement;
@@ -39,5 +57,4 @@ namespace Application.Behavior.Material
             return material;
         }
     }
-
 }

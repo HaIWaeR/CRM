@@ -9,5 +9,11 @@ namespace Application.Interfaces.Repositories
         Task<BranchEntity?> GetByIdAsync(Guid Id);
         Task<BranchEntity>UpdateAsync(BranchEntity branch);
         Task DeleteAsync (Guid Id);
+
+        Task<BranchEntity?> GetByNameAsync(string name);
+
+        Task<bool> HasUsersAsync(Guid branchId);
+        Task<bool> HasOrdersAsync(Guid branchId);
+        Task<bool> HasWarehousesAsync(Guid branchId);
     }
 }

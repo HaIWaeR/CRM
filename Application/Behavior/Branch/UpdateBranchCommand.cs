@@ -20,7 +20,13 @@ namespace Application.Behavior.Branch
     {
         public async Task<BranchEntity?> Handle(UpdateBranchCommand command, CancellationToken cancellationToken)
         {
-            BranchEntity? branch = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Филиал с ID {command.Id} не найден");
+            BranchEntity? existing = await repository.GetByNameAsync(command.Name);
+            if (existing != null && existing.Id != command.Id)
+                throw new Exception($"Филиал с названием '{command.Name}' уже существует");
+
+            BranchEntity? branch = await repository.GetByIdAsync(command.Id);
+            if (branch == null)
+                throw new Exception($"Филиал с ID {command.Id} не найден");
 
             branch.Name = command.Name;
             branch.Address = command.Address;
@@ -29,7 +35,7 @@ namespace Application.Behavior.Branch
             branch.ContactEmail = command.ContactEmail;
             branch.Description = command.Description;
             branch.UpdatedAt = DateTime.UtcNow;
-
+                
             await repository.UpdateAsync(branch);
 
             return branch;

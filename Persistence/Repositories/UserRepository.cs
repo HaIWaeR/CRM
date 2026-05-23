@@ -37,5 +37,12 @@ namespace Persistence.Repositories
             context.Users.Remove(new UserEntity { Id = id });
             await context.SaveChangesAsync();
         }
+
+        public async Task<UserEntity?> GetByEmailAsync(string email) => 
+            await context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+        public async Task<bool> GetBranchByIdAsync(Guid branchId) =>
+            await context.Branches.AnyAsync(b => b.Id == branchId);
+
     }
 }

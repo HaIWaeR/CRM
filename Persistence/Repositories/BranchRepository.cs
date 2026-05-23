@@ -37,5 +37,17 @@ namespace Persistence.Repositories
             context.Branches.Remove(new BranchEntity { Id = id });
             await context.SaveChangesAsync();
         }
+        public async Task<BranchEntity?> GetByNameAsync(string name) => 
+            await context.Branches.FirstOrDefaultAsync(b => b.Name == name);
+        
+
+        public async Task<bool> HasUsersAsync(Guid branchId) => 
+            await context.Users.AnyAsync(u => u.BranchId == branchId);
+
+        public async Task<bool> HasOrdersAsync(Guid branchId) => 
+            await context.Orders.AnyAsync(o => o.BranchId == branchId);
+
+        public async Task<bool> HasWarehousesAsync(Guid branchId) =>
+            await context.Warehouses.AnyAsync(w => w.BranchId == branchId);
     }
 }

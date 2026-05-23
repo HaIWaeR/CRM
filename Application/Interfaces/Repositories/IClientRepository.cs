@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using System.Threading.Tasks;
 
 namespace Application.Interfaces.Repositories
 {
@@ -9,5 +10,9 @@ namespace Application.Interfaces.Repositories
         Task<ClientEntity?> GetByIdAsync(Guid id);
         Task<ClientEntity> UpdateAsync(ClientEntity client);
         Task DeleteAsync(Guid id);
+
+        Task<ClientEntity?> GetByEmailAsync(string email);
+        Task<ClientEntity?> GetByPhoneAsync(string phone);
+        Task<ClientEntity?> GetByTelegramAsync(string telegram);
     }
 }

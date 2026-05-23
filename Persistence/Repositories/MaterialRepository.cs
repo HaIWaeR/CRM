@@ -37,5 +37,17 @@ namespace Persistence.Repositories
             context.Materials.Remove(new MaterialEntity { Id = id });
             await context.SaveChangesAsync();
         }
+
+        public async Task<MaterialEntity?> GetByArticleAsync(string article) =>
+            await context.Materials.FirstOrDefaultAsync(m => m.Article == article);
+
+        public async Task<string?> GetLastArticleByCategoryAsync(string prefix)
+        {
+            return await context.Materials
+                .Where(m => m.Article.StartsWith(prefix))
+                .OrderByDescending(m => m.Article)
+                .Select(m => m.Article)
+                .FirstOrDefaultAsync();
+        }
     }
 }

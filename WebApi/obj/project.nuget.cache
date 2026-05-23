@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0gG5Ew9PR78=",
+  "dgSpecHash": "BNIXA41OOnU=",
   "success": true,
   "projectFilePath": "C:\\Users\\argument\\OneDrive\\Рабочий стол\\CRM\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\argument\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
+    "C:\\Users\\argument\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.1.1\\fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
     "C:\\Users\\argument\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\argument\\.nuget\\packages\\mapster\\7.4.2-pre02\\mapster.7.4.2-pre02.nupkg.sha512",
     "C:\\Users\\argument\\.nuget\\packages\\mapster.core\\1.2.3-pre02\\mapster.core.1.2.3-pre02.nupkg.sha512",

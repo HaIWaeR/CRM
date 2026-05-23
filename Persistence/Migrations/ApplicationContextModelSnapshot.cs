@@ -110,6 +110,10 @@ namespace Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("CategoryCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("CellZone")
                         .HasColumnType("text");
 

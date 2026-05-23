@@ -19,8 +19,21 @@ namespace Application.Behavior.User
     {
         public async Task<Guid> Handle(CreateUserCommand command, CancellationToken cancellationToken)
         {
-            UserEntity user = new UserEntity
+            if (string.IsNullOrWhiteSpace(command.Email))
+                throw new Exception("Email обязателен");
+
+            UserEntity? existing = await repository.GetByEmailAsync(command.Email)
+                ?? throw new Exception($"Пользователь с email '{command.Email}' уже существует");
+
+            if (command.BranchId.HasValue)
             {
+                bool branchExists = await repository.GetBranchByIdAsync(command.BranchId.Value);
+                if (!branchExists)
+                    throw new Exception($"Филиал с ID {command.BranchId} не существует");
+            }
+
+            UserEntity user = new UserEntity
+            {   
                 Id = Guid.NewGuid(),
                 Name = command.Name,
                 Role = command.Role,

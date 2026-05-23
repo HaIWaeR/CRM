@@ -19,7 +19,15 @@ public class UpdateClientCommandHandler(IClientRepository repository) : IRequest
 {
     public async Task<ClientEntity?> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
     {
-        ClientEntity? client = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Клиент с ID {command.Id} не найден");
+        ClientEntity? client = await repository.GetByIdAsync(command.Id)
+            ?? throw new Exception($"Клиент с ID {command.Id} не найден");
+
+        if (!string.IsNullOrWhiteSpace(command.Email) && command.Email != client.Email)
+        {
+            ClientEntity? existing = await repository.GetByEmailAsync(command.Email);
+            if (existing != null)
+                throw new Exception("Клиент с таким email уже существует");
+        }
 
         client.Name = command.Name;
         client.Phone = command.Phone;

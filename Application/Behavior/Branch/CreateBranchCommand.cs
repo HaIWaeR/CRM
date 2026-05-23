@@ -18,6 +18,9 @@ namespace Application.Behavior.Branch
     {
         public async Task<Guid> Handle(CreateBranchCommand command, CancellationToken cancellationToken)
         {
+            BranchEntity? existing = await repository.GetByNameAsync(command.Name) 
+                ?? throw new Exception($"Филиал с названием '{command.Name}' уже существует");
+
             BranchEntity branch = new BranchEntity
             {
                 Id = Guid.NewGuid(),

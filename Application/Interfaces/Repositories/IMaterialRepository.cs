@@ -9,5 +9,8 @@ namespace Application.Interfaces.Repositories
         Task<MaterialEntity?> GetByIdAsync(Guid Id);
         Task<MaterialEntity> UpdateAsync(MaterialEntity material);
         Task DeleteAsync(Guid Id);
+
+        Task<MaterialEntity?> GetByArticleAsync(string article);
+        Task<string?> GetLastArticleByCategoryAsync(string prefix);
     }
 }
