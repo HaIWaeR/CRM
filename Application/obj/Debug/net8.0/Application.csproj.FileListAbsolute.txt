@@ -1,14 +1,3 @@
-C:\Projects\Customer_Relationship_Management\Application\bin\Debug\net8.0\Application.deps.json
-C:\Projects\Customer_Relationship_Management\Application\bin\Debug\net8.0\Application.dll
-C:\Projects\Customer_Relationship_Management\Application\bin\Debug\net8.0\Application.pdb
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\Application.dll
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\refint\Application.dll
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\Application.pdb
-C:\Projects\Customer_Relationship_Management\Application\obj\Debug\net8.0\ref\Application.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\Application\bin\Debug\net8.0\Application.deps.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\Application\bin\Debug\net8.0\Application.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\Application\bin\Debug\net8.0\Application.pdb

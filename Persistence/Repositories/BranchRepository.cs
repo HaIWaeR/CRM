@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
@@ -37,6 +38,18 @@ namespace Persistence.Repositories
             context.Branches.Remove(new BranchEntity { Id = id });
             await context.SaveChangesAsync();
         }
+
+        public async Task<bool> ChangeBranchStatusAsync(Guid id, BranchStatus status)
+        {
+            BranchEntity branch = new BranchEntity { Id = id };
+            context.Branches.Attach(branch);
+
+            branch.Status = status;
+            branch.UpdatedAt = DateTime.UtcNow;
+
+            return await context.SaveChangesAsync() > 0;
+        }
+
         public async Task<BranchEntity?> GetByNameAsync(string name) => 
             await context.Branches.FirstOrDefaultAsync(b => b.Name == name);
         

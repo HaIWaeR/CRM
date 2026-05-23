@@ -6,8 +6,8 @@ namespace Application.Interfaces.Repositories
     {
         Task AddAsync(OrderEntity order);
         Task<List<OrderEntity>> GetAllAsync();
-        Task<OrderEntity?> GetByIdAsync(Guid Id);
+        Task<OrderEntity?> GetByIdAsync(Guid id);
         Task<OrderEntity> UpdateAsync(OrderEntity order);
-        Task DeleteAsync(Guid Id);
+        Task DeleteAsync(Guid id);
     }
 }

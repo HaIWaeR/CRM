@@ -1,3 +1,11 @@
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.AssemblyReference.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfoInputs.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\appsettings.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\libman.json
@@ -106,15 +114,6 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\P
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Application.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Persistence.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Domain.pdb
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.AssemblyReference.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfoInputs.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

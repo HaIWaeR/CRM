@@ -1,14 +1,3 @@
-C:\Projects\Customer_Relationship_Management\Domain\bin\Debug\net8.0\Domain.deps.json
-C:\Projects\Customer_Relationship_Management\Domain\bin\Debug\net8.0\Domain.dll
-C:\Projects\Customer_Relationship_Management\Domain\bin\Debug\net8.0\Domain.pdb
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\Domain.dll
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\refint\Domain.dll
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\Domain.pdb
-C:\Projects\Customer_Relationship_Management\Domain\obj\Debug\net8.0\ref\Domain.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\Domain\bin\Debug\net8.0\Domain.deps.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\Domain\bin\Debug\net8.0\Domain.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\Domain\bin\Debug\net8.0\Domain.pdb

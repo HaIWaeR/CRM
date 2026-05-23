@@ -1,9 +1,10 @@
-﻿using Mapster;
+﻿using Application.Behavior.Branch;
+using Domain.Entities;
+using Domain.Enums;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DTO.Branch;
-using Application.Behavior.Branch;
-using Domain.Entities;
 
 namespace WebApi.Controllers
 {
@@ -43,6 +44,16 @@ namespace WebApi.Controllers
         public async Task<bool> DeleteBranchAsync(Guid id)
         {
             return await mediator.Send(new DeleteBranchCommand { Id = id });
+        }
+
+        [HttpPatch("{id:guid}/status")]
+        public async Task<bool> ChangeBranchStatusAsync(Guid id, [FromBody] BranchStatus status)
+        {
+            return await mediator.Send(new ChangeBranchStatusCommand
+            {
+                Id = id,
+                Status = status
+            });
         }
     }
 }

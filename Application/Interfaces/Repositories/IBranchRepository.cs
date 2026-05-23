@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 
 namespace Application.Interfaces.Repositories
 {
@@ -6,9 +7,10 @@ namespace Application.Interfaces.Repositories
     {
         Task AddAsync(BranchEntity branch);
         Task<List<BranchEntity>> GetAllAsync();
-        Task<BranchEntity?> GetByIdAsync(Guid Id);
+        Task<BranchEntity?> GetByIdAsync(Guid id);
         Task<BranchEntity>UpdateAsync(BranchEntity branch);
-        Task DeleteAsync (Guid Id);
+        Task DeleteAsync (Guid id);
+        Task<bool> ChangeBranchStatusAsync(Guid id, BranchStatus status);
 
         Task<BranchEntity?> GetByNameAsync(string name);
 

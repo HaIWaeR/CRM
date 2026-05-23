@@ -1,9 +1,8 @@
 ﻿using Application.Behavior.Branch;
 using Application.Validators;
 using FluentValidation.TestHelper;
-using Xunit;
 
-namespace Application.UnitTests.Validators.Branch
+namespace Application.UnitTests.branch
 {
     public class CreateBranchCommandValidatorTests
     {

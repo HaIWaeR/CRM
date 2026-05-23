@@ -129,6 +129,37 @@
     ]
   },
   {
+    "ContainingType": "WebApi.Controllers.BranchController",
+    "Method": "ChangeBranchStatusAsync",
+    "RelativePath": "api/Branch/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "WebApi.Controllers.ClientsController",
     "Method": "CreateClientAsync",
     "RelativePath": "api/Clients",
