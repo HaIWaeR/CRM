@@ -34,14 +34,16 @@ namespace Persistence.Repositories
             await context.SaveChangesAsync();
         }
 
+        public async Task<ClientEntity?> GetByNameAsync(string name) =>
+            await context.Clients.FirstOrDefaultAsync(c => c.Name == name);
         public async Task<ClientEntity?> GetByEmailAsync(string email) =>
             await context.Clients.FirstOrDefaultAsync(c => c.Email == email);
-
         public async Task<ClientEntity?> GetByPhoneAsync(string phone) =>
             await context.Clients.FirstOrDefaultAsync(c => c.Phone == phone);
-
         public async Task<ClientEntity?> GetByTelegramAsync(string telegram) =>
             await context.Clients.FirstOrDefaultAsync(c => c.Telegram == telegram);
 
+        public async Task<bool> HasOrdersAsync(Guid clientId) =>
+            await context.Orders.AnyAsync(o => o.ClientId == clientId);
     }
 }

@@ -18,10 +18,36 @@ namespace Application.Behavior.Client
     {
         public async Task<Guid> Handle(CreateClientCommand command, CancellationToken cancellationToken)
         {
+            ClientEntity? name = await repository.GetByNameAsync(command.Name);
+            if (name != null)
+                throw new Exception("Клиент с таким именем уже существует.");
+
+            if (string.IsNullOrWhiteSpace(command.Phone) &&
+                string.IsNullOrWhiteSpace(command.Email) &&
+                string.IsNullOrWhiteSpace(command.Telegram))
+            {
+                throw new Exception("Необходимо указать хотя бы один контакт: телефон, email или telegram.");
+            }
+
             if (!string.IsNullOrWhiteSpace(command.Email))
             {
-                ClientEntity? existing = await repository.GetByEmailAsync(command.Email)
-                    ?? throw new Exception("Клиент с таким email уже существует");
+                ClientEntity? email = await repository.GetByEmailAsync(command.Email);
+                if (email != null)
+                    throw new Exception("Клиент с таким email уже существует.");
+            }
+
+            if (!string.IsNullOrWhiteSpace(command.Phone))
+            {
+                ClientEntity? phone = await repository.GetByPhoneAsync(command.Phone);
+                if (phone != null)
+                    throw new Exception("Клиент с таким номером телефона уже существует.");
+            }
+
+            if (!string.IsNullOrWhiteSpace(command.Telegram))
+            {
+                ClientEntity? telegram = await repository.GetByTelegramAsync(command.Telegram);
+                if (telegram != null)
+                    throw new Exception("Клиент с таким Telegram уже существует.");
             }
 
             ClientEntity client = new()

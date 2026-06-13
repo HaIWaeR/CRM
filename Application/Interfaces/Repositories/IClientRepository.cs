@@ -11,8 +11,11 @@ namespace Application.Interfaces.Repositories
         Task<ClientEntity> UpdateAsync(ClientEntity client);
         Task DeleteAsync(Guid id);
 
+        Task<ClientEntity?> GetByNameAsync(string name);
         Task<ClientEntity?> GetByEmailAsync(string email);
         Task<ClientEntity?> GetByPhoneAsync(string phone);
         Task<ClientEntity?> GetByTelegramAsync(string telegram);
+
+        Task<bool> HasOrdersAsync(Guid clientId);
     }
 }

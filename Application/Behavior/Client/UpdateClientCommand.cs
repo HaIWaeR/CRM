@@ -20,13 +20,34 @@ public class UpdateClientCommandHandler(IClientRepository repository) : IRequest
     public async Task<ClientEntity?> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
     {
         ClientEntity? client = await repository.GetByIdAsync(command.Id)
-            ?? throw new Exception($"Клиент с ID {command.Id} не найден");
+        ?? throw new Exception($"Клиент с ID {command.Id} не найден");
 
-        if (!string.IsNullOrWhiteSpace(command.Email) && command.Email != client.Email)
+        if (string.IsNullOrWhiteSpace(command.Phone) &&
+            string.IsNullOrWhiteSpace(command.Email) &&
+            string.IsNullOrWhiteSpace(command.Telegram))
         {
-            ClientEntity? existing = await repository.GetByEmailAsync(command.Email);
-            if (existing != null)
-                throw new Exception("Клиент с таким email уже существует");
+            throw new Exception("Необходимо указать хотя бы один контакт: телефон, email или telegram.");
+        }
+
+        if (!string.IsNullOrWhiteSpace(command.Email))
+        {
+            ClientEntity? email = await repository.GetByEmailAsync(command.Email);
+            if (email != null)
+                throw new Exception("Клиент с таким email уже существует.");
+        }
+
+        if (!string.IsNullOrWhiteSpace(command.Phone))
+        {
+            ClientEntity? phone = await repository.GetByPhoneAsync(command.Phone);
+            if (phone != null)
+                throw new Exception("Клиент с таким номером телефона уже существует.");
+        }
+
+        if (!string.IsNullOrWhiteSpace(command.Telegram))
+        {
+            ClientEntity? telegram = await repository.GetByTelegramAsync(command.Telegram);
+            if (telegram != null)
+                throw new Exception("Клиент с таким Telegram уже существует.");
         }
 
         client.Name = command.Name;

@@ -18,6 +18,7 @@ namespace Application.Behavior.Branch
 
     public class UpdateBranchCommandHandler(IBranchRepository repository) : IRequestHandler<UpdateBranchCommand, BranchEntity?>
     {
+        //
         public async Task<BranchEntity?> Handle(UpdateBranchCommand command, CancellationToken cancellationToken)
         {
             BranchEntity? branch = await repository.GetByIdAsync(command.Id)
