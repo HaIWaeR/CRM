@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Persistence.Repositories
 {
@@ -50,9 +51,25 @@ namespace Persistence.Repositories
             return await context.SaveChangesAsync() > 0;
         }
 
-        public async Task<BranchEntity?> GetByNameAsync(string name) => 
-            await context.Branches.FirstOrDefaultAsync(b => b.Name == name);
-        
+        public async Task<List<BranchEntity>> GetFilteredAsync(string? searchTerm = null, BranchStatus? status = null)
+        {
+            IQueryable<BranchEntity> query = context.Branches.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim();
+                query = query.Where(b =>
+                    b.Name.Contains(search) ||
+                    b.Address.Contains(search)
+                );
+            }
+
+            if (status.HasValue)
+            {
+                query = query.Where(b => b.Status == status.Value);
+            }
+            return await query.ToListAsync();
+        }
 
         public async Task<bool> HasUsersAsync(Guid branchId) => 
             await context.Users.AnyAsync(u => u.BranchId == branchId);
