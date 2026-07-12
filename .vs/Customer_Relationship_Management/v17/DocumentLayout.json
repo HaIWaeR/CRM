@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{35172E12-16BC-465A-B0FF-21A18BE57FFA}|\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u04301{35172E12-16BC-465A-B0FF-21A18BE57FFA}|C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\BranchConfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35172E12-16BC-465A-B0FF-21A18BE57FFA}|\u041D\u043E\u0432\u0430\u044F \u043F\u0430\u043F\u043A\u04301{35172E12-16BC-465A-B0FF-21A18BE57FFA}|solutionrelative:BranchConfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{35172E12-16BC-465A-B0FF-21A18BE57FFA}|Configurations{35172E12-16BC-465A-B0FF-21A18BE57FFA}|C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\BranchConfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35172E12-16BC-465A-B0FF-21A18BE57FFA}|Configurations{35172E12-16BC-465A-B0FF-21A18BE57FFA}|solutionrelative:BranchConfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{65EE2B27-658C-459A-BBC6-207E0F4D98F9}|WebApi\\WebApi.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
@@ -99,8 +99,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-28T13:56:42.177Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -113,8 +112,7 @@
               "ViewState": "AgIAAAkAAAAAAAAAAAA1wA8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-10T20:12:40.48Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -127,8 +125,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-24T16:39:30.71Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -141,8 +138,19 @@
               "ViewState": "AgIAACgAAAAAAAAAAAA5wAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-10T20:57:02.48Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cde3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
@@ -167,8 +175,7 @@
               "RelativeToolTip": "WebApi\\Program.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAxwCQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:39:00.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:39:00.471Z"
             },
             {
               "$type": "Document",
@@ -180,8 +187,7 @@
               "RelativeToolTip": "Application\\Behavior\\Branch\\UpdateBranchCommand.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwBkAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:35:34.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:35:34.326Z"
             },
             {
               "$type": "Document",
@@ -193,8 +199,7 @@
               "RelativeToolTip": "Application\\Behavior\\Branch\\DeleteBranchCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:21:23.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:21:23.804Z"
             },
             {
               "$type": "Document",
@@ -206,8 +211,7 @@
               "RelativeToolTip": "Application\\Behavior\\Branch\\GetBranchByIdQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:32:27.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:32:27.36Z"
             },
             {
               "$type": "Document",
@@ -219,8 +223,7 @@
               "RelativeToolTip": "Application\\Behavior\\Branch\\CreateBranchCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:21:22.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:21:22.197Z"
             },
             {
               "$type": "Document",
@@ -232,8 +235,7 @@
               "RelativeToolTip": "Application\\Behavior\\Branch\\GetAllBranchQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:28:07.254Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:28:07.254Z"
             },
             {
               "$type": "Document",
@@ -245,8 +247,7 @@
               "RelativeToolTip": "Application\\Behavior\\Branch\\ChangeBranchStatusCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T20:57:47.535Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-10T20:57:47.535Z"
             },
             {
               "$type": "Document",
@@ -258,8 +259,7 @@
               "RelativeToolTip": "Shared\\DTOs\\Branch\\BranchToCreateOrUpdateDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:31:09.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:31:09.268Z"
             },
             {
               "$type": "Document",
@@ -271,33 +271,19 @@
               "RelativeToolTip": "Shared\\DTOs\\Branch\\BranchDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-12T00:29:59.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-12T00:29:59.49Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "Shared",
+              "Title": "Shared.csproj",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\Shared.csproj",
               "RelativeDocumentMoniker": "Shared\\Shared.csproj",
               "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\Shared.csproj",
               "RelativeToolTip": "Shared\\Shared.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-12T00:29:08.636Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cde3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "WhenOpened": "2026-07-12T00:29:08.636Z"
             },
             {
               "$type": "Document",
@@ -309,8 +295,7 @@
               "RelativeToolTip": "Domain\\Entities\\SupplierEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T21:51:24.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-10T21:51:24.756Z"
             },
             {
               "$type": "Document",
@@ -322,8 +307,7 @@
               "RelativeToolTip": "Domain\\Entities\\UserEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T21:07:48.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-10T21:07:48.986Z"
             },
             {
               "$type": "Document",
@@ -335,8 +319,7 @@
               "RelativeToolTip": "Persistence\\Configurations\\BranchConfiguration.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T21:17:21.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-10T21:17:21.216Z"
             },
             {
               "$type": "Document",
@@ -348,8 +331,7 @@
               "RelativeToolTip": "Persistence\\ApplicationContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-10T21:17:06.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-10T21:17:06.514Z"
             }
           ]
         }
