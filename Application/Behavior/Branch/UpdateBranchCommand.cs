@@ -3,11 +3,13 @@ using Domain.Entities;
 using Mapster;
 using MediatR;
 using Shared.DTOs.Branch;
+using System.Text.Json.Serialization;
 
 namespace Application.Behavior.Branch
 {
     public class UpdateBranchCommand : IRequest<BranchDto>
     {
+        [JsonIgnore]
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
