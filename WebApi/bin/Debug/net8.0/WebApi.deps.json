@@ -16,6 +16,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "8.0.26",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.11",
           "Persistence": "1.0.0",
+          "Shared": "1.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "runtime": {
@@ -689,7 +690,9 @@
           "Domain": "1.0.0",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
-          "MediatR": "14.1.0"
+          "Mapster": "7.4.2-pre02",
+          "MediatR": "14.1.0",
+          "Shared": "1.0.0"
         },
         "runtime": {
           "Application.dll": {
@@ -715,6 +718,17 @@
         },
         "runtime": {
           "Persistence.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Shared/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Shared.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1131,6 +1145,11 @@
       "sha512": ""
     },
     "Persistence/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

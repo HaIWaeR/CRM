@@ -2,58 +2,66 @@
 using Domain.Entities;
 using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace Persistence.Repositories
 {
-    public class BranchRepository(ApplicationContext context) : IBranchRepository
+    public class BranchRepository : IBranchRepository
     {
+        private readonly ApplicationContext _context;
+
+        public BranchRepository(ApplicationContext context)
+        {
+            _context = context;
+        }
+
         public async Task AddAsync(BranchEntity branch)
         {
-            branch.Id = Guid.NewGuid();
-            branch.CreatedAt = DateTime.UtcNow;
-            await context.Branches.AddAsync(branch);
-            await context.SaveChangesAsync();
+            await _context.Branches.AddAsync(branch);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<BranchEntity>> GetAllAsync()
         {
-            return await context.Branches.ToListAsync();
+            return await _context.Branches.ToListAsync();
         }
 
         public async Task<BranchEntity?> GetByIdAsync(Guid id)
         {
-            return await context.Branches.FindAsync(id);
+            return await _context.Branches.FindAsync(id);
         }
 
         public async Task<BranchEntity> UpdateAsync(BranchEntity branch)
         {
-            branch.UpdatedAt = DateTime.UtcNow;
-            context.Branches.Update(branch);
-            await context.SaveChangesAsync();
+            _context.Branches.Update(branch);
+            await _context.SaveChangesAsync();
             return branch;
         }
 
         public async Task DeleteAsync(Guid id)
         {
-            context.Branches.Remove(new BranchEntity { Id = id });
-            await context.SaveChangesAsync();
+            _context.Branches.Remove(new BranchEntity { Id = id });
+            await _context.SaveChangesAsync();
         }
 
         public async Task<bool> ChangeBranchStatusAsync(Guid id, BranchStatus status)
         {
             BranchEntity branch = new BranchEntity { Id = id };
-            context.Branches.Attach(branch);
+            _context.Branches.Attach(branch);
 
             branch.Status = status;
             branch.UpdatedAt = DateTime.UtcNow;
 
-            return await context.SaveChangesAsync() > 0;
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> ExistsAsync(Guid id)
+        {
+            return await _context.Branches.AnyAsync(b => b.Id == id);
         }
 
         public async Task<List<BranchEntity>> GetFilteredAsync(string? searchTerm = null, BranchStatus? status = null)
         {
-            IQueryable<BranchEntity> query = context.Branches.AsQueryable();
+            IQueryable<BranchEntity> query = _context.Branches.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
@@ -68,16 +76,23 @@ namespace Persistence.Repositories
             {
                 query = query.Where(b => b.Status == status.Value);
             }
+
             return await query.ToListAsync();
         }
 
-        public async Task<bool> HasUsersAsync(Guid branchId) => 
-            await context.Users.AnyAsync(u => u.BranchId == branchId);
+        public async Task<bool> HasUsersAsync(Guid branchId)
+        {
+            return await _context.Users.AnyAsync(u => u.BranchId == branchId);
+        }
 
-        public async Task<bool> HasOrdersAsync(Guid branchId) => 
-            await context.Orders.AnyAsync(o => o.BranchId == branchId);
+        public async Task<bool> HasOrdersAsync(Guid branchId)
+        {
+            return await _context.Orders.AnyAsync(o => o.BranchId == branchId);
+        }
 
-        public async Task<bool> HasWarehousesAsync(Guid branchId) =>
-            await context.Warehouses.AnyAsync(w => w.BranchId == branchId);
+        public async Task<bool> HasWarehousesAsync(Guid branchId)
+        {
+            return await _context.Warehouses.AnyAsync(w => w.BranchId == branchId);
+        }
     }
 }

@@ -33,6 +33,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "Ap
 		{65AC6644-0C72-46FD-9348-8B6FB2F21AC3} = {65AC6644-0C72-46FD-9348-8B6FB2F21AC3}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{034B843E-1412-4FE7-ACD1-336A9F0AF00A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{057AA797-1579-470B-A230-BD3EDAD006F9} = {057AA797-1579-470B-A230-BD3EDAD006F9}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{35172E12-16BC-465A-B0FF-21A18BE57FFA}"
+	ProjectSection(SolutionItems) = preProject
+		BranchConfiguration.cs = BranchConfiguration.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +69,10 @@ Global
 		{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{034B843E-1412-4FE7-ACD1-336A9F0AF00A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034B843E-1412-4FE7-ACD1-336A9F0AF00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034B843E-1412-4FE7-ACD1-336A9F0AF00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034B843E-1412-4FE7-ACD1-336A9F0AF00A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +82,7 @@ Global
 		{65AC6644-0C72-46FD-9348-8B6FB2F21AC3} = {2619C569-114B-4651-8DE1-B1EF9C9B58E1}
 		{057AA797-1579-470B-A230-BD3EDAD006F9} = {2619C569-114B-4651-8DE1-B1EF9C9B58E1}
 		{65EE2B27-658C-459A-BBC6-207E0F4D98F9} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{35172E12-16BC-465A-B0FF-21A18BE57FFA} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB9B04E1-CA01-4A3D-93B2-55536F278B8B}

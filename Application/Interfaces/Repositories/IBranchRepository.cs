@@ -5,20 +5,21 @@ namespace Application.Interfaces.Repositories
 {
     public interface IBranchRepository
     {
-        // CRUT
+        // CRUD
         Task AddAsync(BranchEntity branch);
         Task<List<BranchEntity>> GetAllAsync();
         Task<BranchEntity?> GetByIdAsync(Guid id);
-        Task<BranchEntity>UpdateAsync(BranchEntity branch);
-        Task DeleteAsync (Guid id);
+        Task<BranchEntity> UpdateAsync(BranchEntity branch);
+        Task DeleteAsync(Guid id);
 
-        // Доп бизнес логика
+        // Дополнительные методы
         Task<bool> ChangeBranchStatusAsync(Guid id, BranchStatus status);
+        Task<bool> ExistsAsync(Guid id);
 
-        // Фильтрация 
+        // Фильтрация
         Task<List<BranchEntity>> GetFilteredAsync(string? searchTerm = null, BranchStatus? status = null);
 
-        // Связи с фелиалом
+        // Проверка связей
         Task<bool> HasUsersAsync(Guid branchId);
         Task<bool> HasOrdersAsync(Guid branchId);
         Task<bool> HasWarehousesAsync(Guid branchId);

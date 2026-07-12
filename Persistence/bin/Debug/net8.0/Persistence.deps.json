@@ -47,6 +47,25 @@
           }
         }
       },
+      "Mapster/7.4.2-pre02": {
+        "dependencies": {
+          "Mapster.Core": "1.2.3-pre02"
+        },
+        "runtime": {
+          "lib/net8.0/Mapster.dll": {
+            "assemblyVersion": "7.4.2.0",
+            "fileVersion": "7.4.2.0"
+          }
+        }
+      },
+      "Mapster.Core/1.2.3-pre02": {
+        "runtime": {
+          "lib/net8.0/Mapster.Core.dll": {
+            "assemblyVersion": "1.2.3.0",
+            "fileVersion": "1.2.3.0"
+          }
+        }
+      },
       "MediatR/14.1.0": {
         "dependencies": {
           "MediatR.Contracts": "2.0.1",
@@ -646,7 +665,9 @@
           "Domain": "1.0.0",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
-          "MediatR": "14.1.0"
+          "Mapster": "7.4.2-pre02",
+          "MediatR": "14.1.0",
+          "Shared": "1.0.0"
         },
         "runtime": {
           "Application.dll": {
@@ -658,6 +679,17 @@
       "Domain/1.0.0": {
         "runtime": {
           "Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Shared/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Shared.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -691,6 +723,20 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "Mapster/7.4.2-pre02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ry6YPGImX4aL0+Jj0rn46vqYOxzeyKOdlr6LUPvby1NLc68E5T2gRhDVWxvFexgZGOIW/U8NM87kygE4xl7Qvw==",
+      "path": "mapster/7.4.2-pre02",
+      "hashPath": "mapster.7.4.2-pre02.nupkg.sha512"
+    },
+    "Mapster.Core/1.2.3-pre02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FDVPfGvCz1RRb1PYeoddiJftxo+ANAifiaqkZbH2kijZT2GcoR1w6byLQ8Czc9YBuNZqHHV4LKeXZA+eoFuCTw==",
+      "path": "mapster.core/1.2.3-pre02",
+      "hashPath": "mapster.core.1.2.3-pre02.nupkg.sha512"
     },
     "MediatR/14.1.0": {
       "type": "package",
@@ -1013,6 +1059,11 @@
       "sha512": ""
     },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

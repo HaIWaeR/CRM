@@ -1,10 +1,7 @@
 ﻿using Application.Behavior.Branch;
-using Domain.Entities;
-using Domain.Enums;
-using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.DTO.Branch;
+using Shared.DTOs.Branch;
 
 namespace WebApi.Controllers
 {
@@ -12,32 +9,40 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class BranchController(IMediator mediator) : ControllerBase
     {
-        [HttpPost]  
+        [HttpPost]
         public async Task<Guid> CreateBranchAsync([FromBody] CreateBranchCommand command)
         {
             return await mediator.Send(command);
         }
 
         [HttpGet]
-        public async Task<List<BranchDto>> GetAllBranchesAsync()
+        public async Task<List<BranchDto>> GetAllBranchesAsync(
+            [FromQuery] string? searchTerm = null,
+            [FromQuery] Domain.Enums.BranchStatus? status = null)
         {
-            List<BranchEntity> branches = await mediator.Send(new GetAllBranchesQuery());
-            return branches.Adapt<List<BranchDto>>();
+            GetAllBranchesQuery query = new GetAllBranchesQuery
+            {
+                SearchTerm = searchTerm,
+                Status = status
+            };
+
+            List<BranchDto> result = await mediator.Send(query);
+            return result;
         }
 
         [HttpGet("{id}")]
-        public async Task<BranchDto?> GetBranchByIdAsync(Guid id)
+        public async Task<BranchDto> GetBranchByIdAsync(Guid id)
         {
-            BranchEntity? branch = await mediator.Send(new GetBranchByIdQuery { Id = id });
-            return branch?.Adapt<BranchDto>();
+            BranchDto result = await mediator.Send(new GetBranchByIdQuery { Id = id });
+            return result;
         }
 
         [HttpPut("{id}")]
-        public async Task<BranchDto?> UpdateBranchAsync(Guid id, [FromBody] UpdateBranchCommand command)
+        public async Task<BranchDto> UpdateBranchAsync(Guid id, [FromBody] UpdateBranchCommand command)
         {
             command.Id = id;
-            BranchEntity? update = await mediator.Send(command);
-            return update?.Adapt<BranchDto>();
+            BranchDto result = await mediator.Send(command);
+            return result;
         }
 
         [HttpDelete("{id}")]
@@ -47,7 +52,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id:guid}/status")]
-        public async Task<bool> ChangeBranchStatusAsync(Guid id, [FromBody] BranchStatus status)
+        public async Task<bool> ChangeBranchStatusAsync(Guid id, [FromBody] Domain.Enums.BranchStatus status)
         {
             return await mediator.Send(new ChangeBranchStatusCommand
             {

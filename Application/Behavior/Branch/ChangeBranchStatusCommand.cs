@@ -1,5 +1,4 @@
 ﻿using Application.Interfaces.Repositories;
-using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 
@@ -15,12 +14,12 @@ namespace Application.Behavior.Branch
     {
         public async Task<bool> Handle(ChangeBranchStatusCommand command, CancellationToken cancellationToken)
         {
-            BranchEntity? existing = await repository.GetByIdAsync(command.Id);
+            bool updated = await repository.ChangeBranchStatusAsync(command.Id, command.Status);
 
-            if (existing == null)
-                throw new Exception($"Филиал с ID '{command.Id}' не найден");
+            if (!updated)
+                throw new KeyNotFoundException($"Филиал с ID {command.Id} не найден");
 
-            return await repository.ChangeBranchStatusAsync(command.Id, command.Status);
+            return true;
         }
     }
 }

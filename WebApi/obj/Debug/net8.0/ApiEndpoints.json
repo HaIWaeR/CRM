@@ -32,10 +32,21 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Branch.BranchDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Shared.DTOs.Branch.BranchDto, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +72,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Branch.BranchDto",
+        "Type": "Shared.DTOs.Branch.BranchDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -92,7 +103,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Branch.BranchDto",
+        "Type": "Shared.DTOs.Branch.BranchDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

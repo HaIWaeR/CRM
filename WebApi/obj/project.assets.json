@@ -1087,7 +1087,9 @@
           "Domain": "1.0.0",
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
-          "MediatR": "14.1.0"
+          "Mapster": "7.4.2-pre02",
+          "MediatR": "14.1.0",
+          "Shared": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -1120,6 +1122,19 @@
         },
         "runtime": {
           "bin/placeholder/Persistence.dll": {}
+        }
+      },
+      "Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.dll": {}
         }
       }
     }
@@ -3010,6 +3025,11 @@
       "type": "project",
       "path": "../Persistence/Persistence.csproj",
       "msbuildProject": "../Persistence/Persistence.csproj"
+    },
+    "Shared/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Shared.csproj",
+      "msbuildProject": "../Shared/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3022,6 +3042,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.26",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.11",
       "Persistence >= 1.0.0",
+      "Shared >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -3063,6 +3084,9 @@
             },
             "C:\\Users\\argument\\OneDrive\\Рабочий стол\\CRM\\Persistence\\Persistence.csproj": {
               "projectPath": "C:\\Users\\argument\\OneDrive\\Рабочий стол\\CRM\\Persistence\\Persistence.csproj"
+            },
+            "C:\\Users\\argument\\OneDrive\\Рабочий стол\\CRM\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\argument\\OneDrive\\Рабочий стол\\CRM\\Shared\\Shared.csproj"
             }
           }
         }

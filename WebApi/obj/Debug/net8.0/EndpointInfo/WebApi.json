@@ -59,6 +59,22 @@
         "tags": [
           "Branch"
         ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/BranchStatus"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2827,9 +2843,6 @@
             "type": "string",
             "nullable": true
           },
-          "status": {
-            "$ref": "#/components/schemas/BranchStatus"
-          },
           "contactPhone": {
             "type": "string",
             "nullable": true
@@ -3661,9 +3674,6 @@
           "address": {
             "type": "string",
             "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/BranchStatus"
           },
           "contactPhone": {
             "type": "string",

@@ -111,9 +111,12 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\z
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Application.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Domain.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Persistence.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Shared.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Application.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Persistence.pdb
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Shared.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Domain.pdb
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
