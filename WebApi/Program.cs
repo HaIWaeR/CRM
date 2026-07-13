@@ -27,10 +27,11 @@ namespace WebApi
 
             builder.Services.AddPersistence(builder.Configuration);
 
-            builder.Services.AddValidatorsFromAssembly(typeof(CreateUserCommandValidator).Assembly);
+            // Подключение валидатора 
+            builder.Services.AddValidatorsFromAssembly(typeof(CreateBranchCommandValidator).Assembly);
 
             builder.Services.AddMediatR(configuration => {
-                configuration.RegisterServicesFromAssembly(typeof(CreateUserCommandValidator).Assembly);
+                configuration.RegisterServicesFromAssembly(typeof(CreateBranchCommandValidator).Assembly);
                 configuration.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
             });
 

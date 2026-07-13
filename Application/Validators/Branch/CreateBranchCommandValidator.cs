@@ -8,18 +8,21 @@ namespace Application.Validators
         public CreateBranchCommandValidator()
         {
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("Название филиала обязательно");
+                .NotEmpty().WithMessage("Название филиала обязательно")
+                .MaximumLength(200).WithMessage("Максимум 200 символов");
 
             RuleFor(x => x.Address)
-                .NotEmpty().WithMessage("Адрес филиала обязателен");
+                .MaximumLength(300).WithMessage("Максимум 300 символов")
+                .When(x => !string.IsNullOrEmpty(x.Address));
 
             RuleFor(x => x.ContactPhone)
-                .Matches(@"^\+?\d{10,15}$").When(x => !string.IsNullOrWhiteSpace(x.ContactPhone))
-                .WithMessage("Неверный формат телефона");
+                .Matches(@"^\+?[0-9\s\-\(\)]{10,20}$")
+                .WithMessage("Некорректный номер телефона")
+                .When(x => !string.IsNullOrEmpty(x.ContactPhone));
 
             RuleFor(x => x.ContactEmail)
-                .NotEmpty().WithMessage("Email обязателен")
-                .Matches(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").WithMessage("Неверный формат email");
+                .EmailAddress().WithMessage("Некорректный email")
+                .When(x => !string.IsNullOrEmpty(x.ContactEmail));
         }
     }
 }

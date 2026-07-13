@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.Repositories;
+﻿using Application.Helpers;
+using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
 using Mapster;
@@ -23,6 +24,7 @@ namespace Application.Behavior.Branch
             branch.Id = Guid.NewGuid();
             branch.CreatedAt = DateTime.UtcNow;
             branch.Status = BranchStatus.Maintenance;
+            branch.ContactPhone = PhoneHelper.FormatPhone(command.ContactPhone);
 
             await repository.AddAsync(branch);
             return branch.Id;

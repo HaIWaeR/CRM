@@ -1,4 +1,5 @@
-﻿using Application.Interfaces.Repositories;
+﻿using Application.Helpers;
+using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Mapster;
 using MediatR;
@@ -27,6 +28,7 @@ namespace Application.Behavior.Branch
 
             command.Adapt(existing);
             existing.UpdatedAt = DateTime.UtcNow;
+            existing.ContactPhone = PhoneHelper.FormatPhone(command.ContactPhone);
 
             await repository.UpdateAsync(existing);
 
