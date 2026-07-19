@@ -38,11 +38,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 		{057AA797-1579-470B-A230-BD3EDAD006F9} = {057AA797-1579-470B-A230-BD3EDAD006F9}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{35172E12-16BC-465A-B0FF-21A18BE57FFA}"
-	ProjectSection(SolutionItems) = preProject
-		BranchConfiguration.cs = BranchConfiguration.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,7 +77,6 @@ Global
 		{65AC6644-0C72-46FD-9348-8B6FB2F21AC3} = {2619C569-114B-4651-8DE1-B1EF9C9B58E1}
 		{057AA797-1579-470B-A230-BD3EDAD006F9} = {2619C569-114B-4651-8DE1-B1EF9C9B58E1}
 		{65EE2B27-658C-459A-BBC6-207E0F4D98F9} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
-		{35172E12-16BC-465A-B0FF-21A18BE57FFA} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB9B04E1-CA01-4A3D-93B2-55536F278B8B}

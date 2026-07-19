@@ -15,25 +15,25 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData(null)]
         public void Validate_NameIsInvalid_ShouldHaveError(string name)
         {
-            var command = new CreateBranchCommand { Name = name };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { Name = name };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Name);
         }
 
         [Fact]
         public void Validate_NameIsValid_ShouldNotHaveError()
         {
-            var command = new CreateBranchCommand { Name = "Главный офис" };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { Name = "Главный офис" };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Name);
         }
 
-        [Fact]  
+        [Fact]
         public void Validate_NameExceedsMaxLength_ShouldHaveError()
         {
             string longName = new string('a', 201);
-            var command = new CreateBranchCommand { Name = longName };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { Name = longName };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Name);
         }
 
@@ -42,24 +42,24 @@ namespace Application.UnitTests.Branch.Validators
         public void Validate_AddressExceedsMaxLength_ShouldHaveError()
         {
             string longAddress = new string('a', 301);
-            var command = new CreateBranchCommand { Address = longAddress };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { Address = longAddress };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Address);
         }
 
         [Fact]
         public void Validate_AddressIsValid_ShouldNotHaveError()
         {
-            var command = new CreateBranchCommand { Address = "ул. Ленина, 1" };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { Address = "ул. Ленина, 1" };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Address);
         }
 
         [Fact]
         public void Validate_AddressIsEmpty_ShouldNotHaveError()
         {
-            var command = new CreateBranchCommand { Address = "" };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { Address = "" };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Address);
         }
 
@@ -71,8 +71,8 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData("89991234567")]
         public void Validate_PhoneIsValid_ShouldNotHaveError(string phone)
         {
-            var command = new CreateBranchCommand { ContactPhone = phone };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { ContactPhone = phone };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.ContactPhone);
         }
 
@@ -82,16 +82,16 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData("abcdef")]
         public void Validate_PhoneIsInvalid_ShouldHaveError(string phone)
         {
-            var command = new CreateBranchCommand { ContactPhone = phone };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { ContactPhone = phone };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.ContactPhone);
         }
 
         [Fact]
         public void Validate_PhoneIsEmpty_ShouldNotHaveError()
         {
-            var command = new CreateBranchCommand { ContactPhone = "" };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { ContactPhone = "" };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.ContactPhone);
         }
 
@@ -101,8 +101,8 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData("user@domain.com")]
         public void Validate_EmailIsValid_ShouldNotHaveError(string email)
         {
-            var command = new CreateBranchCommand { ContactEmail = email };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { ContactEmail = email };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.ContactEmail);
         }
 
@@ -112,16 +112,16 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData("@domain.com")]
         public void Validate_EmailIsInvalid_ShouldHaveError(string email)
         {
-            var command = new CreateBranchCommand { ContactEmail = email };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { ContactEmail = email };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.ContactEmail);
         }
 
         [Fact]
         public void Validate_EmailIsEmpty_ShouldNotHaveError()
         {
-            var command = new CreateBranchCommand { ContactEmail = "" };
-            var result = validator.TestValidate(command);
+            CreateBranchCommand command = new CreateBranchCommand { ContactEmail = "" };
+            TestValidationResult<CreateBranchCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.ContactEmail);
         }
     }

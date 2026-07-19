@@ -1,4 +1,5 @@
 ﻿using Application.Behavior.Branch;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Branch;
@@ -10,8 +11,9 @@ namespace WebApi.Controllers
     public class BranchController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
-        public async Task<Guid> CreateBranchAsync([FromBody] CreateBranchCommand command)
+        public async Task<Guid> CreateBranchAsync([FromBody] BranchToCreateOrUpdateDto dto)
         {
+            CreateBranchCommand command = dto.Adapt<CreateBranchCommand>();
             return await mediator.Send(command);
         }
 
@@ -33,16 +35,15 @@ namespace WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<BranchDto> GetBranchByIdAsync(Guid id)
         {
-            BranchDto result = await mediator.Send(new GetBranchByIdQuery { Id = id });
-            return result;
+            return await mediator.Send(new GetBranchByIdQuery { Id = id });
         }
 
         [HttpPut("{id}")]
-        public async Task<BranchDto> UpdateBranchAsync(Guid id, [FromBody] UpdateBranchCommand command)
+        public async Task<BranchDto> UpdateBranchAsync(Guid id, [FromBody] BranchToCreateOrUpdateDto dto)
         {
+            UpdateBranchCommand command = dto.Adapt<UpdateBranchCommand>();
             command.Id = id;
-            BranchDto result = await mediator.Send(command);
-            return result;
+            return await mediator.Send(command);
         }
 
         [HttpDelete("{id}")]

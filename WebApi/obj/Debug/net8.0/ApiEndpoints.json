@@ -8,8 +8,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Branch.CreateBranchCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Branch.BranchToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
@@ -96,8 +96,8 @@
         "IsRequired": true
       },
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Branch.UpdateBranchCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Branch.BranchToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
@@ -179,8 +179,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Client.CreateClientCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Client.ClientToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
@@ -203,10 +203,36 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "telegram",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Client.ClientDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Shared.DTOs.Client.ClientDto, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -232,7 +258,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Client.ClientDto",
+        "Type": "Shared.DTOs.Client.ClientDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -256,14 +282,14 @@
         "IsRequired": true
       },
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Client.UpdateClientCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Client.ClientToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Client.ClientDto",
+        "Type": "Shared.DTOs.Client.ClientDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -284,6 +310,37 @@
       {
         "Name": "id",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.ClientsController",
+    "Method": "ChangeClientStatusAsync",
+    "RelativePath": "api/Clients/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Boolean",
         "IsRequired": true
       }
     ],

@@ -1,12 +1,17 @@
-﻿using Application.Interfaces.Repositories;
+﻿using Application.Helpers;
+using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Mapster;
 using MediatR;
 
 namespace Application.Behavior.Client
 {
     public class CreateClientCommand : IRequest<Guid>
     {
-        public string Name { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
+        public string? LastName { get; set; } = string.Empty;
+        public string? MiddleName { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Telegram { get; set; }
@@ -18,52 +23,40 @@ namespace Application.Behavior.Client
     {
         public async Task<Guid> Handle(CreateClientCommand command, CancellationToken cancellationToken)
         {
-            ClientEntity? name = await repository.GetByNameAsync(command.Name);
-            if (name != null)
-                throw new Exception("Клиент с таким именем уже существует.");
+            bool hasContact = !string.IsNullOrWhiteSpace(command.Phone) ||
+                              !string.IsNullOrWhiteSpace(command.Email) ||
+                              !string.IsNullOrWhiteSpace(command.Telegram);
+            if (!hasContact)
+                throw new InvalidOperationException("У клиента должен быть указан хотя бы один контакт (телефон, Email или Telegram)");
 
-            if (string.IsNullOrWhiteSpace(command.Phone) &&
-                string.IsNullOrWhiteSpace(command.Email) &&
-                string.IsNullOrWhiteSpace(command.Telegram))
+            if (!string.IsNullOrWhiteSpace(command.Phone))
             {
-                throw new Exception("Необходимо указать хотя бы один контакт: телефон, email или telegram.");
+                bool phoneUnique = await repository.IsPhoneUniqueAsync(command.Phone);
+                if (!phoneUnique)
+                    throw new InvalidOperationException("Клиент с таким телефоном уже существует");
             }
 
             if (!string.IsNullOrWhiteSpace(command.Email))
             {
-                ClientEntity? email = await repository.GetByEmailAsync(command.Email);
-                if (email != null)
-                    throw new Exception("Клиент с таким email уже существует.");
-            }
-
-            if (!string.IsNullOrWhiteSpace(command.Phone))
-            {
-                ClientEntity? phone = await repository.GetByPhoneAsync(command.Phone);
-                if (phone != null)
-                    throw new Exception("Клиент с таким номером телефона уже существует.");
+                bool emailUnique = await repository.IsEmailUniqueAsync(command.Email);
+                if (!emailUnique)
+                    throw new InvalidOperationException("Клиент с таким Email уже существует");
             }
 
             if (!string.IsNullOrWhiteSpace(command.Telegram))
             {
-                ClientEntity? telegram = await repository.GetByTelegramAsync(command.Telegram);
-                if (telegram != null)
-                    throw new Exception("Клиент с таким Telegram уже существует.");
+                bool telegramUnique = await repository.IsTelegramUniqueAsync(command.Telegram);
+                if (!telegramUnique)
+                    throw new InvalidOperationException("Клиент с таким Telegram уже существует");
             }
 
-            ClientEntity client = new()
-            {
-                Id = Guid.NewGuid(),
-                Name = command.Name,
-                Phone = command.Phone,
-                Email = command.Email,
-                Telegram = command.Telegram,
-                Address = command.Address,
-                Notes = command.Notes,
-                CreatedAt = DateTime.UtcNow
-            };
+            ClientEntity client = command.Adapt<ClientEntity>();
+            client.Phone = PhoneHelper.FormatPhone(command.Phone);
+            client.Id = Guid.NewGuid();
+            client.CreatedAt = DateTime.UtcNow;
+            client.IsActive = true;
 
             await repository.AddAsync(client);
-
             return client.Id;
         }
     }

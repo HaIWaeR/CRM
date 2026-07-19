@@ -21,7 +21,14 @@ namespace Application.Validators
                 .When(x => !string.IsNullOrEmpty(x.ContactPhone));
 
             RuleFor(x => x.ContactEmail)
-                .EmailAddress().WithMessage("Некорректный email")
+                .Must(x => string.IsNullOrEmpty(x) ||
+                           (x.Contains("@") &&
+                            x.Contains(".") &&
+                            x.Split('@')[0].Length > 0 &&
+                            x.Split('@')[1].Length > 0 &&
+                            x.Split('@')[1].Contains(".") &&
+                            x.Split('@')[1].Split('.')[1].Length > 0))
+                .WithMessage("Некорректный email")
                 .When(x => !string.IsNullOrEmpty(x.ContactEmail));
         }
     }

@@ -1,13 +1,19 @@
-﻿using MediatR;
-using Domain.Entities;
+﻿using Application.Helpers;
 using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Mapster;
+using MediatR;
+using Shared.DTOs.Client;
 
 namespace Application.Behavior.Client;
 
-public class UpdateClientCommand : IRequest<ClientEntity?>
+public class UpdateClientCommand : IRequest<ClientDto>
 {
     public Guid Id { get; set; }
-    public string Name { get; set; } = string.Empty;
+    public string FirstName { get; set; } = string.Empty;
+    public string? LastName { get; set; } = string.Empty;
+    public string? MiddleName { get; set; }
+    public DateTime? BirthDate { get; set; }
     public string? Phone { get; set; }
     public string? Email { get; set; }
     public string? Telegram { get; set; }
@@ -15,51 +21,49 @@ public class UpdateClientCommand : IRequest<ClientEntity?>
     public string? Notes { get; set; }
 }
 
-public class UpdateClientCommandHandler(IClientRepository repository) : IRequestHandler<UpdateClientCommand, ClientEntity?>
+public class UpdateClientCommandHandler(IClientRepository repository) : IRequestHandler<UpdateClientCommand, ClientDto>
 {
-    public async Task<ClientEntity?> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
+    public async Task<ClientDto> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
     {
-        ClientEntity? client = await repository.GetByIdAsync(command.Id)
-        ?? throw new Exception($"Клиент с ID {command.Id} не найден");
+        ClientEntity? existing = await repository.GetByIdAsync(command.Id)
+            ?? throw new KeyNotFoundException($"Клиент с ID {command.Id} не найден");
 
-        if (string.IsNullOrWhiteSpace(command.Phone) &&
-            string.IsNullOrWhiteSpace(command.Email) &&
-            string.IsNullOrWhiteSpace(command.Telegram))
+        bool hasContact = !string.IsNullOrWhiteSpace(command.Phone) ||
+                              !string.IsNullOrWhiteSpace(command.Email) ||
+                              !string.IsNullOrWhiteSpace(command.Telegram);
+
+        if (!hasContact)
+            throw new InvalidOperationException("У клиента должен быть указан хотя бы один контакт (телефон, Email или Telegram)");
+
+
+        if (!string.IsNullOrWhiteSpace(command.Phone))
         {
-            throw new Exception("Необходимо указать хотя бы один контакт: телефон, email или telegram.");
+            bool phoneUnique = await repository.IsPhoneUniqueAsync(command.Phone, command.Id);
+            if (!phoneUnique)
+                throw new InvalidOperationException("Клиент с таким телефоном уже существует");
         }
 
         if (!string.IsNullOrWhiteSpace(command.Email))
         {
-            ClientEntity? email = await repository.GetByEmailAsync(command.Email);
-            if (email != null)
-                throw new Exception("Клиент с таким email уже существует.");
-        }
-
-        if (!string.IsNullOrWhiteSpace(command.Phone))
-        {
-            ClientEntity? phone = await repository.GetByPhoneAsync(command.Phone);
-            if (phone != null)
-                throw new Exception("Клиент с таким номером телефона уже существует.");
+            bool emailUnique = await repository.IsEmailUniqueAsync(command.Email, command.Id);
+            if (!emailUnique)
+                throw new InvalidOperationException("Клиент с таким Email уже существует");
         }
 
         if (!string.IsNullOrWhiteSpace(command.Telegram))
         {
-            ClientEntity? telegram = await repository.GetByTelegramAsync(command.Telegram);
-            if (telegram != null)
-                throw new Exception("Клиент с таким Telegram уже существует.");
+            bool telegramUnique = await repository.IsTelegramUniqueAsync(command.Telegram, command.Id);
+            if (!telegramUnique)
+                throw new InvalidOperationException("Клиент с таким Telegram уже существует");
         }
 
-        client.Name = command.Name;
-        client.Phone = command.Phone;
-        client.Email = command.Email;
-        client.Telegram = command.Telegram;
-        client.Address = command.Address;
-        client.Notes = command.Notes;
-        client.UpdatedAt = DateTime.UtcNow;
+        command.Adapt(existing);
+        existing.Phone = PhoneHelper.FormatPhone(command.Phone);
+        existing.UpdatedAt = DateTime.UtcNow;
 
-        await repository.UpdateAsync(client);
+        await repository.UpdateAsync(existing);
 
-        return client;
+        ClientDto result = existing.Adapt<ClientDto>();
+        return result;
     }
 }

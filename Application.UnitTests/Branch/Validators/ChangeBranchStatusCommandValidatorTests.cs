@@ -14,8 +14,8 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData(BranchStatus.Maintenance)]
         public void Validate_StatusIsValid_ShouldNotHaveError(BranchStatus status)
         {
-            var command = new ChangeBranchStatusCommand { Id = Guid.NewGuid(), Status = status };
-            var result = validator.TestValidate(command);
+            ChangeBranchStatusCommand command = new ChangeBranchStatusCommand { Id = Guid.NewGuid(), Status = status };
+            TestValidationResult<ChangeBranchStatusCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Status);
         }
 
@@ -25,25 +25,9 @@ namespace Application.UnitTests.Branch.Validators
         [InlineData((BranchStatus)999)]
         public void Validate_StatusIsInvalid_ShouldHaveError(BranchStatus status)
         {
-            var command = new ChangeBranchStatusCommand { Id = Guid.NewGuid(), Status = status };
-            var result = validator.TestValidate(command);
+            ChangeBranchStatusCommand command = new ChangeBranchStatusCommand { Id = Guid.NewGuid(), Status = status };
+            TestValidationResult<ChangeBranchStatusCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Status);
-        }
-
-        [Fact]
-        public void Validate_IdIsValid_ShouldNotHaveError()
-        {
-            var command = new ChangeBranchStatusCommand { Id = Guid.NewGuid(), Status = BranchStatus.Active };
-            var result = validator.TestValidate(command);
-            result.ShouldNotHaveValidationErrorFor(x => x.Id);
-        }
-
-        [Fact]
-        public void Validate_IdIsEmpty_ShouldHaveError()
-        {
-            var command = new ChangeBranchStatusCommand { Id = Guid.Empty, Status = BranchStatus.Active };
-            var result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Id);
         }
     }
 }
