@@ -28,6 +28,7 @@ namespace Persistence
 
             modelBuilder.ApplyConfiguration(new BranchConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            modelBuilder.ApplyConfiguration(new MaterialConfiguration());           
         }
     }
 }

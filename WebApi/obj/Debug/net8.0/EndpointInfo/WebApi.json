@@ -674,6 +674,36 @@
         "tags": [
           "Materials"
         ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categoryCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "article",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -765,17 +795,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMaterialCommand"
+                "$ref": "#/components/schemas/MaterialToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMaterialCommand"
+                "$ref": "#/components/schemas/MaterialToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateMaterialCommand"
+                "$ref": "#/components/schemas/MaterialToCreateOrUpdateDto"
               }
             }
           }
@@ -818,6 +848,65 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Materials/{id}/status": {
+      "patch": {
+        "tags": [
+          "Materials"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3042,6 +3131,10 @@
             "type": "string",
             "nullable": true
           },
+          "article": {
+            "type": "string",
+            "nullable": true
+          },
           "categoryCode": {
             "type": "string",
             "nullable": true
@@ -3054,6 +3147,10 @@
             "type": "number",
             "format": "double"
           },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
           "unitMeasurement": {
             "$ref": "#/components/schemas/UnitMeasurement"
           },
@@ -3061,11 +3158,7 @@
             "type": "string",
             "nullable": true
           },
-          "cellZone": {
-            "type": "string",
-            "nullable": true
-          },
-          "additionInforamtion": {
+          "additionInformation": {
             "type": "string",
             "nullable": true
           }
@@ -3393,11 +3486,19 @@
             "type": "string",
             "nullable": true
           },
+          "categoryCode": {
+            "type": "string",
+            "nullable": true
+          },
           "quantity": {
             "type": "integer",
             "format": "int32"
           },
           "priceUnit": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight": {
             "type": "number",
             "format": "double"
           },
@@ -3408,11 +3509,10 @@
             "type": "string",
             "nullable": true
           },
-          "cellZone": {
-            "type": "string",
-            "nullable": true
+          "isActive": {
+            "type": "boolean"
           },
-          "additionInforamtion": {
+          "additionInformation": {
             "type": "string",
             "nullable": true
           },
@@ -3423,6 +3523,47 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaterialToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "article": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priceUnit": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight": {
+            "type": "number",
+            "format": "double"
+          },
+          "unitMeasurement": {
+            "$ref": "#/components/schemas/UnitMeasurement"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "additionInformation": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -3806,47 +3947,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "UpdateMaterialCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "categoryCode": {
-            "type": "string",
-            "nullable": true
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "priceUnit": {
-            "type": "number",
-            "format": "double"
-          },
-          "unitMeasurement": {
-            "$ref": "#/components/schemas/UnitMeasurement"
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "cellZone": {
-            "type": "string",
-            "nullable": true
-          },
-          "additionInforamtion": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "UpdateOrderCommand": {
         "type": "object",

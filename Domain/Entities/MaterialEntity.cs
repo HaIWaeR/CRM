@@ -9,10 +9,11 @@ namespace Domain.Entities
         public string CategoryCode { get; set; } = "GEN";
         public int Quantity { get; set; }
         public decimal PriceUnit { get; set; }
+        public decimal Weight { get; set; }
         public UnitMeasurement UnitMeasurement {get; set; }
+        public bool IsActive { get; set; }
         public string? Description { get; set; }
-        public string? CellZone { get; set; }
-        public string? AdditionInforamtion { get; set; }
+        public string? AdditionInformation { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public List<SupplierMaterialEntity> SupplierMaterials { get; set; } = [];

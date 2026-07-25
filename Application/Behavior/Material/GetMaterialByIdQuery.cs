@@ -1,21 +1,25 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Mapster;
 using MediatR;
+using Shared.DTOs.Material;
 
 namespace Application.Behavior.Material
 {
-    public class GetMaterialByIdQuery : IRequest<MaterialEntity?>
+    public class GetMaterialByIdQuery : IRequest<MaterialDto>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetMaterialByIdQueryHandler(IMaterialRepository repository) : IRequestHandler<GetMaterialByIdQuery, MaterialEntity?>
+    public class GetMaterialByIdQueryHandler(IMaterialRepository repository) : IRequestHandler<GetMaterialByIdQuery, MaterialDto>
     {
-        public async Task<MaterialEntity?> Handle(GetMaterialByIdQuery query, CancellationToken cancellationToken)
+        public async Task<MaterialDto> Handle(GetMaterialByIdQuery query, CancellationToken cancellationToken)
         {
-            MaterialEntity? material = await repository.GetByIdAsync(query.Id) ?? throw new Exception($"Материал с ID {query.Id} не найден");
+            MaterialEntity? material = await repository.GetByIdAsync(query.Id)
+                ?? throw new KeyNotFoundException($"Материал с ID {query.Id} не найден");
 
-            return material;
+            MaterialDto result = material.Adapt<MaterialDto>();
+            return result;
         }
     }
 }

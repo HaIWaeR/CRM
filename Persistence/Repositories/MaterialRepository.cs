@@ -6,10 +6,9 @@ namespace Persistence.Repositories
 {
     public class MaterialRepository(ApplicationContext context) : IMaterialRepository
     {
+        // CRUD
         public async Task AddAsync(MaterialEntity material)
         {
-            material.Id = Guid.NewGuid();
-            material.CreatedAt = DateTime.UtcNow;
             await context.Materials.AddAsync(material);
             await context.SaveChangesAsync();
         }
@@ -26,7 +25,6 @@ namespace Persistence.Repositories
 
         public async Task<MaterialEntity> UpdateAsync(MaterialEntity material)
         {
-            material.UpdatedAt = DateTime.UtcNow;
             context.Materials.Update(material);
             await context.SaveChangesAsync();
             return material;
@@ -41,13 +39,72 @@ namespace Persistence.Repositories
         public async Task<MaterialEntity?> GetByArticleAsync(string article) =>
             await context.Materials.FirstOrDefaultAsync(m => m.Article == article);
 
-        public async Task<string?> GetLastArticleByCategoryAsync(string prefix)
+        // Дополнительные методы
+        public async Task<bool> ExistsAsync(Guid id)
         {
-            return await context.Materials
-                .Where(m => m.Article.StartsWith(prefix))
-                .OrderByDescending(m => m.Article)
-                .Select(m => m.Article)
-                .FirstOrDefaultAsync();
+            return await context.Materials.AnyAsync(x => x.Id == id);
         }
+
+        public async Task<bool> IsArticleUniqueAsync(string article, Guid? excludeId = null)
+        {
+            IQueryable<MaterialEntity> query = context.Materials
+                .Where(x => x.Article.ToLower() == article.ToLower());
+
+            if (excludeId.HasValue)
+                query = query.Where(x => x.Id != excludeId.Value);
+
+            return !await query.AnyAsync();
+        }
+
+        // Фильтрация 
+        public async Task<List<MaterialEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            string? categoryCode = null,
+            bool? isActive = null,
+            string? article = null)
+        {
+            IQueryable<MaterialEntity> query = context.Materials.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    x.Article.ToLower().Contains(search) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (!string.IsNullOrWhiteSpace(categoryCode))
+            {
+                query = query.Where(x => x.CategoryCode == categoryCode);
+            }
+
+            if (isActive.HasValue)
+            {
+                query = query.Where(x => x.IsActive == isActive.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(article))
+            {
+                query = query.Where(x => x.Article.ToLower() == article.ToLower());
+            }
+
+            return await query.ToListAsync();
+        }
+
+        // Проверка связей 
+
+        public async Task<bool> HasSuppliersAsync(Guid materialId)
+        {
+            return await context.SupplierMaterials
+                .AnyAsync(x => x.MaterialId == materialId);
+        }
+        public async Task<bool> HasStockItemsAsync(Guid materialId)
+        {
+            return await context.StockItems
+                .AnyAsync(x => x.MaterialId == materialId);
+        }
+
     }
 }

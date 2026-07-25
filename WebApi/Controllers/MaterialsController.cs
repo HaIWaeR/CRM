@@ -1,9 +1,8 @@
 ﻿using Application.Behavior.Material;
-using WebApi.DTO.Material;
+using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Domain.Entities;
-using Mapster;
+using Shared.DTOs.Material;
 
 namespace WebApi.Controllers
 {
@@ -18,33 +17,53 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<MaterialDto>> GetAllMaterialsAsync()
+        public async Task<List<MaterialDto>> GetAllMaterialsAsync(
+            [FromQuery] string? searchTerm = null,
+            [FromQuery] string? categoryCode = null,
+            [FromQuery] bool? isActive = null,
+            [FromQuery] string? article = null)
         {
-            List<MaterialEntity> materials = await mediator.Send(new GetAllMaterialsQuery());
-            return materials.Adapt<List<MaterialDto>>();
+            GetAllMaterialsQuery query = new GetAllMaterialsQuery
+            {
+                SearchTerm = searchTerm,
+                CategoryCode = categoryCode,
+                IsActive = isActive,
+                Article = article
+            };
 
+            return await mediator.Send(query);
         }
 
         [HttpGet("{id}")]
         public async Task<MaterialDto?> GetMaterialByIdAsync(Guid id)
         {
-            MaterialEntity? material = await mediator.Send(new GetMaterialByIdQuery { Id = id });
-            return material.Adapt<MaterialDto>();
+            
+            return await mediator.Send(new GetMaterialByIdQuery { Id = id });
 
         }
 
         [HttpPut("{id}")]
-        public async Task<MaterialDto?> UpdateMaterialAsync(Guid id, [FromBody] UpdateMaterialCommand command)
+        public async Task<MaterialDto> UpdateMaterialAsync(Guid id, [FromBody] MaterialToCreateOrUpdateDto dto)
         {
+            UpdateMaterialCommand command = dto.Adapt<UpdateMaterialCommand>();
             command.Id = id;
-            MaterialEntity? update = await mediator.Send(command);
-            return update.Adapt<MaterialDto>();
+            return await mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> DeleteMaterialAsync(Guid id)
         {
             return await mediator.Send(new DeleteMaterialCommand { Id = id });
+        }
+
+        [HttpPatch("{id}/status")]
+        public async Task<bool> ChangeMaterialStatusAsync(Guid id, [FromBody] bool isActive)
+        {
+            return await mediator.Send(new ChangeMaterialStatusCommand
+            {
+                Id = id,
+                IsActive = isActive
+            });
         }
     }
 }

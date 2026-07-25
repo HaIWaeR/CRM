@@ -389,10 +389,31 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "categoryCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "article",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Material.MaterialDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Shared.DTOs.Material.MaterialDto, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -418,7 +439,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Material.MaterialDto",
+        "Type": "Shared.DTOs.Material.MaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -442,14 +463,14 @@
         "IsRequired": true
       },
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Material.UpdateMaterialCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Material.MaterialToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Material.MaterialDto",
+        "Type": "Shared.DTOs.Material.MaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -470,6 +491,37 @@
       {
         "Name": "id",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.MaterialsController",
+    "Method": "ChangeMaterialStatusAsync",
+    "RelativePath": "api/Materials/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "isActive",
+        "Type": "System.Boolean",
         "IsRequired": true
       }
     ],
