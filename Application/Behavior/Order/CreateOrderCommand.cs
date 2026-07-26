@@ -1,16 +1,16 @@
-﻿using Application.Interfaces.Repositories;
+﻿using Application.Helpers;
+using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
+using Mapster;
 using MediatR;
 
 namespace Application.Behavior.Orders
 {
     public class CreateOrderCommand : IRequest<Guid>
     {
-        public string OrderNumber { get; set; } = string.Empty;
         public string ServiceName { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public OrderStatus Status { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
         public Guid? ClientId { get; set; }
@@ -20,19 +20,11 @@ namespace Application.Behavior.Orders
     {
         public async Task<Guid> Handle(CreateOrderCommand command, CancellationToken cancellationToken)
         {
-            OrderEntity order = new OrderEntity
-            {
-                Id = Guid.NewGuid(),
-                OrderNumber = command.OrderNumber,
-                ServiceName = command.ServiceName,
-                Price = command.Price,
-                Status = command.Status,
-                Description = command.Description,
-                Address = command.Address,
-                ClientId = command.ClientId,
-                BranchId = command.BranchId,
-                CreatedAt = DateTime.UtcNow
-            };
+            OrderEntity order = command.Adapt<OrderEntity>();
+            order.Id = Guid.NewGuid();
+            order.OrderNumber = OrderNumberGenerator.Generate(command.ServiceName);
+            order.Status = OrderStatus.New;
+            order.CreatedAt = DateTime.UtcNow;
 
             await repository.AddAsync(order);
             return order.Id;

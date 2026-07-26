@@ -1,9 +1,9 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using WebApi.DTO.Order;
+﻿using Application.Behavior.Order;
 using Application.Behavior.Orders;
-using Domain.Entities;
 using Mapster;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Shared.DTOs.Order;
 
 namespace WebApi.Controllers
 {
@@ -12,38 +12,62 @@ namespace WebApi.Controllers
     public class OrdersController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
-        public async Task<Guid> CreateOrderAsync([FromBody] CreateOrderCommand command)
+        public async Task<Guid> CreateOrderAsync([FromBody] OrderToCreateOrUpdateDto dto)
         {
+            CreateOrderCommand command = dto.Adapt<CreateOrderCommand>();
             return await mediator.Send(command);
         }
 
         [HttpGet]
-        public async Task<List<OrderDto>> GetAllOrdersAsync()
+        public async Task<List<OrderDto>> GetAllOrdersAsync(
+            [FromQuery] string? searchTerm = null,
+            [FromQuery] Domain.Enums.OrderStatus? status = null,
+            [FromQuery] Guid? clientId = null,
+            [FromQuery] Guid? branchId = null,
+            [FromQuery] DateTime? fromDate = null,
+            [FromQuery] DateTime? toDate = null)
         {
-            List<OrderEntity> orders = await mediator.Send(new GetAllOrdersQuery());
-            return orders.Adapt<List<OrderDto>>();
+            GetAllOrdersQuery query = new GetAllOrdersQuery
+            {
+                SearchTerm = searchTerm,
+                Status = status,
+                ClientId = clientId,
+                BranchId = branchId,
+                FromDate = fromDate,
+                ToDate = toDate
+            };
 
+            return await mediator.Send(query);
         }
 
         [HttpGet("{id}")]
-        public async Task<OrderDto?> GetOrderByIdAsync(Guid id)
+        public async Task<OrderDto> GetOrderByIdAsync(Guid id)
         {
-            OrderEntity? order = await mediator.Send(new GetOrderByIdQuery { Id = id });
-            return order.Adapt<OrderDto>();
+            return await mediator.Send(new GetOrderByIdQuery { Id = id });
         }
 
         [HttpPut("{id}")]
-        public async Task<OrderDto?> UpdateOrderAsync(Guid id, [FromBody] UpdateOrderCommand command)
+        public async Task<OrderDto> UpdateOrderAsync(Guid id, [FromBody] OrderToCreateOrUpdateDto dto)
         {
+            UpdateOrderCommand command = dto.Adapt<UpdateOrderCommand>();
             command.Id = id;
-            OrderEntity? update = await mediator.Send(command);
-            return update.Adapt<OrderDto>();
+            return await mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> DeleteOrderAsync(Guid id)
         {
             return await mediator.Send(new DeleteOrderCommand { Id = id });
+        }
+
+        [HttpPatch("{id}/status")]
+        public async Task<bool> ChangeOrderStatusAsync(Guid id, [FromBody] Domain.Enums.OrderStatus status)
+        {
+            return await mediator.Send(new ChangeOrderStatusCommand
+            {
+                Id = id,
+                Status = status
+            });
         }
     }
 }

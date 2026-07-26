@@ -12,6 +12,9 @@ namespace Application.Behavior.Orders
     {
         public async Task<bool> Handle(DeleteOrderCommand command, CancellationToken cancellationToken)
         {
+            if (!await repository.ExistsAsync(command.Id))
+                throw new KeyNotFoundException($"Заказ с ID {command.Id} не найден");
+
             await repository.DeleteAsync(command.Id);
             return true;
         }

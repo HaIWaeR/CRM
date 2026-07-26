@@ -11,8 +11,9 @@ namespace WebApi.Controllers
     public class MaterialsController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
-        public async Task<Guid> CreateMaterialAsync([FromBody] CreateMaterialCommand command)
+        public async Task<Guid> CreateMaterialAsync([FromBody] MaterialToCreateOrUpdateDto dto)
         {
+            CreateMaterialCommand command = dto.Adapt<CreateMaterialCommand>();
             return await mediator.Send(command);
         }
 
@@ -35,7 +36,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<MaterialDto?> GetMaterialByIdAsync(Guid id)
+        public async Task<MaterialDto> GetMaterialByIdAsync(Guid id)
         {
             
             return await mediator.Send(new GetMaterialByIdQuery { Id = id });

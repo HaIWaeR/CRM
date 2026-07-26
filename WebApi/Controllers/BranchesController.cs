@@ -52,7 +52,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new DeleteBranchCommand { Id = id });
         }
 
-        [HttpPatch("{id:guid}/status")]
+        [HttpPatch("{id}/status")]
         public async Task<bool> ChangeBranchStatusAsync(Guid id, [FromBody] Domain.Enums.BranchStatus status)
         {
             return await mediator.Send(new ChangeBranchStatusCommand

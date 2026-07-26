@@ -11,6 +11,8 @@ namespace Domain.Entities
         public OrderStatus Status { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
+        public DateTime? CompletedAt { get; set; }
+        public DateTime? CancelledAt { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 

@@ -3,8 +3,9 @@
     public enum OrderStatus
     {
         New = 1,
-        InProgress = 2,
-        Completed = 3,
-        Cancelled = 4
+        Accepted = 2,
+        InProgress = 3,
+        Completed = 4,
+        Cancelled = 5
     }
 }

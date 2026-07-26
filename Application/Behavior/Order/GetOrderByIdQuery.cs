@@ -1,21 +1,26 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.Order;
 
 namespace Application.Behavior.Orders
 {
-    public class GetOrderByIdQuery : IRequest<OrderEntity?>
+    public class GetOrderByIdQuery : IRequest<OrderDto>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetOrderByIdQueryHandler(IOrderRepository repository) : IRequestHandler<GetOrderByIdQuery, OrderEntity?>
+    public class GetOrderByIdQueryHandler(IOrderRepository repository) : IRequestHandler<GetOrderByIdQuery, OrderDto>
     {
-        public async Task<OrderEntity?> Handle(GetOrderByIdQuery query, CancellationToken cancellationToken)
+        public async Task<OrderDto> Handle(GetOrderByIdQuery query, CancellationToken cancellationToken)
         {
-            OrderEntity? order = await repository.GetByIdAsync(query.Id) ?? throw new Exception($"Заказ с ID {query.Id} не найден");
+            OrderEntity? order = await repository.GetByIdAsync(query.Id)
+                ?? throw new KeyNotFoundException($"Заказ с ID {query.Id} не найден");
 
-            return order;
+            OrderDto result = order.Adapt<OrderDto>();
+            return result;
         }
     }
+
 }

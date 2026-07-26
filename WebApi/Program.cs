@@ -1,14 +1,9 @@
 
-using Application.Behavior.Client;
-using Application.Behavior.User;
-using Application.Interfaces.Repositories;
 using Application.PipelineBehaviors;
 using Application.Validators;
 using FluentValidation;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using Persistence.Repositories;
 
 namespace WebApi
 {

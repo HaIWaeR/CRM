@@ -12,7 +12,6 @@ namespace Domain.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-
         public Guid WarehouseId { get; set; }
         public WarehouseRoomEntity? Warehouse { get; set;}
 
