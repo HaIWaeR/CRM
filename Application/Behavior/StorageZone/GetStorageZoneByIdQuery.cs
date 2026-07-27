@@ -1,21 +1,25 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.StorageZone;
 
 namespace Application.Behavior.StorageZone
 {
-    public class GetStorageZoneByIdQuery : IRequest<StorageZoneEntity?>
+    public class GetStorageZoneByIdQuery : IRequest<StorageZoneDto>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetStorageZoneByIdQueryHandler(IStorageZoneRepository repository) : IRequestHandler<GetStorageZoneByIdQuery, StorageZoneEntity?>
+    public class GetStorageZoneByIdQueryHandler(IStorageZoneRepository repository) : IRequestHandler<GetStorageZoneByIdQuery, StorageZoneDto>
     {
-        public async Task<StorageZoneEntity?> Handle(GetStorageZoneByIdQuery query, CancellationToken cancellationToken)
+        public async Task<StorageZoneDto> Handle(GetStorageZoneByIdQuery query, CancellationToken cancellationToken)
         {
-            StorageZoneEntity? zone = await repository.GetByIdAsync(query.Id) ?? throw new Exception($"Зона хранения с ID {query.Id} не найдена");
+            StorageZoneEntity? storageZone = await repository.GetByIdAsync(query.Id)
+                ?? throw new KeyNotFoundException($"Зона хранения с ID {query.Id} не найдена");
 
-            return zone;
+            StorageZoneDto result = storageZone.Adapt<StorageZoneDto>();
+            return result;
         }
     }
 }

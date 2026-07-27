@@ -1,34 +1,45 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
+using Mapster;
 using MediatR;
+using Shared.DTOs.StorageZone;
+using System.Text.Json.Serialization;
 
 namespace Application.Behavior.StorageZone
 {
-    public class UpdateStorageZoneCommand : IRequest<StorageZoneEntity?>
+    public class UpdateStorageZoneCommand : IRequest<StorageZoneDto>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? Code { get; set; }
-        public StorageZoneType ZoneType { get; set; }
         public int? MaxCapacity { get; set; }
+        public string? Description { get; set; }
+        public bool IsDefault { get; set; }
         public Guid WarehouseId { get; set; }
     }
 
-    public class UpdateStorageZoneCommandHandler(IStorageZoneRepository repository) : IRequestHandler<UpdateStorageZoneCommand, StorageZoneEntity?>
+    public class UpdateStorageZoneCommandHandler(IStorageZoneRepository repository) : IRequestHandler<UpdateStorageZoneCommand, StorageZoneDto>
     {
-        public async Task<StorageZoneEntity?> Handle(UpdateStorageZoneCommand command, CancellationToken cancellationToken)
+        public async Task<StorageZoneDto> Handle(UpdateStorageZoneCommand command, CancellationToken cancellationToken)
         {
-            StorageZoneEntity? zone = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Зона хранения с ID {command.Id} не найдена");
-            zone.Name = command.Name;
-            zone.Code = command.Code;
-            zone.ZoneType = command.ZoneType;
-            zone.MaxCapacity = command.MaxCapacity;
-            zone.WarehouseId = command.WarehouseId;
-            zone.UpdatedAt = DateTime.UtcNow;
-            await repository.UpdateAsync(zone);
+            StorageZoneEntity? existing = await repository.GetByIdAsync(command.Id)
+                ?? throw new KeyNotFoundException($"Зона хранения с ID {command.Id} не найдена");
 
-            return zone;
+            if (!string.IsNullOrWhiteSpace(command.Code))
+            {
+                bool isUnique = await repository.IsCodeUniqueAsync(command.Code, command.Id);
+                if (!isUnique)
+                    throw new InvalidOperationException($"Код '{command.Code}' уже существует");
+            }
+
+            command.Adapt(existing);
+            existing.UpdatedAt = DateTime.UtcNow;
+
+            await repository.UpdateAsync(existing);
+
+            StorageZoneDto result = existing.Adapt<StorageZoneDto>();
+            return result;
         }
     }
 }

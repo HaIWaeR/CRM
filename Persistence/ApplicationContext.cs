@@ -35,6 +35,7 @@ namespace Persistence
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
             modelBuilder.ApplyConfiguration(new StockItemConfiguration());
+            modelBuilder.ApplyConfiguration(new StorageZoneConfiguration());
         }
     }
 }

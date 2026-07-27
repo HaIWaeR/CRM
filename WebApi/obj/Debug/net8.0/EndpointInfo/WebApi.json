@@ -1986,17 +1986,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStorageZoneCommand"
+                "$ref": "#/components/schemas/StorageZoneToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStorageZoneCommand"
+                "$ref": "#/components/schemas/StorageZoneToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStorageZoneCommand"
+                "$ref": "#/components/schemas/StorageZoneToCreateOrUpdateDto"
               }
             }
           }
@@ -2030,6 +2030,44 @@
       "get": {
         "tags": [
           "StorageZones"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "zoneType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/StorageZoneType"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/StorageZoneStatus"
+            }
+          },
+          {
+            "name": "isDefault",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2122,17 +2160,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStorageZoneCommand"
+                "$ref": "#/components/schemas/StorageZoneToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStorageZoneCommand"
+                "$ref": "#/components/schemas/StorageZoneToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStorageZoneCommand"
+                "$ref": "#/components/schemas/StorageZoneToCreateOrUpdateDto"
               }
             }
           }
@@ -2175,6 +2213,124 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/StorageZones/{id}/status": {
+      "patch": {
+        "tags": [
+          "StorageZones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageZoneStatus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageZoneStatus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageZoneStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/StorageZones/{id}/type": {
+      "patch": {
+        "tags": [
+          "StorageZones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageZoneType"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageZoneType"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StorageZoneType"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3504,32 +3660,6 @@
         },
         "additionalProperties": false
       },
-      "CreateStorageZoneCommand": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "zoneType": {
-            "$ref": "#/components/schemas/StorageZoneType"
-          },
-          "maxCapacity": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "warehouseId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateSupplierCommand": {
         "type": "object",
         "properties": {
@@ -4121,14 +4251,20 @@
           "zoneType": {
             "$ref": "#/components/schemas/StorageZoneType"
           },
+          "status": {
+            "$ref": "#/components/schemas/StorageZoneStatus"
+          },
           "maxCapacity": {
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
-          "warehouseId": {
+          "description": {
             "type": "string",
-            "format": "uuid"
+            "nullable": true
+          },
+          "isDefault": {
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -4138,6 +4274,60 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "warehouseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "warehouseName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StorageZoneStatus": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "StorageZoneToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "zoneType": {
+            "$ref": "#/components/schemas/StorageZoneType"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StorageZoneStatus"
+          },
+          "maxCapacity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDefault": {
+            "type": "boolean"
+          },
+          "warehouseId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -4146,7 +4336,8 @@
         "enum": [
           1,
           2,
-          3
+          3,
+          4
         ],
         "type": "integer",
         "format": "int32"
@@ -4323,36 +4514,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "UpdateStorageZoneCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "zoneType": {
-            "$ref": "#/components/schemas/StorageZoneType"
-          },
-          "maxCapacity": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "warehouseId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
       },
       "UpdateSupplierCommand": {
         "type": "object",

@@ -1,15 +1,15 @@
-﻿using Domain.Entities;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
 {
     public class StorageZoneRepository(ApplicationContext context) : IStorageZoneRepository
     {
+        // CRUD
         public async Task AddAsync(StorageZoneEntity storageZone)
         {
-            storageZone.Id = Guid.NewGuid();
-            storageZone.CreatedAt = DateTime.UtcNow;
             await context.Storages.AddAsync(storageZone);
             await context.SaveChangesAsync();
         }
@@ -36,6 +36,69 @@ namespace Persistence.Repositories
         {
             context.Storages.Remove(new StorageZoneEntity { Id = id });
             await context.SaveChangesAsync();
+        }
+
+        // Дополнительные методы
+        public async Task<bool> ExistsAsync(Guid id)
+        {
+            return await context.Storages.AnyAsync(x => x.Id == id);
+        }
+
+        public async Task<bool> IsCodeUniqueAsync(string code, Guid? excludeId = null)
+        {
+            IQueryable<StorageZoneEntity> query = context.Storages
+                .Where(x => x.Code != null && x.Code.ToLower() == code.ToLower());
+
+            if (excludeId.HasValue)
+                query = query.Where(x => x.Id != excludeId.Value);
+
+            return !await query.AnyAsync();
+        }
+
+        // Фильтрация
+        public async Task<List<StorageZoneEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            Guid? warehouseId = null,
+            StorageZoneType? zoneType = null,
+            StorageZoneStatus? status = null,
+            bool? isDefault = null)
+        {
+            IQueryable<StorageZoneEntity> query = context.Storages.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    (x.Code != null && x.Code.ToLower().Contains(search)) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (warehouseId.HasValue)
+                query = query.Where(x => x.WarehouseId == warehouseId.Value);
+
+            if (zoneType.HasValue)
+                query = query.Where(x => x.ZoneType == zoneType.Value);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (isDefault.HasValue)
+                query = query.Where(x => x.IsDefault == isDefault.Value);
+
+            return await query.ToListAsync();
+        }
+
+        // Проверка связей
+        public async Task<bool> HasStockItemsAsync(Guid storageZoneId)
+        {
+            return await context.StockItems.AnyAsync(x => x.StorageZoneId == storageZoneId);
+        }
+
+        public async Task<bool> HasAnyStockItemsForWarehouseAsync(Guid warehouseId)
+        {
+            return await context.StockItems.AnyAsync(x => x.WarehouseId == warehouseId);
         }
     }
 }

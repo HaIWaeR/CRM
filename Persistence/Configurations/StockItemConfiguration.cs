@@ -12,26 +12,10 @@ namespace Persistence.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Quantity).IsRequired();
             builder.Property(x => x.LastUpdate).IsRequired();
-
-            builder.HasOne(x => x.Warehouse)
-                .WithMany()
-                .HasForeignKey(x => x.WarehouseId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(x => x.StorageZone)
-                .WithMany()
-                .HasForeignKey(x => x.StorageZoneId)
-                .OnDelete(DeleteBehavior.SetNull);
-
-            builder.HasOne(x => x.Product)
-                .WithMany()
-                .HasForeignKey(x => x.ProductId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(x => x.Material)
-                .WithMany()
-                .HasForeignKey(x => x.MaterialId)
-                .OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.Warehouse).WithMany().HasForeignKey(x => x.WarehouseId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.StorageZone).WithMany().HasForeignKey(x => x.StorageZoneId).OnDelete(DeleteBehavior.SetNull);
+            builder.HasOne(x => x.Product).WithMany().HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.Material).WithMany().HasForeignKey(x => x.MaterialId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
