@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Domain.Enums;
+using Mapster;
 using MediatR;
 
 namespace Application.Behavior.Product
@@ -9,11 +9,10 @@ namespace Application.Behavior.Product
     {
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public ProductCategory Category { get; set; }
+        public string? Category { get; set; }
         public string? Article { get; set; }
         public string? Description { get; set; }
         public Dictionary<string, string>? Attributes { get; set; }
-        public bool IsActive { get; set; }
         public bool IsService { get; set; }
     }
 
@@ -21,19 +20,17 @@ namespace Application.Behavior.Product
     {
         public async Task<Guid> Handle(CreateProductCommand command, CancellationToken cancellationToken)
         {
-            ProductEntity product = new ProductEntity
+            if (!string.IsNullOrWhiteSpace(command.Article))
             {
-                Id = Guid.NewGuid(),
-                Name = command.Name,
-                Price = command.Price,
-                Category = command.Category,
-                Article = command.Article,
-                Description = command.Description,
-                Attributes = command.Attributes,
-                IsActive = command.IsActive,
-                IsService = command.IsService,
-                CreatedAt = DateTime.UtcNow
-            };
+                ProductEntity? existing = await repository.GetByArticleAsync(command.Article);
+                if (existing != null)
+                    throw new InvalidOperationException($"Артикул '{command.Article}' уже существует");
+            }
+
+            ProductEntity product = command.Adapt<ProductEntity>();
+            product.Id = Guid.NewGuid();
+            product.IsActive = true;
+            product.CreatedAt = DateTime.UtcNow;
 
             await repository.AddAsync(product);
             return product.Id;

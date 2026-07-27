@@ -1,40 +1,44 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Domain.Enums;
+using Mapster;
 using MediatR;
+using WebApi.DTO.Product;
 
 namespace Application.Behavior.Product
 {
-    public class UpdateProductCommand : IRequest<ProductEntity?>
+    public class UpdateProductCommand : IRequest<ProductDto>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public ProductCategory Category { get; set; }
+        public string? Category { get; set; }
         public string? Article { get; set; }
         public string? Description { get; set; }
         public Dictionary<string, string>? Attributes { get; set; }
-        public bool IsActive { get; set; }
         public bool IsService { get; set; }
     }
 
-    public class UpdateProductCommandHandler(IProductRepository repository) : IRequestHandler<UpdateProductCommand, ProductEntity?>
+    public class UpdateProductCommandHandler(IProductRepository repository) : IRequestHandler<UpdateProductCommand, ProductDto>
     {
-        public async Task<ProductEntity?> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
+        public async Task<ProductDto> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
         {
-            ProductEntity? product = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Товар с ID {command.Id} не найден");
-            product.Name = command.Name;
-            product.Price = command.Price;
-            product.Category = command.Category;
-            product.Article = command.Article;
-            product.Description = command.Description;
-            product.Attributes = command.Attributes;
-            product.IsActive = command.IsActive;
-            product.IsService = command.IsService;
-            product.UpdatedAt = DateTime.UtcNow;
-            await repository.UpdateAsync(product);
+            ProductEntity? existing = await repository.GetByIdAsync(command.Id)
+                ?? throw new KeyNotFoundException($"Товар с ID {command.Id} не найден");
 
-            return product;
+            if (!string.IsNullOrWhiteSpace(command.Article))
+            {
+                ProductEntity? existingArticle = await repository.GetByArticleAsync(command.Article);
+                if (existingArticle != null && existingArticle.Id != command.Id)
+                    throw new InvalidOperationException($"Артикул '{command.Article}' уже существует");
+            }
+
+            command.Adapt(existing);
+            existing.UpdatedAt = DateTime.UtcNow;
+
+            await repository.UpdateAsync(existing);
+
+            ProductDto result = existing.Adapt<ProductDto>();
+            return result;
         }
     }
 }

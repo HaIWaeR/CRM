@@ -1,6 +1,7 @@
 ﻿using Application.Behavior.Orders;
 using Application.Validators.Order;
 using FluentValidation.TestHelper;
+using Shared.DTOs.Order;
 
 namespace Application.UnitTests.Order.Validators
 {
@@ -35,31 +36,6 @@ namespace Application.UnitTests.Order.Validators
             CreateOrderCommand command = new CreateOrderCommand { ServiceName = "Тайский массаж" };
             TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.ServiceName);
-        }
-
-        // Price
-        [Fact]
-        public void Validate_PriceIsZero_ShouldHaveError()
-        {
-            CreateOrderCommand command = new CreateOrderCommand { Price = 0 };
-            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Price);
-        }
-
-        [Fact]
-        public void Validate_PriceIsNegative_ShouldHaveError()
-        {
-            CreateOrderCommand command = new CreateOrderCommand { Price = -100 };
-            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Price);
-        }
-
-        [Fact]
-        public void Validate_PriceIsValid_ShouldNotHaveError()
-        {
-            CreateOrderCommand command = new CreateOrderCommand { Price = 4600 };
-            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
-            result.ShouldNotHaveValidationErrorFor(x => x.Price);
         }
 
         // Description
@@ -113,6 +89,102 @@ namespace Application.UnitTests.Order.Validators
             CreateOrderCommand command = new CreateOrderCommand { Address = "" };
             TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Address);
+        }
+
+        //  OrderItems
+
+        [Fact]
+        public void Validate_OrderItemsIsEmpty_ShouldHaveError()
+        {
+            CreateOrderCommand command = new CreateOrderCommand
+            {
+                ServiceName = "Заказ игрушек",
+                OrderItems = new List<OrderItemRequestDto>()
+            };
+
+            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.OrderItems);
+        }
+
+        [Fact]
+        public void Validate_OrderItemsHasValidItems_ShouldNotHaveError()
+        {
+            CreateOrderCommand command = new CreateOrderCommand
+            {
+                ServiceName = "Заказ игрушек",
+                OrderItems = new List<OrderItemRequestDto>
+        {
+            new OrderItemRequestDto { ProductId = Guid.NewGuid(), Quantity = 2 }
+        }
+            };
+
+            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
+            result.ShouldNotHaveValidationErrorFor(x => x.OrderItems);
+        }
+
+        [Fact]
+        public void Validate_OrderItemQuantityIsZero_ShouldHaveError()
+        {
+            CreateOrderCommand command = new CreateOrderCommand
+            {
+                ServiceName = "Заказ игрушек",
+                OrderItems = new List<OrderItemRequestDto>
+        {
+            new OrderItemRequestDto { ProductId = Guid.NewGuid(), Quantity = 0 }
+        }
+            };
+
+            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.OrderItems);
+        }
+
+        [Fact]
+        public void Validate_OrderItemQuantityIsNegative_ShouldHaveError()
+        {
+            CreateOrderCommand command = new CreateOrderCommand
+            {
+                ServiceName = "Заказ игрушек",
+                OrderItems = new List<OrderItemRequestDto>
+        {
+            new OrderItemRequestDto { ProductId = Guid.NewGuid(), Quantity = -1 }
+        }
+            };
+
+            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.OrderItems);
+        }
+
+        [Fact]
+        public void Validate_OrderItemProductIdIsEmpty_ShouldHaveError()
+        {
+            CreateOrderCommand command = new CreateOrderCommand
+            {
+                ServiceName = "Заказ игрушек",
+                OrderItems = new List<OrderItemRequestDto>
+        {
+            new OrderItemRequestDto { ProductId = Guid.Empty, Quantity = 2 }
+        }
+            };
+
+            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.OrderItems);
+        }
+
+        [Fact]
+        public void Validate_MultipleOrderItems_ShouldNotHaveError()
+        {
+            CreateOrderCommand command = new CreateOrderCommand
+            {
+                ServiceName = "Заказ игрушек",
+                OrderItems = new List<OrderItemRequestDto>
+        {
+            new OrderItemRequestDto { ProductId = Guid.NewGuid(), Quantity = 2 },
+            new OrderItemRequestDto { ProductId = Guid.NewGuid(), Quantity = 1 }
+        }
+            };
+
+            TestValidationResult<CreateOrderCommand> result = validator.TestValidate(command);
+            result.ShouldNotHaveValidationErrorFor(x => x.OrderItems);
         }
     }
 }

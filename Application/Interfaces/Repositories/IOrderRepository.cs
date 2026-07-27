@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Entities.Supporting;
 using Domain.Enums;
 
 namespace Application.Interfaces.Repositories
@@ -18,6 +19,8 @@ namespace Application.Interfaces.Repositories
         Task<bool> ExistsAsync(Guid id);
         Task<OrderEntity?> GetByOrderNumberAsync(string orderNumber);
         Task<bool> IsOrderNumberUniqueAsync(string orderNumber, Guid? excludeId = null);
+        Task AddOrderItemAsync(OrderItemEntity orderItem);
+        Task<List<OrderItemEntity>> GetOrderItemsByOrderIdAsync(Guid orderId);
 
         // Фильтрация 
         Task<List<OrderEntity>> GetFilteredAsync(

@@ -39,31 +39,6 @@ namespace Application.UnitTests.Order.Validators
             result.ShouldNotHaveValidationErrorFor(x => x.ServiceName);
         }
 
-        // Price
-        [Fact]
-        public void Validate_PriceIsZero_ShouldHaveError()
-        {
-            UpdateOrderCommand command = new UpdateOrderCommand { Price = 0 };
-            TestValidationResult<UpdateOrderCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Price);
-        }
-
-        [Fact]
-        public void Validate_PriceIsNegative_ShouldHaveError()
-        {
-            UpdateOrderCommand command = new UpdateOrderCommand { Price = -100 };
-            TestValidationResult<UpdateOrderCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Price);
-        }
-
-        [Fact]
-        public void Validate_PriceIsValid_ShouldNotHaveError()
-        {
-            UpdateOrderCommand command = new UpdateOrderCommand { Price = 4600 };
-            TestValidationResult<UpdateOrderCommand> result = validator.TestValidate(command);
-            result.ShouldNotHaveValidationErrorFor(x => x.Price);
-        }
-
         // Description
         [Fact]
         public void Validate_DescriptionExceedsMaxLength_ShouldHaveError()

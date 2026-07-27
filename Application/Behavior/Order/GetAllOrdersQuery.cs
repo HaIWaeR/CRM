@@ -29,6 +29,11 @@ namespace Application.Behavior.Orders
                 query.FromDate,
                 query.ToDate);
 
+            foreach (OrderEntity order in orders)
+            {
+                order.OrderItems = await repository.GetOrderItemsByOrderIdAsync(order.Id);
+            }
+
             List<OrderDto> result = orders.Adapt<List<OrderDto>>();
             return result;
         }

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DTO.Product;
 using Application.Behavior.Product;
-using Domain.Entities;
 using Mapster;
 
 namespace WebApi.Controllers
@@ -12,37 +11,62 @@ namespace WebApi.Controllers
     public class ProductsController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
-        public async Task<Guid> CreateProductAsync([FromBody] CreateProductCommand command)
+        public async Task<Guid> CreateProductAsync([FromBody] ProductToCreateOrUpdateDto dto)
         {
+            CreateProductCommand command = dto.Adapt<CreateProductCommand>();
             return await mediator.Send(command);
         }
 
         [HttpGet]
-        public async Task<List<ProductDto>> GetAllProductsAsync()
+        public async Task<List<ProductDto>> GetAllProductsAsync(
+            [FromQuery] string? searchTerm = null,
+            [FromQuery] string? category = null,
+            [FromQuery] bool? isActive = null,
+            [FromQuery] bool? isService = null,
+            [FromQuery] decimal? minPrice = null,
+            [FromQuery] decimal? maxPrice = null)
         {
-            List<ProductEntity> products = await mediator.Send(new GetAllProductsQuery());
-            return products.Adapt<List<ProductDto>>();
+            GetAllProductsQuery query = new GetAllProductsQuery
+            {
+                SearchTerm = searchTerm,
+                Category = category,
+                IsActive = isActive,
+                IsService = isService,
+                MinPrice = minPrice,
+                MaxPrice = maxPrice
+            };
+
+            return await mediator.Send(query);
         }
 
         [HttpGet("{id}")]
-        public async Task<ProductDto?> GetProductByIdAsync(Guid id)
+        public async Task<ProductDto> GetProductByIdAsync(Guid id)
         {
-            ProductEntity? product = await mediator.Send(new GetProductByIdQuery { Id = id });
-            return product.Adapt<ProductDto>();
+            return await mediator.Send(new GetProductByIdQuery { Id = id });
         }
 
         [HttpPut("{id}")]
-        public async Task<ProductDto?> UpdateProductAsync(Guid id, [FromBody] UpdateProductCommand command)
+        public async Task<ProductDto> UpdateProductAsync(Guid id, [FromBody] ProductToCreateOrUpdateDto dto)
         {
+            UpdateProductCommand command = dto.Adapt<UpdateProductCommand>();
             command.Id = id;
-            ProductEntity? update = await mediator.Send(command);
-            return update.Adapt<ProductDto>();
+            return await mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> DeleteProductAsync(Guid id)
         {
             return await mediator.Send(new DeleteProductCommand { Id = id });
+        }
+
+        [HttpPatch("{id}/status")]
+        public async Task<bool> ChangeProductStatusAsync(Guid id, [FromBody] bool isActive)
+        {
+            return await mediator.Send(new ChangeProductStatusCommand
+            {
+                Id = id,
+                IsActive = isActive
+            });
         }
     }
 }

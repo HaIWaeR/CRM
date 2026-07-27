@@ -17,5 +17,6 @@ namespace Shared.DTOs.Order
         public DateTime? CancelledAt { get; set; }
         public Guid? ClientId { get; set; }
         public Guid? BranchId { get; set; }
+        public List<OrderItemRequestDto> OrderItems { get; set; } = [];
     }
 }

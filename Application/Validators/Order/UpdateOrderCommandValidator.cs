@@ -12,9 +12,6 @@ namespace Application.Validators.Order
                 .NotEmpty().WithMessage("Название услуги обязательно")
                 .MaximumLength(200).WithMessage("Максимум 200 символов");
 
-            RuleFor(x => x.Price)
-                .GreaterThan(0).WithMessage("Цена должна быть больше 0");
-
             RuleFor(x => x.Description)
                 .MaximumLength(500).WithMessage("Максимум 500 символов")
                 .When(x => !string.IsNullOrEmpty(x.Description));

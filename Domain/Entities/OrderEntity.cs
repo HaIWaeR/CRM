@@ -1,4 +1,5 @@
-﻿using Domain.Enums;
+﻿using Domain.Entities.Supporting;
+using Domain.Enums;
 
 namespace Domain.Entities
 {
@@ -21,5 +22,7 @@ namespace Domain.Entities
 
         public Guid? BranchId { get; set; }
         public BranchEntity? Branch { get; set; }
+
+        public List<OrderItemEntity> OrderItems { get; set; } = [];
     }
 }

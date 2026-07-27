@@ -18,6 +18,8 @@ namespace Application.Behavior.Orders
             OrderEntity? order = await repository.GetByIdAsync(query.Id)
                 ?? throw new KeyNotFoundException($"Заказ с ID {query.Id} не найден");
 
+            order.OrderItems = await repository.GetOrderItemsByOrderIdAsync(order.Id);
+
             OrderDto result = order.Adapt<OrderDto>();
             return result;
         }

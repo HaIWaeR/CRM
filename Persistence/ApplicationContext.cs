@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Entities.Supporting;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Configurations;
 
@@ -21,6 +22,7 @@ namespace Persistence
         public DbSet<TaskEntity> Tasks { get; set; }
         public DbSet<SupplierMaterialEntity> SupplierMaterials { get; set; }
         public DbSet<SupplierEntity> Suppliers { get; set; }
+        public DbSet<OrderItemEntity> OrderItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,7 +30,10 @@ namespace Persistence
 
             modelBuilder.ApplyConfiguration(new BranchConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
-            modelBuilder.ApplyConfiguration(new MaterialConfiguration());           
+            modelBuilder.ApplyConfiguration(new MaterialConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
         }
     }
 }

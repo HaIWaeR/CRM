@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Entities.Supporting;
 using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
@@ -58,6 +59,19 @@ namespace Persistence.Repositories
                 query = query.Where(x => x.Id != excludeId.Value);
 
             return !await query.AnyAsync();
+        }
+
+        public async Task AddOrderItemAsync(OrderItemEntity orderItem)
+        {
+            await context.OrderItems.AddAsync(orderItem);
+            await context.SaveChangesAsync();
+        }
+        public async Task<List<OrderItemEntity>> GetOrderItemsByOrderIdAsync(Guid orderId)
+        {
+            return await context.OrderItems
+                .Where(x => x.OrderId == orderId)
+                .Include(x => x.Product)
+                .ToListAsync();
         }
 
         // Фильтрация 
