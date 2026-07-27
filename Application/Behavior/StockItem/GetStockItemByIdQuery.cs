@@ -1,21 +1,25 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.StockItem;
 
 namespace Application.Behavior.StockItem
 {
-    public class GetStockItemByIdQuery : IRequest<StockItemEntity?>
+    public class GetStockItemByIdQuery : IRequest<StockItemDto>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetStockItemByIdQueryHandler(IStockItemRepository repository) : IRequestHandler<GetStockItemByIdQuery, StockItemEntity?>
+    public class GetStockItemByIdQueryHandler(IStockItemRepository repository) : IRequestHandler<GetStockItemByIdQuery, StockItemDto>
     {
-        public async Task<StockItemEntity?> Handle(GetStockItemByIdQuery query, CancellationToken cancellationToken)
+        public async Task<StockItemDto> Handle(GetStockItemByIdQuery query, CancellationToken cancellationToken)
         {
-            StockItemEntity? item = await repository.GetByIdAsync(query.Id) ?? throw new Exception($"Остаток с ID {query.Id} не найден");
+            StockItemEntity? stockItem = await repository.GetByIdAsync(query.Id)
+                ?? throw new KeyNotFoundException($"Запись с ID {query.Id} не найдена");
 
-            return item;
+            StockItemDto result = stockItem.Adapt<StockItemDto>();
+            return result;
         }
     }
 }

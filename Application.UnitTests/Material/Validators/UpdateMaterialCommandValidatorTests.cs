@@ -82,23 +82,6 @@ namespace Application.UnitTests.Material.Validators
             result.ShouldNotHaveValidationErrorFor(x => x.CategoryCode);
         }
 
-        // Quantity
-        [Fact]
-        public void Validate_QuantityIsNegative_ShouldHaveError()
-        {
-            UpdateMaterialCommand command = new UpdateMaterialCommand { Quantity = -1 };
-            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Quantity);
-        }
-
-        [Fact]
-        public void Validate_QuantityIsZero_ShouldNotHaveError()
-        {
-            UpdateMaterialCommand command = new UpdateMaterialCommand { Quantity = 0 };
-            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
-            result.ShouldNotHaveValidationErrorFor(x => x.Quantity);
-        }
-
         // PriceUnit
         [Fact]
         public void Validate_PriceUnitIsNegative_ShouldHaveError()

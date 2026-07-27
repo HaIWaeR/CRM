@@ -14,7 +14,6 @@ namespace Persistence.Configurations
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Article).IsRequired().HasMaxLength(50);
             builder.Property(x => x.CategoryCode).IsRequired().HasMaxLength(20);
-            builder.Property(x => x.Quantity).IsRequired();
             builder.Property(x => x.PriceUnit).IsRequired().HasPrecision(18, 2);
             builder.Property(x => x.Weight).HasPrecision(18, 3);
             builder.Property(x => x.UnitMeasurement).IsRequired();

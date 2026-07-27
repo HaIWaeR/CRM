@@ -1,6 +1,7 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
 
 namespace Application.Behavior.StockItem
 {
@@ -17,16 +18,9 @@ namespace Application.Behavior.StockItem
     {
         public async Task<Guid> Handle(CreateStockItemCommand command, CancellationToken cancellationToken)
         {
-            StockItemEntity stockItem = new StockItemEntity
-            {
-                Id = Guid.NewGuid(),
-                Quantity = command.Quantity,
-                WarehouseId = command.WarehouseId,
-                StorageZoneId = command.StorageZoneId,
-                ProductId = command.ProductId,
-                MaterialId = command.MaterialId,
-                LastUpdate = DateTime.UtcNow
-            };
+            StockItemEntity stockItem = command.Adapt<StockItemEntity>();
+            stockItem.Id = Guid.NewGuid();
+            stockItem.LastUpdate = DateTime.UtcNow;
 
             await repository.AddAsync(stockItem);
             return stockItem.Id;

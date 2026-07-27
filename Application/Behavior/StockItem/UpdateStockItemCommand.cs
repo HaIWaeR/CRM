@@ -1,10 +1,12 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.StockItem;
 
 namespace Application.Behavior.StockItem
 {
-    public class UpdateStockItemCommand : IRequest<StockItemEntity?>
+    public class UpdateStockItemCommand : IRequest<StockItemDto>
     {
         public Guid Id { get; set; }
         public int Quantity { get; set; }
@@ -14,20 +16,20 @@ namespace Application.Behavior.StockItem
         public Guid? MaterialId { get; set; }
     }
 
-    public class UpdateStockItemCommandHandler(IStockItemRepository repository) : IRequestHandler<UpdateStockItemCommand, StockItemEntity?>
+    public class UpdateStockItemCommandHandler(IStockItemRepository repository) : IRequestHandler<UpdateStockItemCommand, StockItemDto>
     {
-        public async Task<StockItemEntity?> Handle(UpdateStockItemCommand command, CancellationToken cancellationToken)
+        public async Task<StockItemDto> Handle(UpdateStockItemCommand command, CancellationToken cancellationToken)
         {
-            StockItemEntity? item = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Остаток с ID {command.Id} не найден");
-            item.Quantity = command.Quantity;
-            item.WarehouseId = command.WarehouseId;
-            item.StorageZoneId = command.StorageZoneId;
-            item.ProductId = command.ProductId;
-            item.MaterialId = command.MaterialId;
-            item.LastUpdate = DateTime.UtcNow;
-            await repository.UpdateAsync(item);
+            StockItemEntity? existing = await repository.GetByIdAsync(command.Id)
+                ?? throw new KeyNotFoundException($"Запись с ID {command.Id} не найдена");
 
-            return item;
+            command.Adapt(existing);
+            existing.LastUpdate = DateTime.UtcNow;
+
+            await repository.UpdateAsync(existing);
+
+            StockItemDto result = existing.Adapt<StockItemDto>();
+            return result;
         }
     }
 }

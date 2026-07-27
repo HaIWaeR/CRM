@@ -11,7 +11,6 @@ namespace Application.Behavior.Material
         public string Name { get; set; } = string.Empty;
         public string Article { get; set; } = string.Empty;
         public string CategoryCode { get; set; } = "GEN";
-        public int Quantity { get; set; }
         public decimal PriceUnit { get; set; }
         public decimal Weight { get; set; }
         public Domain.Enums.UnitMeasurement UnitMeasurement { get; set; }

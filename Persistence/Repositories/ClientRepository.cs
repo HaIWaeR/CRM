@@ -90,24 +90,16 @@ namespace Persistence.Repositories
             }
 
             if (isActive.HasValue)
-            {
                 query = query.Where(x => x.IsActive == isActive.Value);
-            }
 
             if (!string.IsNullOrWhiteSpace(phone))
-            {
                 query = query.Where(x => x.Phone != null && x.Phone == phone);
-            }
 
             if (!string.IsNullOrWhiteSpace(email))
-            {
                 query = query.Where(x => x.Email != null && x.Email.ToLower() == email.ToLower());
-            }
 
             if (!string.IsNullOrWhiteSpace(telegram))
-            {
                 query = query.Where(x => x.Telegram != null && x.Telegram.Contains(telegram));
-            }
 
             return await query.ToListAsync();
         }

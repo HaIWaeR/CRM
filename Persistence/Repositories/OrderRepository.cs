@@ -97,29 +97,19 @@ namespace Persistence.Repositories
             }
 
             if (status.HasValue)
-            {
                 query = query.Where(x => x.Status == status.Value);
-            }
 
             if (clientId.HasValue)
-            {
                 query = query.Where(x => x.ClientId == clientId.Value);
-            }
 
             if (branchId.HasValue)
-            {
                 query = query.Where(x => x.BranchId == branchId.Value);
-            }
 
             if (fromDate.HasValue)
-            {
                 query = query.Where(x => x.CreatedAt >= fromDate.Value);
-            }
 
             if (toDate.HasValue)
-            {
                 query = query.Where(x => x.CreatedAt <= toDate.Value);
-            }
 
             return await query.ToListAsync();
         }

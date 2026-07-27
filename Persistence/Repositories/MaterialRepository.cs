@@ -76,19 +76,13 @@ namespace Persistence.Repositories
             }
 
             if (!string.IsNullOrWhiteSpace(categoryCode))
-            {
                 query = query.Where(x => x.CategoryCode == categoryCode);
-            }
 
             if (isActive.HasValue)
-            {
                 query = query.Where(x => x.IsActive == isActive.Value);
-            }
 
             if (!string.IsNullOrWhiteSpace(article))
-            {
                 query = query.Where(x => x.Article.ToLower() == article.ToLower());
-            }
 
             return await query.ToListAsync();
         }

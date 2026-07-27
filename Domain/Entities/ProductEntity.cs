@@ -15,6 +15,5 @@ namespace Domain.Entities
         public bool IsService { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-        public List<StockItemEntity> StockItems { get; set; } = [];
     }
 }

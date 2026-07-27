@@ -14,8 +14,5 @@ namespace Domain.Entities
 
         public Guid WarehouseId { get; set; }
         public WarehouseRoomEntity? Warehouse { get; set;}
-
-        public List<StockItemEntity> StockItems { get; set; } = [];
-
     }
 }

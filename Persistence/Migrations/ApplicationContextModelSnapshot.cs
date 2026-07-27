@@ -171,9 +171,6 @@ namespace Persistence.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("numeric(18,2)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("integer");
-
                     b.Property<int>("UnitMeasurement")
                         .HasColumnType("integer");
 
@@ -333,7 +330,7 @@ namespace Persistence.Migrations
 
                     b.HasIndex("WarehouseId");
 
-                    b.ToTable("StockItems");
+                    b.ToTable("StockItems", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.StorageZoneEntity", b =>
@@ -625,21 +622,24 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Entities.StockItemEntity", b =>
                 {
                     b.HasOne("Domain.Entities.MaterialEntity", "Material")
-                        .WithMany("StockItems")
-                        .HasForeignKey("MaterialId");
+                        .WithMany()
+                        .HasForeignKey("MaterialId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Domain.Entities.ProductEntity", "Product")
-                        .WithMany("StockItems")
-                        .HasForeignKey("ProductId");
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Domain.Entities.StorageZoneEntity", "StorageZone")
-                        .WithMany("StockItems")
-                        .HasForeignKey("StorageZoneId");
+                        .WithMany()
+                        .HasForeignKey("StorageZoneId")
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("Domain.Entities.WarehouseRoomEntity", "Warehouse")
                         .WithMany()
                         .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Material");
@@ -749,24 +749,12 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.MaterialEntity", b =>
                 {
-                    b.Navigation("StockItems");
-
                     b.Navigation("SupplierMaterials");
                 });
 
             modelBuilder.Entity("Domain.Entities.OrderEntity", b =>
                 {
                     b.Navigation("OrderItems");
-                });
-
-            modelBuilder.Entity("Domain.Entities.ProductEntity", b =>
-                {
-                    b.Navigation("StockItems");
-                });
-
-            modelBuilder.Entity("Domain.Entities.StorageZoneEntity", b =>
-                {
-                    b.Navigation("StockItems");
                 });
 
             modelBuilder.Entity("Domain.Entities.SupplierEntity", b =>

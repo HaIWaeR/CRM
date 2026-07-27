@@ -20,9 +20,6 @@ namespace Application.Validators.Material
                 .MaximumLength(20).WithMessage("Максимум 20 символов")
                 .When(x => !string.IsNullOrEmpty(x.CategoryCode));
 
-            RuleFor(x => x.Quantity)
-                .GreaterThanOrEqualTo(0).WithMessage("Количество не может быть отрицательным");
-
             RuleFor(x => x.PriceUnit)
                 .GreaterThanOrEqualTo(0).WithMessage("Цена не может быть отрицательной");
 

@@ -7,6 +7,7 @@ namespace Persistence.Repositories
 {
     public class ProductRepository(ApplicationContext context) : IProductRepository
     {
+        // CRUD
         public async Task AddAsync(ProductEntity product)
         {
             await context.Products.AddAsync(product);
@@ -36,6 +37,7 @@ namespace Persistence.Repositories
             await context.SaveChangesAsync();
         }
 
+        // Дополнительные методы 
         public async Task<bool> ExistsAsync(Guid id)
         {
             return await context.Products.AnyAsync(x => x.Id == id);
@@ -47,6 +49,7 @@ namespace Persistence.Repositories
                 .FirstOrDefaultAsync(x => x.Article != null && x.Article == article);
         }
 
+        // Фильтрация
         public async Task<List<ProductEntity>> GetFilteredAsync(
             string? searchTerm = null,
             string? category = null,
@@ -68,33 +71,24 @@ namespace Persistence.Repositories
             }
 
             if (!string.IsNullOrWhiteSpace(category))
-            {
                 query = query.Where(x => x.Category == category);
-            }
 
             if (isActive.HasValue)
-            {
                 query = query.Where(x => x.IsActive == isActive.Value);
-            }
 
             if (isService.HasValue)
-            {
                 query = query.Where(x => x.IsService == isService.Value);
-            }
 
             if (minPrice.HasValue)
-            {
                 query = query.Where(x => x.Price >= minPrice.Value);
-            }
 
             if (maxPrice.HasValue)
-            {
                 query = query.Where(x => x.Price <= maxPrice.Value);
-            }
 
             return await query.ToListAsync();
         }
 
+        // Проверка связе
         public async Task<bool> HasStockItemsAsync(Guid productId)
         {
             return await context.StockItems.AnyAsync(x => x.ProductId == productId);

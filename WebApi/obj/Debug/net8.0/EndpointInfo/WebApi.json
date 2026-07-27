@@ -1596,17 +1596,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStockItemCommand"
+                "$ref": "#/components/schemas/StockItemToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStockItemCommand"
+                "$ref": "#/components/schemas/StockItemToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateStockItemCommand"
+                "$ref": "#/components/schemas/StockItemToCreateOrUpdateDto"
               }
             }
           }
@@ -1640,6 +1640,56 @@
       "get": {
         "tags": [
           "StockItems"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "materialId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "warehouseId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "storageZoneId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "minQuantity",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "maxQuantity",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1732,17 +1782,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStockItemCommand"
+                "$ref": "#/components/schemas/StockItemToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStockItemCommand"
+                "$ref": "#/components/schemas/StockItemToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateStockItemCommand"
+                "$ref": "#/components/schemas/StockItemToCreateOrUpdateDto"
               }
             }
           }
@@ -1785,6 +1835,124 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/StockItems/{id}/add": {
+      "patch": {
+        "tags": [
+          "StockItems"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveAndAddStockQuantityDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveAndAddStockQuantityDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveAndAddStockQuantityDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/StockItems/{id}/remove": {
+      "patch": {
+        "tags": [
+          "StockItems"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveAndAddStockQuantityDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveAndAddStockQuantityDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemoveAndAddStockQuantityDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3336,35 +3504,6 @@
         },
         "additionalProperties": false
       },
-      "CreateStockItemCommand": {
-        "type": "object",
-        "properties": {
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "warehouseId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "storageZoneId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "productId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "materialId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateStorageZoneCommand": {
         "type": "object",
         "properties": {
@@ -3584,10 +3723,6 @@
             "type": "string",
             "nullable": true
           },
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
           "priceUnit": {
             "type": "number",
             "format": "double"
@@ -3636,10 +3771,6 @@
           "categoryCode": {
             "type": "string",
             "nullable": true
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
           },
           "priceUnit": {
             "type": "number",
@@ -3880,6 +4011,16 @@
         },
         "additionalProperties": false
       },
+      "RemoveAndAddStockQuantityDto": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "StockItemDto": {
         "type": "object",
         "properties": {
@@ -3894,6 +4035,51 @@
           "lastUpdate": {
             "type": "string",
             "format": "date-time"
+          },
+          "warehouseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "warehouseName": {
+            "type": "string",
+            "nullable": true
+          },
+          "storageZoneId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "storageZoneName": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
+          "materialId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "materialName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StockItemToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
           },
           "warehouseId": {
             "type": "string",
@@ -4137,39 +4323,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "UpdateStockItemCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "warehouseId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "storageZoneId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "productId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "materialId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "UpdateStorageZoneCommand": {
         "type": "object",
