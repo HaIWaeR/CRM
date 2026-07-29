@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Enums;
 
 namespace Domain.Entities
 {
@@ -10,12 +11,15 @@ namespace Domain.Entities
         public string? Inn { get; set; }
         public string? Kpp { get; set; }
         public string? Address { get; set; }
+        public string? ContactPerson { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Website { get; set; }
-        public string? BankDetails { get; set; }
+        public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
         public bool IsActive { get; set; }
+        public int? Rating { get; set; }
+        public SupplierType SupplierType { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 

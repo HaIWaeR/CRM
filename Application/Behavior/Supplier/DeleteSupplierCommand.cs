@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using MediatR;
 
 namespace Application.Behavior.Supplier
 {
@@ -12,6 +12,12 @@ namespace Application.Behavior.Supplier
     {
         public async Task<bool> Handle(DeleteSupplierCommand command, CancellationToken cancellationToken)
         {
+            if (!await repository.ExistsAsync(command.Id))
+                throw new KeyNotFoundException($"Поставщик с ID {command.Id} не найден");
+
+            if (await repository.HasSupplierMaterialsAsync(command.Id))
+                throw new InvalidOperationException("Нельзя удалить поставщика, так как у него есть привязанные материалы!");
+
             await repository.DeleteAsync(command.Id);
             return true;
         }

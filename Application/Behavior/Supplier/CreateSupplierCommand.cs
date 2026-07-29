@@ -1,6 +1,9 @@
-﻿using MediatR;
-using Domain.Entities;
+﻿using Application.Helpers;
 using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Domain.Enums;
+using Mapster;
+using MediatR;
 
 namespace Application.Behavior.Supplier
 {
@@ -10,32 +13,31 @@ namespace Application.Behavior.Supplier
         public string? Inn { get; set; }
         public string? Kpp { get; set; }
         public string? Address { get; set; }
+        public string? ContactPerson { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Website { get; set; }
-        public string? BankDetails { get; set; }
+        public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
-        public bool IsActive { get; set; }
+        public int? Rating { get; set; }
+        public SupplierType SupplierType { get; set; }
     }
+
     public class CreateSupplierCommandHandler(ISupplierRepository repository) : IRequestHandler<CreateSupplierCommand, Guid>
     {
         public async Task<Guid> Handle(CreateSupplierCommand command, CancellationToken cancellationToken)
         {
-            SupplierEntity supplier = new SupplierEntity
+            if (!string.IsNullOrWhiteSpace(command.Inn))
             {
-                Id = Guid.NewGuid(),
-                Name = command.Name,
-                Inn = command.Inn,
-                Kpp = command.Kpp,
-                Address = command.Address,
-                Phone = command.Phone,
-                Email = command.Email,
-                Website = command.Website,
-                BankDetails = command.BankDetails,
-                Description = command.Description,
-                IsActive = command.IsActive,
-                CreatedAt = DateTime.UtcNow
-            };
+                if (!await repository.IsInnUniqueAsync(command.Inn))
+                    throw new InvalidOperationException($"Поставщик с ИНН '{command.Inn}' уже существует");
+            }
+
+            SupplierEntity supplier = command.Adapt<SupplierEntity>();
+            supplier.Id = Guid.NewGuid();
+            supplier.CreatedAt = DateTime.UtcNow;
+            supplier.IsActive = true;
+            supplier.Phone = PhoneHelper.FormatPhone(command.Phone);
 
             await repository.AddAsync(supplier);
             return supplier.Id;

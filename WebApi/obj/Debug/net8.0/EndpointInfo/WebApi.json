@@ -2586,17 +2586,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSupplierCommand"
+                "$ref": "#/components/schemas/SupplierToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSupplierCommand"
+                "$ref": "#/components/schemas/SupplierToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSupplierCommand"
+                "$ref": "#/components/schemas/SupplierToCreateOrUpdateDto"
               }
             }
           }
@@ -2630,6 +2630,45 @@
       "get": {
         "tags": [
           "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "supplierType",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/SupplierType"
+            }
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "minRating",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "maxRating",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2722,17 +2761,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSupplierCommand"
+                "$ref": "#/components/schemas/SupplierToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSupplierCommand"
+                "$ref": "#/components/schemas/SupplierToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSupplierCommand"
+                "$ref": "#/components/schemas/SupplierToCreateOrUpdateDto"
               }
             }
           }
@@ -2775,6 +2814,65 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Suppliers/{id}/status": {
+      "patch": {
+        "tags": [
+          "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3743,51 +3841,6 @@
         },
         "additionalProperties": false
       },
-      "CreateSupplierCommand": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "inn": {
-            "type": "string",
-            "nullable": true
-          },
-          "kpp": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "phone": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "website": {
-            "type": "string",
-            "nullable": true
-          },
-          "bankDetails": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateSupplierMaterialCommand": {
         "type": "object",
         "properties": {
@@ -4414,6 +4467,10 @@
             "type": "string",
             "nullable": true
           },
+          "contactPerson": {
+            "type": "string",
+            "nullable": true
+          },
           "phone": {
             "type": "string",
             "nullable": true
@@ -4427,7 +4484,10 @@
             "nullable": true
           },
           "bankDetails": {
-            "type": "string",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
             "nullable": true
           },
           "description": {
@@ -4436,6 +4496,14 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "supplierType": {
+            "$ref": "#/components/schemas/SupplierType"
           },
           "createdAt": {
             "type": "string",
@@ -4489,6 +4557,74 @@
           }
         },
         "additionalProperties": false
+      },
+      "SupplierToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "inn": {
+            "type": "string",
+            "nullable": true
+          },
+          "kpp": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPerson": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "type": "string",
+            "nullable": true
+          },
+          "bankDetails": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "supplierType": {
+            "$ref": "#/components/schemas/SupplierType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupplierType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "TaskDto": {
         "type": "object",
@@ -4563,55 +4699,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "UpdateSupplierCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "inn": {
-            "type": "string",
-            "nullable": true
-          },
-          "kpp": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "phone": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "website": {
-            "type": "string",
-            "nullable": true
-          },
-          "bankDetails": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
       },
       "UpdateSupplierMaterialCommand": {
         "type": "object",

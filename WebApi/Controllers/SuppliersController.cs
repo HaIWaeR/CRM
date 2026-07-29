@@ -1,9 +1,9 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using WebApi.DTO.Supplier;
-using Application.Behavior.Supplier;
-using Domain.Entities;
+﻿using Application.Behavior.Supplier;
+using Domain.Enums;
 using Mapster;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Shared.DTOs.Supplier;
 
 namespace WebApi.Controllers
 {
@@ -12,37 +12,60 @@ namespace WebApi.Controllers
     public class SuppliersController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
-        public async Task<Guid> CreateSupplierAsync([FromBody] CreateSupplierCommand command)
+        public async Task<Guid> CreateSupplierAsync([FromBody] SupplierToCreateOrUpdateDto dto)
         {
+            CreateSupplierCommand command = dto.Adapt<CreateSupplierCommand>();
             return await mediator.Send(command);
         }
 
         [HttpGet]
-        public async Task<List<SupplierDto>> GetAllSuppliersAsync()
+        public async Task<List<SupplierDto>> GetAllSuppliersAsync(
+            [FromQuery] string? searchTerm = null,
+            [FromQuery] SupplierType? supplierType = null,
+            [FromQuery] bool? isActive = null,
+            [FromQuery] int? minRating = null,
+            [FromQuery] int? maxRating = null)
         {
-            List<SupplierEntity> suppliers = await mediator.Send(new GetAllSuppliersQuery());
-            return suppliers.Adapt<List<SupplierDto>>();
+            GetAllSuppliersQuery query = new GetAllSuppliersQuery
+            {
+                SearchTerm = searchTerm,
+                SupplierType = supplierType,
+                IsActive = isActive,
+                MinRating = minRating,
+                MaxRating = maxRating
+            };
+
+            return await mediator.Send(query);
         }
 
         [HttpGet("{id}")]
-        public async Task<SupplierDto?> GetSupplierByIdAsync(Guid id)
+        public async Task<SupplierDto> GetSupplierByIdAsync(Guid id)
         {
-            SupplierEntity? supplier = await mediator.Send(new GetSupplierByIdQuery { Id = id });
-            return supplier.Adapt<SupplierDto>();
+            return await mediator.Send(new GetSupplierByIdQuery { Id = id });
         }
 
         [HttpPut("{id}")]
-        public async Task<SupplierDto?> UpdateSupplierAsync(Guid id, [FromBody] UpdateSupplierCommand command)
+        public async Task<SupplierDto> UpdateSupplierAsync(Guid id, [FromBody] SupplierToCreateOrUpdateDto dto)
         {
+            UpdateSupplierCommand command = dto.Adapt<UpdateSupplierCommand>();
             command.Id = id;
-            SupplierEntity? update = await mediator.Send(command);
-            return update.Adapt<SupplierDto>();
+            return await mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task<bool> DeleteSupplierAsync(Guid id)
         {
             return await mediator.Send(new DeleteSupplierCommand { Id = id });
+        }
+
+        [HttpPatch("{id}/status")]
+        public async Task<bool> ChangeSupplierStatusAsync(Guid id, [FromBody] bool isActive)
+        {
+            return await mediator.Send(new ChangeSupplierStatusCommand
+            {
+                Id = id,
+                IsActive = isActive
+            });
         }
     }
 }

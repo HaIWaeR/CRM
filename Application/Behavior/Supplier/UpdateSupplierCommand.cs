@@ -1,43 +1,51 @@
-﻿using MediatR;
-using Domain.Entities;
+﻿using Application.Helpers;
 using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Mapster;
+using MediatR;
+using Shared.DTOs.Supplier;
 
 namespace Application.Behavior.Supplier
 {
-    public class UpdateSupplierCommand : IRequest<SupplierEntity?>
+    public class UpdateSupplierCommand : IRequest<SupplierDto>
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? Inn { get; set; }
         public string? Kpp { get; set; }
         public string? Address { get; set; }
+        public string? ContactPerson { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Website { get; set; }
-        public string? BankDetails { get; set; }
+        public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
-        public bool IsActive { get; set; }
+        public int? Rating { get; set; }
+        public Domain.Enums.SupplierType SupplierType { get; set; }
     }
 
-    public class UpdateSupplierCommandHandler(ISupplierRepository repository) : IRequestHandler<UpdateSupplierCommand, SupplierEntity?>
+    public class UpdateSupplierCommandHandler(ISupplierRepository repository) : IRequestHandler<UpdateSupplierCommand, SupplierDto>
     {
-        public async Task<SupplierEntity?> Handle(UpdateSupplierCommand command, CancellationToken cancellationToken)
+        public async Task<SupplierDto> Handle(UpdateSupplierCommand command, CancellationToken cancellationToken)
         {
-            SupplierEntity? supplier = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Поставщик с ID {command.Id} не найден");
-            supplier.Name = command.Name;
-            supplier.Inn = command.Inn;
-            supplier.Kpp = command.Kpp;
-            supplier.Address = command.Address;
-            supplier.Phone = command.Phone;
-            supplier.Email = command.Email;
-            supplier.Website = command.Website;
-            supplier.BankDetails = command.BankDetails;
-            supplier.Description = command.Description;
-            supplier.IsActive = command.IsActive;
-            supplier.UpdatedAt = DateTime.UtcNow;
-            await repository.UpdateAsync(supplier);
+            SupplierEntity? existing = await repository.GetByIdAsync(command.Id)
+                ?? throw new KeyNotFoundException($"Поставщик с ID {command.Id} не найден");
 
-            return supplier;
+            if (!string.IsNullOrWhiteSpace(command.Inn))
+            {
+                bool isUnique = await repository.IsInnUniqueAsync(command.Inn, command.Id);
+                if (!isUnique)
+                    throw new InvalidOperationException($"Поставщик с ИНН '{command.Inn}' уже существует");
+            }
+
+            command.Adapt(existing);
+            existing.UpdatedAt = DateTime.UtcNow;
+            existing.Phone = PhoneHelper.FormatPhone(command.Phone);
+
+            await repository.UpdateAsync(existing);
+
+            SupplierDto result = existing.Adapt<SupplierDto>();
+            return result;
         }
     }
 }

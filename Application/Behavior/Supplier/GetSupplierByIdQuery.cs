@@ -1,21 +1,25 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.Supplier;
 
 namespace Application.Behavior.Supplier
 {
-    public class GetSupplierByIdQuery : IRequest<SupplierEntity?>
+    public class GetSupplierByIdQuery : IRequest<SupplierDto>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetSupplierByIdQueryHandler(ISupplierRepository repository) : IRequestHandler<GetSupplierByIdQuery, SupplierEntity?>
+    public class GetSupplierByIdQueryHandler(ISupplierRepository repository) : IRequestHandler<GetSupplierByIdQuery, SupplierDto>
     {
-        public async Task<SupplierEntity?> Handle(GetSupplierByIdQuery query, CancellationToken cancellationToken)
+        public async Task<SupplierDto> Handle(GetSupplierByIdQuery query, CancellationToken cancellationToken)
         {
-            SupplierEntity? supplier = await repository.GetByIdAsync(query.Id) ?? throw new Exception($"Поставщик с ID {query.Id} не найден");
+            SupplierEntity? supplier = await repository.GetByIdAsync(query.Id)
+                ?? throw new KeyNotFoundException($"Поставщик с ID {query.Id} не найден");
 
-            return supplier;
+            SupplierDto result = supplier.Adapt<SupplierDto>();
+            return result;
         }
     }
 }
