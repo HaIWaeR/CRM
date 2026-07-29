@@ -1,15 +1,15 @@
-﻿using Domain.Entities;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
 {
     public class WarehouseRoomRepository(ApplicationContext context) : IWarehouseRoomRepository
     {
+        // CRUD
         public async Task AddAsync(WarehouseRoomEntity warehouse)
         {
-            warehouse.Id = Guid.NewGuid();
-            warehouse.CreatedAt = DateTime.UtcNow;
             await context.Warehouses.AddAsync(warehouse);
             await context.SaveChangesAsync();
         }
@@ -36,6 +36,50 @@ namespace Persistence.Repositories
         {
             context.Warehouses.Remove(new WarehouseRoomEntity { Id = id });
             await context.SaveChangesAsync();
+        }
+
+        // Дополнительные методы
+        public async Task<bool> ExistsAsync(Guid id)
+        {
+            return await context.Warehouses.AnyAsync(x => x.Id == id);
+        }
+
+        // Фильтрация
+        public async Task<List<WarehouseRoomEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            Guid? branchId = null,
+            WarehouseStatus? status = null)
+        {
+            IQueryable<WarehouseRoomEntity> query = context.Warehouses.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    x.Address.ToLower().Contains(search) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (branchId.HasValue)
+                query = query.Where(x => x.BranchId == branchId.Value);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            return await query.ToListAsync();
+        }
+
+        // Проверка связей
+        public async Task<bool> HasStorageZonesAsync(Guid warehouseId)
+        {
+            return await context.Storages.AnyAsync(x => x.WarehouseId == warehouseId);
+        }
+
+        public async Task<bool> HasStockItemsAsync(Guid warehouseId)
+        {
+            return await context.StockItems.AnyAsync(x => x.WarehouseId == warehouseId);
         }
     }
 }

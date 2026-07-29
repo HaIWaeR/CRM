@@ -150,12 +150,13 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Address = table.Column<string>(type: "text", nullable: false),
-                    IsActive = table.Column<bool>(type: "boolean", nullable: false),
-                    ContactPerson = table.Column<string>(type: "text", nullable: true),
-                    ContactPhone = table.Column<string>(type: "text", nullable: true),
-                    Description = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Address = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
+                    ContactPerson = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    ContactPhone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    ContactEmail = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: true),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     BranchId = table.Column<Guid>(type: "uuid", nullable: true)
@@ -262,23 +263,26 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Storages",
+                name: "StorageZones",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "text", nullable: false),
-                    Code = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Code = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     ZoneType = table.Column<int>(type: "integer", nullable: false),
+                    Status = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
                     MaxCapacity = table.Column<int>(type: "integer", nullable: true),
+                    Description = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    IsDefault = table.Column<bool>(type: "boolean", nullable: false, defaultValue: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     WarehouseId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Storages", x => x.Id);
+                    table.PrimaryKey("PK_StorageZones", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Storages_Warehouses_WarehouseId",
+                        name: "FK_StorageZones_Warehouses_WarehouseId",
                         column: x => x.WarehouseId,
                         principalTable: "Warehouses",
                         principalColumn: "Id",
@@ -324,19 +328,11 @@ namespace Persistence.Migrations
                     WarehouseId = table.Column<Guid>(type: "uuid", nullable: false),
                     StorageZoneId = table.Column<Guid>(type: "uuid", nullable: true),
                     ProductId = table.Column<Guid>(type: "uuid", nullable: true),
-                    MaterialId = table.Column<Guid>(type: "uuid", nullable: true),
-                    MaterialEntityId = table.Column<Guid>(type: "uuid", nullable: true),
-                    ProductEntityId = table.Column<Guid>(type: "uuid", nullable: true),
-                    StorageZoneEntityId = table.Column<Guid>(type: "uuid", nullable: true)
+                    MaterialId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_StockItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_StockItems_Materials_MaterialEntityId",
-                        column: x => x.MaterialEntityId,
-                        principalTable: "Materials",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_StockItems_Materials_MaterialId",
                         column: x => x.MaterialId,
@@ -344,25 +340,15 @@ namespace Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_StockItems_Products_ProductEntityId",
-                        column: x => x.ProductEntityId,
-                        principalTable: "Products",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_StockItems_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_StockItems_Storages_StorageZoneEntityId",
-                        column: x => x.StorageZoneEntityId,
-                        principalTable: "Storages",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_StockItems_Storages_StorageZoneId",
+                        name: "FK_StockItems_StorageZones_StorageZoneId",
                         column: x => x.StorageZoneId,
-                        principalTable: "Storages",
+                        principalTable: "StorageZones",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
@@ -394,29 +380,14 @@ namespace Persistence.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StockItems_MaterialEntityId",
-                table: "StockItems",
-                column: "MaterialEntityId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_StockItems_MaterialId",
                 table: "StockItems",
                 column: "MaterialId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StockItems_ProductEntityId",
-                table: "StockItems",
-                column: "ProductEntityId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_StockItems_ProductId",
                 table: "StockItems",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_StockItems_StorageZoneEntityId",
-                table: "StockItems",
-                column: "StorageZoneEntityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StockItems_StorageZoneId",
@@ -429,8 +400,8 @@ namespace Persistence.Migrations
                 column: "WarehouseId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Storages_WarehouseId",
-                table: "Storages",
+                name: "IX_StorageZones_WarehouseId",
+                table: "StorageZones",
                 column: "WarehouseId");
 
             migrationBuilder.CreateIndex(
@@ -486,7 +457,7 @@ namespace Persistence.Migrations
                 name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Storages");
+                name: "StorageZones");
 
             migrationBuilder.DropTable(
                 name: "Materials");

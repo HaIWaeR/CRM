@@ -3252,17 +3252,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateWarehouseRoomCommand"
+                "$ref": "#/components/schemas/WarehouseRoomToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateWarehouseRoomCommand"
+                "$ref": "#/components/schemas/WarehouseRoomToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateWarehouseRoomCommand"
+                "$ref": "#/components/schemas/WarehouseRoomToCreateOrUpdateDto"
               }
             }
           }
@@ -3296,6 +3296,30 @@
       "get": {
         "tags": [
           "WarehouseRooms"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "branchId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/WarehouseStatus"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -3388,17 +3412,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateWarehouseRoomCommand"
+                "$ref": "#/components/schemas/WarehouseRoomToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateWarehouseRoomCommand"
+                "$ref": "#/components/schemas/WarehouseRoomToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateWarehouseRoomCommand"
+                "$ref": "#/components/schemas/WarehouseRoomToCreateOrUpdateDto"
               }
             }
           }
@@ -3441,6 +3465,65 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WarehouseRooms/{id}/status": {
+      "patch": {
+        "tags": [
+          "WarehouseRooms"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WarehouseStatus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WarehouseStatus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WarehouseStatus"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3778,40 +3861,6 @@
             "nullable": true
           },
           "passwordHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "branchId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateWarehouseRoomCommand": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "contactPerson": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactPhone": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
             "type": "string",
             "nullable": true
           },
@@ -4660,44 +4709,6 @@
         },
         "additionalProperties": false
       },
-      "UpdateWarehouseRoomCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "address": {
-            "type": "string",
-            "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "contactPerson": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactPhone": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "branchId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "UserDto": {
         "type": "object",
         "properties": {
@@ -4760,14 +4771,66 @@
             "type": "string",
             "nullable": true
           },
-          "isActive": {
-            "type": "boolean"
+          "status": {
+            "$ref": "#/components/schemas/WarehouseStatus"
           },
           "contactPerson": {
             "type": "string",
             "nullable": true
           },
           "contactPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "branchId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "branchName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WarehouseRoomToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPerson": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactEmail": {
             "type": "string",
             "nullable": true
           },
@@ -4779,18 +4842,18 @@
             "type": "string",
             "format": "uuid",
             "nullable": true
-          },
-          "createdAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "updatedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "WarehouseStatus": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       }
     }
   }
