@@ -4,6 +4,7 @@
     {
         Admin = 1,
         Developer = 2,
-        Reader = 3
+        Reader = 3,
+        Owner = 4
     }
 }

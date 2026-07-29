@@ -38,6 +38,8 @@ namespace Persistence
             modelBuilder.ApplyConfiguration(new StorageZoneConfiguration());
             modelBuilder.ApplyConfiguration(new WarehouseRoomConfiguration());
             modelBuilder.ApplyConfiguration(new SupplierConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+
         }
     }
 }

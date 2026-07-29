@@ -3,12 +3,120 @@
   "WorkspaceRootPath": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\isuppliermaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\isuppliermaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729141538_AddUserEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Persistence\\Migrations\\20260729141538_AddUserEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application.unittests\\user\\updateusercommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|solutionrelative:application.unittests\\user\\updateusercommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application.unittests\\user\\createusercommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|solutionrelative:application.unittests\\user\\createusercommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\shared\\dtos\\user\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\user\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\shared\\dtos\\user\\usertocreateorupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\user\\usertocreateorupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\validators\\suppliermaterial\\updatesuppliermaterialcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\validators\\suppliermaterial\\updatesuppliermaterialcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\validators\\user\\createusercommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\validators\\user\\createusercommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\validators\\user\\updateusercommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\validators\\user\\updateusercommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application.unittests\\suppliermaterial\\createsuppliermaterialcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|solutionrelative:application.unittests\\suppliermaterial\\createsuppliermaterialcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\shared\\dtos\\suppliermaterial\\suppliermaterialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\suppliermaterial\\suppliermaterialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65EE2B27-658C-459A-BBC6-207E0F4D98F9}|WebApi\\WebApi.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65EE2B27-658C-459A-BBC6-207E0F4D98F9}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\user\\getuserbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\user\\getuserbyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\user\\getalluserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\user\\getalluserquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\user\\changeuserstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\user\\changeuserstatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\user\\deleteusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\user\\deleteusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\user\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\user\\updateusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\user\\createusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\user\\createusercommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\userentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\repositories\\warehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\repositories\\warehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\iwarehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iwarehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\entities\\warehouseroomentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\warehouseroomentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\entities\\supplierentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\supplierentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\entities\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\taskentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\isuppliermaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\isuppliermaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\repositories\\suppliermaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +131,8 @@
       "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\suppliermaterialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application.unittests\\suppliermaterial\\updatesuppliermaterialcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|solutionrelative:application.unittests\\suppliermaterial\\updatesuppliermaterialcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application.unittests\\suppliermaterial\\createsuppliermaterialcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|solutionrelative:application.unittests\\suppliermaterial\\createsuppliermaterialcommandvalidatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0738DD4D-A2EA-4034-8B26-42EBDFFCABE7}|Application.UnitTests\\Application.UnitTests.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application.unittests\\application.unittests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -41,14 +141,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\validators\\suppliermaterial\\createsuppliermaterialcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\validators\\suppliermaterial\\createsuppliermaterialcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\validators\\suppliermaterial\\updatesuppliermaterialcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\validators\\suppliermaterial\\updatesuppliermaterialcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\iwarehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\iwarehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{65EE2B27-658C-459A-BBC6-207E0F4D98F9}|WebApi\\WebApi.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\webapi\\controllers\\suppliermaterialscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,20 +171,12 @@
       "RelativeMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\suppliermaterial\\suppliermaterialtocreateorupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\shared\\dtos\\suppliermaterial\\suppliermaterialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\suppliermaterial\\suppliermaterialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\istoragezonerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\interfaces\\repositories\\istoragezonerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\configurations\\suppliermaterialconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\configurations\\suppliermaterialconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\entities\\supplierentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\supplierentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\interfaces\\repositories\\isupplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -207,10 +291,6 @@
       "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\repositories\\supplierrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\configurations\\supplierconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\configurations\\supplierconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -279,10 +359,6 @@
       "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\validators\\branch\\createbranchcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65EE2B27-658C-459A-BBC6-207E0F4D98F9}|WebApi\\WebApi.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65EE2B27-658C-459A-BBC6-207E0F4D98F9}|WebApi\\WebApi.csproj|solutionrelative:webapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\application\\behavior\\warehouseroom\\getallwarehousequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{65AC6644-0C72-46FD-9348-8B6FB2F21AC3}|Application\\Application.csproj|solutionrelative:application\\behavior\\warehouseroom\\getallwarehousequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -295,16 +371,8 @@
       "RelativeMoniker": "D:0:0:{034B843E-1412-4FE7-ACD1-336A9F0AF00A}|Shared\\Shared.csproj|solutionrelative:shared\\dtos\\warehouseroom\\warehouseroomtocreateorupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\repositories\\warehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\repositories\\warehouseroomrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\enums\\warehousestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\warehousestatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{057AA797-1579-470B-A230-BD3EDAD006F9}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\repositories\\storagezonerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -405,6 +473,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\repositories\\stockitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\repositories\\stockitemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|c:\\users\\argument\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\crm\\persistence\\migrations\\20260729122642_addsuppliermaterialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3A58BAB-58A7-47A3-BF3F-D35302E24414}|Persistence\\Persistence.csproj|solutionrelative:persistence\\migrations\\20260729122642_addsuppliermaterialentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -418,7 +490,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 45,
               "Title": "StorageZoneEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\StorageZoneEntity.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\StorageZoneEntity.cs",
@@ -431,7 +503,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 42,
               "Title": "IStorageZoneRepository.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IStorageZoneRepository.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IStorageZoneRepository.cs",
@@ -440,259 +512,141 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAAkwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T06:18:04.891Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ISupplierMaterialRepository.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
-              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
-              "RelativeToolTip": "Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA6wBwAAAABAAAAAAAAAA==",
+              "Title": "20260729141538_AddUserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729141538_AddUserEntity.cs",
+              "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729141538_AddUserEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729141538_AddUserEntity.cs",
+              "RelativeToolTip": "Persistence\\Migrations\\20260729141538_AddUserEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:15:13.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SupplierMaterialRepository.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\SupplierMaterialRepository.cs",
-              "RelativeDocumentMoniker": "Persistence\\Repositories\\SupplierMaterialRepository.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\SupplierMaterialRepository.cs",
-              "RelativeToolTip": "Persistence\\Repositories\\SupplierMaterialRepository.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAcwFwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:18:16.666Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WarehouseRoomEntity.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\WarehouseRoomEntity.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\WarehouseRoomEntity.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\WarehouseRoomEntity.cs",
-              "RelativeToolTip": "Domain\\Entities\\WarehouseRoomEntity.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAIwAUAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T18:51:48.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetAllSupplierMaterialQuery.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
-              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA2wCAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:22:51.579Z",
+              "WhenOpened": "2026-07-29T14:15:38.364Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "SupplierMaterialEntity.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierMaterialEntity.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\SupplierMaterialEntity.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierMaterialEntity.cs",
-              "RelativeToolTip": "Domain\\Entities\\SupplierMaterialEntity.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA0AAAAvAAAAAAAAAA==",
+              "Title": "UserToCreateOrUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\User\\UserToCreateOrUpdateDto.cs",
+              "RelativeDocumentMoniker": "Shared\\DTOs\\User\\UserToCreateOrUpdateDto.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\User\\UserToCreateOrUpdateDto.cs",
+              "RelativeToolTip": "Shared\\DTOs\\User\\UserToCreateOrUpdateDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T11:20:58.276Z",
+              "WhenOpened": "2026-07-29T13:29:54.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\User\\Class1.cs",
+              "RelativeDocumentMoniker": "Shared\\DTOs\\User\\Class1.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\User\\Class1.cs",
+              "RelativeToolTip": "Shared\\DTOs\\User\\Class1.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwBMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:29:44.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateUserCommandValidatorTests.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\User\\CreateUserCommandValidatorTests.cs",
+              "RelativeDocumentMoniker": "Application.UnitTests\\User\\CreateUserCommandValidatorTests.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\User\\CreateUserCommandValidatorTests.cs",
+              "RelativeToolTip": "Application.UnitTests\\User\\CreateUserCommandValidatorTests.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwFUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:36:39.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UpdateUserCommandValidatorTests.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\User\\UpdateUserCommandValidatorTests.cs",
+              "RelativeDocumentMoniker": "Application.UnitTests\\User\\UpdateUserCommandValidatorTests.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\User\\UpdateUserCommandValidatorTests.cs",
+              "RelativeToolTip": "Application.UnitTests\\User\\UpdateUserCommandValidatorTests.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAswDUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:36:48.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "20260729122642_AddSupplierMaterialEntity.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
-              "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
-              "RelativeToolTip": "Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "UserRole.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\UserRole.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\UserRole.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\UserRole.cs",
+              "RelativeToolTip": "Domain\\Enums\\UserRole.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:26:42.293Z",
+              "WhenOpened": "2026-07-27T18:53:45.057Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UpdateSupplierMaterialCommandValidatorTests.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
-              "RelativeDocumentMoniker": "Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
-              "RelativeToolTip": "Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAA3wIgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:26:05.995Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CreateSupplierMaterialCommandValidatorTests.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
-              "RelativeDocumentMoniker": "Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
-              "RelativeToolTip": "Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAcwIgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:25:54.357Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CreateSupplierMaterialCommandValidator.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
-              "RelativeDocumentMoniker": "Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
-              "RelativeToolTip": "Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAcwBwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:25:15.301Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "UpdateSupplierMaterialCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\SupplierMaterial\\UpdateSupplierMaterialCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\SupplierMaterial\\UpdateSupplierMaterialCommandValidator.cs",
               "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\SupplierMaterial\\UpdateSupplierMaterialCommandValidator.cs",
               "RelativeToolTip": "Application\\Validators\\SupplierMaterial\\UpdateSupplierMaterialCommandValidator.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-29T12:24:40.716Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateUserCommandValidator.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\User\\CreateUserCommandValidator.cs",
+              "RelativeDocumentMoniker": "Application\\Validators\\User\\CreateUserCommandValidator.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\User\\CreateUserCommandValidator.cs",
+              "RelativeToolTip": "Application\\Validators\\User\\CreateUserCommandValidator.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA0wCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:34:50.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Application.UnitTests.csproj",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\Application.UnitTests.csproj",
-              "RelativeDocumentMoniker": "Application.UnitTests\\Application.UnitTests.csproj",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\Application.UnitTests.csproj",
-              "RelativeToolTip": "Application.UnitTests\\Application.UnitTests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-27T07:30:07.248Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "SupplierMaterialsController.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SupplierMaterialsController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\SupplierMaterialsController.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SupplierMaterialsController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\SupplierMaterialsController.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAiwDsAAAABAAAAAAAAAA==",
+              "Title": "UpdateUserCommandValidator.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\User\\UpdateUserCommandValidator.cs",
+              "RelativeDocumentMoniker": "Application\\Validators\\User\\UpdateUserCommandValidator.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\User\\UpdateUserCommandValidator.cs",
+              "RelativeToolTip": "Application\\Validators\\User\\UpdateUserCommandValidator.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwCYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:24:01.826Z",
+              "WhenOpened": "2026-07-29T13:34:43.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SuppliersController.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SuppliersController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\SuppliersController.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SuppliersController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\SuppliersController.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAowBMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "CreateSupplierMaterialCommandValidatorTests.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
+              "RelativeDocumentMoniker": "Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
+              "RelativeToolTip": "Application.UnitTests\\SupplierMaterial\\CreateSupplierMaterialCommandValidatorTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T11:34:17.613Z",
+              "WhenOpened": "2026-07-29T12:25:54.357Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "IWarehouseRoomRepository.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
-              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
-              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAgwBAAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T18:59:38.353Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DeleteSupplierMaterialCommand.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
-              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAcwBUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:22:45.941Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CreateSupplierMaterialCommand.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
-              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBwAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:22:07.747Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "GetSupplierMaterialByIdQuery.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
-              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:23:01.148Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "UpdateSupplierMaterialCommand.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
-              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAswCIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:22:16.618Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "SupplierMaterialToCreateOrUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
-              "RelativeDocumentMoniker": "Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
-              "RelativeToolTip": "Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:19:49.666Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 10,
               "Title": "SupplierMaterialDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\SupplierMaterial\\SupplierMaterialDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\SupplierMaterial\\SupplierMaterialDto.cs",
@@ -705,15 +659,158 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "SupplierMaterialConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
-              "RelativeDocumentMoniker": "Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
-              "RelativeToolTip": "Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAcwBMAAAABAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "ApplicationContext.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\ApplicationContext.cs",
+              "RelativeDocumentMoniker": "Persistence\\ApplicationContext.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\ApplicationContext.cs",
+              "RelativeToolTip": "Persistence\\ApplicationContext.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAuwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T12:14:26.914Z",
+              "WhenOpened": "2026-07-27T18:58:17.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetUserByIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\GetUserByIdQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\User\\GetUserByIdQuery.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\GetUserByIdQuery.cs",
+              "RelativeToolTip": "Application\\Behavior\\User\\GetUserByIdQuery.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:33:05.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GetAllUserQuery.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\GetAllUserQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\User\\GetAllUserQuery.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\GetAllUserQuery.cs",
+              "RelativeToolTip": "Application\\Behavior\\User\\GetAllUserQuery.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA2wB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:33:00.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T19:10:15.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ChangeUserStatusCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\ChangeUserStatusCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\User\\ChangeUserStatusCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\ChangeUserStatusCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\User\\ChangeUserStatusCommand.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA2wBoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:32:53.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DeleteUserCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\DeleteUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\User\\DeleteUserCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\DeleteUserCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\User\\DeleteUserCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwBUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:32:42.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UpdateUserCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\UpdateUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\User\\UpdateUserCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\UpdateUserCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\User\\UpdateUserCommand.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAcwDMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:32:16.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "CreateUserCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\CreateUserCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\User\\CreateUserCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\User\\CreateUserCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\User\\CreateUserCommand.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAcwC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:30:08.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Persistence\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Persistence\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAIwGoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:28:43.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:26:33.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\UserEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\UserEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\UserEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\UserEntity.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:00:49.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "Persistence\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "Persistence\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T13:25:45.85Z",
               "EditorCaption": ""
             },
             {
@@ -722,7 +819,265 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "WarehouseRoomRepository.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\WarehouseRoomRepository.cs",
+              "RelativeDocumentMoniker": "Persistence\\Repositories\\WarehouseRoomRepository.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\WarehouseRoomRepository.cs",
+              "RelativeToolTip": "Persistence\\Repositories\\WarehouseRoomRepository.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAwwE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T06:53:33.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 26,
+              "Title": "SupplierEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\SupplierEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\SupplierEntity.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T11:13:10.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "TaskEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\TaskEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\TaskEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\TaskEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\TaskEntity.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:50:34.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IWarehouseRoomRepository.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Repositories\\IWarehouseRoomRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwBAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T18:59:38.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ISupplierMaterialRepository.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Repositories\\ISupplierMaterialRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwBgAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:15:13.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "WarehouseRoomEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\WarehouseRoomEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\WarehouseRoomEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\WarehouseRoomEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\WarehouseRoomEntity.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwAUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T18:51:48.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SupplierMaterialRepository.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\SupplierMaterialRepository.cs",
+              "RelativeDocumentMoniker": "Persistence\\Repositories\\SupplierMaterialRepository.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\SupplierMaterialRepository.cs",
+              "RelativeToolTip": "Persistence\\Repositories\\SupplierMaterialRepository.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAcwFwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:18:16.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "GetAllSupplierMaterialQuery.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
+              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\GetAllSupplierMaterialQuery.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA2wCAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:22:51.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "SupplierMaterialEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierMaterialEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\SupplierMaterialEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierMaterialEntity.cs",
+              "RelativeToolTip": "Domain\\Entities\\SupplierMaterialEntity.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T11:20:58.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 118,
+              "Title": "20260729122642_AddSupplierMaterialEntity.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
+              "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
+              "RelativeToolTip": "Persistence\\Migrations\\20260729122642_AddSupplierMaterialEntity.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:26:42.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "UpdateSupplierMaterialCommandValidatorTests.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
+              "RelativeDocumentMoniker": "Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
+              "RelativeToolTip": "Application.UnitTests\\SupplierMaterial\\UpdateSupplierMaterialCommandValidatorTests.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA3wIgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:26:05.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CreateSupplierMaterialCommandValidator.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
+              "RelativeDocumentMoniker": "Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
+              "RelativeToolTip": "Application\\Validators\\SupplierMaterial\\CreateSupplierMaterialCommandValidator.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:25:15.301Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Application.UnitTests.csproj",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\Application.UnitTests.csproj",
+              "RelativeDocumentMoniker": "Application.UnitTests\\Application.UnitTests.csproj",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\Application.UnitTests.csproj",
+              "RelativeToolTip": "Application.UnitTests\\Application.UnitTests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-27T07:30:07.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "SupplierMaterialsController.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SupplierMaterialsController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\SupplierMaterialsController.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SupplierMaterialsController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\SupplierMaterialsController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAiwDsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:24:01.826Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "SuppliersController.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SuppliersController.cs",
+              "RelativeDocumentMoniker": "WebApi\\Controllers\\SuppliersController.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\SuppliersController.cs",
+              "RelativeToolTip": "WebApi\\Controllers\\SuppliersController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T11:34:17.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "DeleteSupplierMaterialCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\DeleteSupplierMaterialCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwBUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:22:45.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CreateSupplierMaterialCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\CreateSupplierMaterialCommand.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:22:07.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "GetSupplierMaterialByIdQuery.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
+              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\GetSupplierMaterialByIdQuery.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:23:01.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "UpdateSupplierMaterialCommand.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
+              "RelativeToolTip": "Application\\Behavior\\SupplierMaterial\\UpdateSupplierMaterialCommand.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAswCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:22:16.618Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "SupplierMaterialToCreateOrUpdateDto.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
+              "RelativeDocumentMoniker": "Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
+              "RelativeToolTip": "Shared\\DTOs\\SupplierMaterial\\SupplierMaterialToCreateOrUpdateDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:19:49.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "SupplierMaterialConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
+              "RelativeDocumentMoniker": "Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
+              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
+              "RelativeToolTip": "Persistence\\Configurations\\SupplierMaterialConfiguration.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwBMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T12:14:26.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
               "Title": "20260729102253_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729102253_InitialCreate.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729102253_InitialCreate.cs",
@@ -734,20 +1089,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "SupplierEntity.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierEntity.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\SupplierEntity.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\SupplierEntity.cs",
-              "RelativeToolTip": "Domain\\Entities\\SupplierEntity.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAA3wBsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T11:13:10.185Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 44,
               "Title": "ISupplierRepository.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Interfaces\\Repositories\\ISupplierRepository.cs",
               "RelativeDocumentMoniker": "Application\\Interfaces\\Repositories\\ISupplierRepository.cs",
@@ -755,12 +1097,11 @@
               "RelativeToolTip": "Application\\Interfaces\\Repositories\\ISupplierRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T11:25:29.463Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-29T11:25:29.463Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 46,
               "Title": "20260729115657_AddSupplierEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729115657_AddSupplierEntity.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729115657_AddSupplierEntity.cs",
@@ -772,7 +1113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 48,
               "Title": "20260729115404_AddSupplierEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729115404_AddSupplierEntity.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729115404_AddSupplierEntity.cs",
@@ -784,7 +1125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 49,
               "Title": "20260729115305_AddSupplierEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260729115305_AddSupplierEntity.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260729115305_AddSupplierEntity.cs",
@@ -796,7 +1137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 52,
               "Title": "UpdateWarehouseRoomCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\WarehouseRoom\\UpdateWarehouseRoomCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "Application.UnitTests\\WarehouseRoom\\UpdateWarehouseRoomCommandValidatorTests.cs",
@@ -808,7 +1149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 51,
               "Title": "CreateSupplierCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\Supplier\\CreateSupplierCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "Application.UnitTests\\Supplier\\CreateSupplierCommandValidatorTests.cs",
@@ -820,7 +1161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 50,
               "Title": "UpdateSupplierCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\Supplier\\UpdateSupplierCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "Application.UnitTests\\Supplier\\UpdateSupplierCommandValidatorTests.cs",
@@ -832,7 +1173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 53,
               "Title": "SupplierToCreateOrUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\Supplier\\SupplierToCreateOrUpdateDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\Supplier\\SupplierToCreateOrUpdateDto.cs",
@@ -844,7 +1185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 54,
               "Title": "SupplierDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\Supplier\\SupplierDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\Supplier\\SupplierDto.cs",
@@ -856,7 +1197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 55,
               "Title": "CreateSupplierCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\Supplier\\CreateSupplierCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\Supplier\\CreateSupplierCommandValidator.cs",
@@ -868,7 +1209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 56,
               "Title": "UpdateSupplierCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\Supplier\\UpdateSupplierCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\Supplier\\UpdateSupplierCommandValidator.cs",
@@ -880,7 +1221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 57,
               "Title": "ValidationPipelineBehavior.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\ValidationPipelineBehavior.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\ValidationPipelineBehavior.cs",
@@ -892,7 +1233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 58,
               "Title": "CreateWarehouseRoomCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\WarehouseRoom\\CreateWarehouseRoomCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "Application.UnitTests\\WarehouseRoom\\CreateWarehouseRoomCommandValidatorTests.cs",
@@ -904,7 +1245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 59,
               "Title": "CreateStorageZoneCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\StorageZone\\CreateStorageZoneCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "Application.UnitTests\\StorageZone\\CreateStorageZoneCommandValidatorTests.cs",
@@ -916,7 +1257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 60,
               "Title": "UpdateClientCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\Client\\UpdateClientCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\Client\\UpdateClientCommandValidator.cs",
@@ -928,7 +1269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 61,
               "Title": "CreateClientCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\Client\\CreateClientCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\Client\\CreateClientCommandValidator.cs",
@@ -940,7 +1281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 62,
               "Title": "WarehouseRoomsController.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\WarehouseRoomsController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\WarehouseRoomsController.cs",
@@ -952,7 +1293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 63,
               "Title": "StorageZonesController.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\StorageZonesController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\StorageZonesController.cs",
@@ -964,7 +1305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 64,
               "Title": "GetSupplierByIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Supplier\\GetSupplierByIdQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Supplier\\GetSupplierByIdQuery.cs",
@@ -976,7 +1317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 66,
               "Title": "GetAllSupplierQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Supplier\\GetAllSupplierQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Supplier\\GetAllSupplierQuery.cs",
@@ -988,7 +1329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 67,
               "Title": "ChangeSupplierStatusCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Supplier\\ChangeSupplierStatusCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Supplier\\ChangeSupplierStatusCommand.cs",
@@ -1000,7 +1341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 65,
               "Title": "UpdateSupplierCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Supplier\\UpdateSupplierCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Supplier\\UpdateSupplierCommand.cs",
@@ -1012,7 +1353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 68,
               "Title": "DeleteSupplierCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Supplier\\DeleteSupplierCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Supplier\\DeleteSupplierCommand.cs",
@@ -1024,7 +1365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 69,
               "Title": "CreateSupplierCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Supplier\\CreateSupplierCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Supplier\\CreateSupplierCommand.cs",
@@ -1036,7 +1377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 71,
               "Title": "SupplierRepository.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\SupplierRepository.cs",
               "RelativeDocumentMoniker": "Persistence\\Repositories\\SupplierRepository.cs",
@@ -1048,7 +1389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 70,
               "Title": "StorageZoneDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\StorageZone\\StorageZoneDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\StorageZone\\StorageZoneDto.cs",
@@ -1060,7 +1401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 72,
               "Title": "SupplierConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\SupplierConfiguration.cs",
               "RelativeDocumentMoniker": "Persistence\\Configurations\\SupplierConfiguration.cs",
@@ -1072,7 +1413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 74,
               "Title": "OrderEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Entities\\OrderEntity.cs",
               "RelativeDocumentMoniker": "Domain\\Entities\\OrderEntity.cs",
@@ -1084,19 +1425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "ApplicationContext.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\ApplicationContext.cs",
-              "RelativeDocumentMoniker": "Persistence\\ApplicationContext.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\ApplicationContext.cs",
-              "RelativeToolTip": "Persistence\\ApplicationContext.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAuwCcAAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T18:58:17.474Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 76,
               "Title": "InstallTaskStatus.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\InstallTaskStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\InstallTaskStatus.cs",
@@ -1108,7 +1437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 73,
               "Title": "SupplierType.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\SupplierType.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\SupplierType.cs",
@@ -1120,7 +1449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 75,
               "Title": "StorageZoneStatus.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\StorageZoneStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\StorageZoneStatus.cs",
@@ -1132,7 +1461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 78,
               "Title": "WarehouseRoomConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\WarehouseRoomConfiguration.cs",
               "RelativeDocumentMoniker": "Persistence\\Configurations\\WarehouseRoomConfiguration.cs",
@@ -1144,7 +1473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 77,
               "Title": "CreateWarehouseCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\WarehouseRoom\\CreateWarehouseCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\WarehouseRoom\\CreateWarehouseCommand.cs",
@@ -1156,7 +1485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 79,
               "Title": "GetWarehouseByIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\WarehouseRoom\\GetWarehouseByIdQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\WarehouseRoom\\GetWarehouseByIdQuery.cs",
@@ -1168,7 +1497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 80,
               "Title": "UpdateWarehouseCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\WarehouseRoom\\UpdateWarehouseCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\WarehouseRoom\\UpdateWarehouseCommand.cs",
@@ -1180,7 +1509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 81,
               "Title": "ChangeWarehouseStatusCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\WarehouseRoom\\ChangeWarehouseStatusCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\WarehouseRoom\\ChangeWarehouseStatusCommand.cs",
@@ -1192,7 +1521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 83,
               "Title": "20260727192438_AddWarehouseRoomEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260727192438_AddWarehouseRoomEntity.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260727192438_AddWarehouseRoomEntity.cs",
@@ -1204,7 +1533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 82,
               "Title": "20260727192545_AddWarehouseRoomEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260727192545_AddWarehouseRoomEntity.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260727192545_AddWarehouseRoomEntity.cs",
@@ -1216,7 +1545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 84,
               "Title": "20260727192214_AddWarehouseRoomEntity.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Migrations\\20260727192214_AddWarehouseRoomEntity.cs",
               "RelativeDocumentMoniker": "Persistence\\Migrations\\20260727192214_AddWarehouseRoomEntity.cs",
@@ -1228,7 +1557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 85,
               "Title": "UpdateWarehouseRoomCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\WarehouseRoom\\UpdateWarehouseRoomCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\WarehouseRoom\\UpdateWarehouseRoomCommandValidator.cs",
@@ -1240,7 +1569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 86,
               "Title": "CreateWarehouseRoomCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\WarehouseRoom\\CreateWarehouseRoomCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\WarehouseRoom\\CreateWarehouseRoomCommandValidator.cs",
@@ -1252,7 +1581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 87,
               "Title": "DeleteWarehouseCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\WarehouseRoom\\DeleteWarehouseCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\WarehouseRoom\\DeleteWarehouseCommand.cs",
@@ -1264,7 +1593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 88,
               "Title": "CreateBranchCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\Branch\\CreateBranchCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\Branch\\CreateBranchCommandValidator.cs",
@@ -1276,19 +1605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "WebApi\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "WebApi\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T19:10:15.642Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 89,
               "Title": "GetAllWarehouseQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\WarehouseRoom\\GetAllWarehouseQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\WarehouseRoom\\GetAllWarehouseQuery.cs",
@@ -1300,7 +1617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 91,
               "Title": "WarehouseRoomToCreateOrUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\WarehouseRoom\\WarehouseRoomToCreateOrUpdateDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\WarehouseRoom\\WarehouseRoomToCreateOrUpdateDto.cs",
@@ -1312,7 +1629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 90,
               "Title": "WarehouseRoomDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\WarehouseRoom\\WarehouseRoomDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\WarehouseRoom\\WarehouseRoomDto.cs",
@@ -1324,31 +1641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
-              "Title": "WarehouseRoomRepository.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\WarehouseRoomRepository.cs",
-              "RelativeDocumentMoniker": "Persistence\\Repositories\\WarehouseRoomRepository.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\WarehouseRoomRepository.cs",
-              "RelativeToolTip": "Persistence\\Repositories\\WarehouseRoomRepository.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAwwE4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T06:53:33.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 75,
-              "Title": "UserRole.cs",
-              "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\UserRole.cs",
-              "RelativeDocumentMoniker": "Domain\\Enums\\UserRole.cs",
-              "ToolTip": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\UserRole.cs",
-              "RelativeToolTip": "Domain\\Enums\\UserRole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T18:53:45.057Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 92,
               "Title": "WarehouseStatus.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\WarehouseStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\WarehouseStatus.cs",
@@ -1360,7 +1653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 95,
               "Title": "StorageZoneConfiguration.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Configurations\\StorageZoneConfiguration.cs",
               "RelativeDocumentMoniker": "Persistence\\Configurations\\StorageZoneConfiguration.cs",
@@ -1372,7 +1665,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 94,
               "Title": "StorageZoneType.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Domain\\Enums\\StorageZoneType.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\StorageZoneType.cs",
@@ -1384,7 +1677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 93,
               "Title": "StorageZoneRepository.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\StorageZoneRepository.cs",
               "RelativeDocumentMoniker": "Persistence\\Repositories\\StorageZoneRepository.cs",
@@ -1396,7 +1689,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 97,
               "Title": "UpdateStorageZoneCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\StorageZone\\UpdateStorageZoneCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\StorageZone\\UpdateStorageZoneCommandValidator.cs",
@@ -1408,7 +1701,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 98,
               "Title": "CreateStorageZoneCommandValidator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Validators\\StorageZone\\CreateStorageZoneCommandValidator.cs",
               "RelativeDocumentMoniker": "Application\\Validators\\StorageZone\\CreateStorageZoneCommandValidator.cs",
@@ -1420,7 +1713,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 96,
               "Title": "UpdateStorageZoneCommandValidatorTests.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application.UnitTests\\StorageZone\\UpdateStorageZoneCommandValidatorTests.cs",
               "RelativeDocumentMoniker": "Application.UnitTests\\StorageZone\\UpdateStorageZoneCommandValidatorTests.cs",
@@ -1432,7 +1725,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 99,
               "Title": "OrderNumberGenerator.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Helpers\\OrderNumberGenerator.cs",
               "RelativeDocumentMoniker": "Application\\Helpers\\OrderNumberGenerator.cs",
@@ -1444,7 +1737,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 100,
               "Title": "ChangeStorageZoneStatusCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\ChangeStorageZoneStatusCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\ChangeStorageZoneStatusCommand.cs",
@@ -1456,7 +1749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 101,
               "Title": "ChangeStorageZoneTypeCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\ChangeStorageZoneTypeCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\ChangeStorageZoneTypeCommand.cs",
@@ -1468,7 +1761,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 102,
               "Title": "GetAllStorageZoneQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\GetAllStorageZoneQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\GetAllStorageZoneQuery.cs",
@@ -1480,7 +1773,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 103,
               "Title": "GetStorageZoneByIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\GetStorageZoneByIdQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\GetStorageZoneByIdQuery.cs",
@@ -1492,7 +1785,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 104,
               "Title": "DeleteStorageZoneCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\DeleteStorageZoneCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\DeleteStorageZoneCommand.cs",
@@ -1504,7 +1797,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 105,
               "Title": "UpdateStorageZoneCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\UpdateStorageZoneCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\UpdateStorageZoneCommand.cs",
@@ -1516,7 +1809,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 106,
               "Title": "CreateStorageZoneCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StorageZone\\CreateStorageZoneCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StorageZone\\CreateStorageZoneCommand.cs",
@@ -1528,7 +1821,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 107,
               "Title": "BranchesController.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\WebApi\\Controllers\\BranchesController.cs",
               "RelativeDocumentMoniker": "WebApi\\Controllers\\BranchesController.cs",
@@ -1540,7 +1833,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 109,
               "Title": "ChangeBranchStatusCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Branch\\ChangeBranchStatusCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Branch\\ChangeBranchStatusCommand.cs",
@@ -1552,7 +1845,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 108,
               "Title": "UpdateBranchCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Branch\\UpdateBranchCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Branch\\UpdateBranchCommand.cs",
@@ -1564,7 +1857,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 110,
               "Title": "UpdateClientCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Client\\UpdateClientCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Client\\UpdateClientCommand.cs",
@@ -1576,7 +1869,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 111,
               "Title": "UpdateProductCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Product\\UpdateProductCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Product\\UpdateProductCommand.cs",
@@ -1588,7 +1881,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 112,
               "Title": "UpdateOrderCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Order\\UpdateOrderCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Order\\UpdateOrderCommand.cs",
@@ -1600,7 +1893,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 113,
               "Title": "UpdateMaterialCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Material\\UpdateMaterialCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Material\\UpdateMaterialCommand.cs",
@@ -1612,7 +1905,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 114,
               "Title": "UpdateStockItemCommand.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\StockItem\\UpdateStockItemCommand.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\StockItem\\UpdateStockItemCommand.cs",
@@ -1624,7 +1917,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 115,
               "Title": "GetProductByIdQuery.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Application\\Behavior\\Product\\GetProductByIdQuery.cs",
               "RelativeDocumentMoniker": "Application\\Behavior\\Product\\GetProductByIdQuery.cs",
@@ -1636,7 +1929,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 116,
               "Title": "StorageZoneToCreateOrUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Shared\\DTOs\\StorageZone\\StorageZoneToCreateOrUpdateDto.cs",
               "RelativeDocumentMoniker": "Shared\\DTOs\\StorageZone\\StorageZoneToCreateOrUpdateDto.cs",
@@ -1648,7 +1941,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 117,
               "Title": "StockItemRepository.cs",
               "DocumentMoniker": "C:\\Users\\argument\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\CRM\\Persistence\\Repositories\\StockItemRepository.cs",
               "RelativeDocumentMoniker": "Persistence\\Repositories\\StockItemRepository.cs",

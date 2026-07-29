@@ -1,18 +1,32 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Domain.Enums;
+using Mapster;
+using MediatR;
+using Shared.DTOs.User;
 
 namespace Application.Behavior.User
 {
-    public class GetAllUsersQuery : IRequest<List<UserEntity>>;
-
-    public class GetAllUsersQueryHandler(IUserRepository repository) : IRequestHandler<GetAllUsersQuery, List<UserEntity>>
+    public class GetAllUsersQuery : IRequest<List<UserDto>>
     {
-        public async Task<List<UserEntity>> Handle(GetAllUsersQuery query, CancellationToken cancellationToken)
-        {
-            List<UserEntity> users = await repository.GetAllAsync();
+        public string? SearchTerm { get; set; }
+        public UserRole? Role { get; set; }
+        public bool? IsActive { get; set; }
+        public Guid? BranchId { get; set; }
+    }
 
-            return users;
+    public class GetAllUsersQueryHandler(IUserRepository repository) : IRequestHandler<GetAllUsersQuery, List<UserDto>>
+    {
+        public async Task<List<UserDto>> Handle(GetAllUsersQuery query, CancellationToken cancellationToken)
+        {
+            List<UserEntity> users = await repository.GetFilteredAsync(
+                query.SearchTerm,
+                query.Role,
+                query.IsActive,
+                query.BranchId);
+
+            List<UserDto> result = users.Adapt<List<UserDto>>();
+            return result;
         }
     }
 }

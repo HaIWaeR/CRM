@@ -1,7 +1,8 @@
-﻿using FluentValidation;
-using Application.Behavior.User;
+﻿using Application.Behavior.User;
+using Domain.Enums;
+using FluentValidation;
 
-namespace Application.Validators
+namespace Application.Validators.User
 {
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
@@ -9,15 +10,30 @@ namespace Application.Validators
         {
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("Имя пользователя обязательно")
-                .MaximumLength(50).WithMessage("Имя не может быть длиннее 50 символов");
+                .MaximumLength(200).WithMessage("Максимум 200 символов");
+
+            RuleFor(x => x.Role)
+                .IsInEnum().WithMessage("Некорректная роль пользователя");
+
+            RuleFor(x => x.Phone)
+                .Matches(@"^\+?[0-9\s\-\(\)]{10,20}$")
+                .WithMessage("Некорректный номер телефона")
+                .When(x => !string.IsNullOrEmpty(x.Phone));
 
             RuleFor(x => x.Email)
-                .NotEmpty().WithMessage("Email обязателен")
-                .Matches(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$").WithMessage("Неверный формат email");
+                .Must(x => string.IsNullOrEmpty(x) ||
+                           (x.Contains("@") &&
+                            x.Contains(".") &&
+                            x.Split('@')[0].Length > 0 &&
+                            x.Split('@')[1].Length > 0 &&
+                            x.Split('@')[1].Contains(".") &&
+                            x.Split('@')[1].Split('.')[1].Length > 0))
+                .WithMessage("Некорректный Email")
+                .When(x => !string.IsNullOrEmpty(x.Email));
 
-            RuleFor(x => x.PasswordHash)
-                .NotEmpty().WithMessage("Пароль обязателен")
-                .MinimumLength(6).WithMessage("Пароль должен содержать минимум 6 символов");
+            RuleFor(x => x.Description)
+                .MaximumLength(500).WithMessage("Максимум 500 символов")
+                .When(x => !string.IsNullOrEmpty(x.Description));
         }
     }
 }

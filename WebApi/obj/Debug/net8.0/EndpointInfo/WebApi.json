@@ -3170,17 +3170,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserCommand"
+                "$ref": "#/components/schemas/UserToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserCommand"
+                "$ref": "#/components/schemas/UserToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateUserCommand"
+                "$ref": "#/components/schemas/UserToCreateOrUpdateDto"
               }
             }
           }
@@ -3214,6 +3214,37 @@
       "get": {
         "tags": [
           "Users"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/UserRole"
+            }
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "branchId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -3306,17 +3337,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserCommand"
+                "$ref": "#/components/schemas/UserToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserCommand"
+                "$ref": "#/components/schemas/UserToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateUserCommand"
+                "$ref": "#/components/schemas/UserToCreateOrUpdateDto"
               }
             }
           }
@@ -3359,6 +3390,65 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/status": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3903,35 +3993,6 @@
             "nullable": true
           },
           "userId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateUserCommand": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/UserRole"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "branchId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
@@ -4781,39 +4842,6 @@
         },
         "additionalProperties": false
       },
-      "UpdateUserCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/UserRole"
-          },
-          "isActive": {
-            "type": "boolean"
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "passwordHash": {
-            "type": "string",
-            "nullable": true
-          },
-          "branchId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "UserDto": {
         "type": "object",
         "properties": {
@@ -4831,13 +4859,21 @@
           "isActive": {
             "type": "boolean"
           },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
           "email": {
             "type": "string",
             "nullable": true
           },
-          "branchId": {
+          "description": {
             "type": "string",
-            "format": "uuid",
+            "nullable": true
+          },
+          "lastLoginAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "createdAt": {
@@ -4848,6 +4884,15 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "branchId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "branchName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4856,10 +4901,41 @@
         "enum": [
           1,
           2,
-          3
+          3,
+          4
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "UserToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "WarehouseRoomDto": {
         "type": "object",

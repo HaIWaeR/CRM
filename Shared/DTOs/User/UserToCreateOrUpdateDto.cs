@@ -1,12 +1,14 @@
-﻿namespace WebApi.DTO.User
+﻿using Domain.Enums;
+
+namespace Shared.DTOs.User
 {
     public class UserToCreateOrUpdateDto
     {
         public string Name { get; set; } = string.Empty;
-        public Domain.Enums.UserRole Role { get; set; }
-        public bool IsActive { get; set; }
+        public UserRole Role { get; set; }
+        public string? Phone { get; set; }
         public string? Email { get; set; }
-        public string PasswordHash { get; set; } = string.Empty;
+        public string? Description { get; set; }
         public Guid? BranchId { get; set; }
     }
 }

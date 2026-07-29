@@ -1,6 +1,8 @@
-﻿using Application.Interfaces.Repositories;
+﻿using Application.Helpers;
+using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Domain.Enums;
+using Mapster;
 using MediatR;
 
 namespace Application.Behavior.User
@@ -9,9 +11,9 @@ namespace Application.Behavior.User
     {
         public string Name { get; set; } = string.Empty;
         public UserRole Role { get; set; }
-        public bool IsActive { get; set; }
+        public string? Phone { get; set; }
         public string? Email { get; set; }
-        public string PasswordHash { get; set; } = string.Empty;
+        public string? Description { get; set; }
         public Guid? BranchId { get; set; }
     }
 
@@ -19,30 +21,23 @@ namespace Application.Behavior.User
     {
         public async Task<Guid> Handle(CreateUserCommand command, CancellationToken cancellationToken)
         {
-            if (string.IsNullOrWhiteSpace(command.Email))
-                throw new Exception("Email обязателен");
-
-            UserEntity? existing = await repository.GetByEmailAsync(command.Email)
-                ?? throw new Exception($"Пользователь с email '{command.Email}' уже существует");
-
-            if (command.BranchId.HasValue)
+            if (!string.IsNullOrWhiteSpace(command.Email))
             {
-                bool branchExists = await repository.GetBranchByIdAsync(command.BranchId.Value);
-                if (!branchExists)
-                    throw new Exception($"Филиал с ID {command.BranchId} не существует");
+                if (!await repository.IsEmailUniqueAsync(command.Email))
+                    throw new InvalidOperationException($"Пользователь с Email '{command.Email}' уже существует");
             }
 
-            UserEntity user = new UserEntity
-            {   
-                Id = Guid.NewGuid(),
-                Name = command.Name,
-                Role = command.Role,
-                IsActive = command.IsActive,
-                Email = command.Email,
-                PasswordHash = command.PasswordHash,
-                BranchId = command.BranchId,
-                CreatedAt = DateTime.UtcNow
-            };
+            if (!string.IsNullOrWhiteSpace(command.Phone))
+            {
+                if (!await repository.IsPhoneUniqueAsync(command.Phone))
+                    throw new InvalidOperationException($"Пользователь с телефоном '{command.Phone}' уже существует");
+            }
+
+            UserEntity user = command.Adapt<UserEntity>();
+            user.Id = Guid.NewGuid();
+            user.CreatedAt = DateTime.UtcNow;
+            user.IsActive = true;
+            user.Phone = PhoneHelper.FormatPhone(command.Phone);
 
             await repository.AddAsync(user);
             return user.Id;

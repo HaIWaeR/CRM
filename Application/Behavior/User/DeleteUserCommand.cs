@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using MediatR;
 
 namespace Application.Behavior.User
 {
@@ -12,6 +12,9 @@ namespace Application.Behavior.User
     {
         public async Task<bool> Handle(DeleteUserCommand command, CancellationToken cancellationToken)
         {
+            if (!await repository.ExistsAsync(command.Id))
+                throw new KeyNotFoundException($"Пользователь с ID {command.Id} не найден");
+
             await repository.DeleteAsync(command.Id);
             return true;
         }
