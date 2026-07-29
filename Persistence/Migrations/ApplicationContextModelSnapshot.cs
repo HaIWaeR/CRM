@@ -466,13 +466,13 @@ namespace Persistence.Migrations
                     b.Property<int?>("DeliveryDays")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
                     b.Property<Guid>("MaterialId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Note")
-                        .HasColumnType("text");
-
-                    b.Property<decimal?>("Price")
+                    b.Property<decimal?>("PriceUnit")
                         .HasColumnType("numeric");
 
                     b.Property<Guid>("SupplierId")

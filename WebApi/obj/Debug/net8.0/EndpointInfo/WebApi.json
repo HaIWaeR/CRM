@@ -2364,17 +2364,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSupplierMaterialCommand"
+                "$ref": "#/components/schemas/SupplierMaterialToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSupplierMaterialCommand"
+                "$ref": "#/components/schemas/SupplierMaterialToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateSupplierMaterialCommand"
+                "$ref": "#/components/schemas/SupplierMaterialToCreateOrUpdateDto"
               }
             }
           }
@@ -2408,6 +2408,48 @@
       "get": {
         "tags": [
           "SupplierMaterials"
+        ],
+        "parameters": [
+          {
+            "name": "supplierId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "materialId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "minPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "maxPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "maxDeliveryDays",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2500,17 +2542,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSupplierMaterialCommand"
+                "$ref": "#/components/schemas/SupplierMaterialToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSupplierMaterialCommand"
+                "$ref": "#/components/schemas/SupplierMaterialToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateSupplierMaterialCommand"
+                "$ref": "#/components/schemas/SupplierMaterialToCreateOrUpdateDto"
               }
             }
           }
@@ -3841,34 +3883,6 @@
         },
         "additionalProperties": false
       },
-      "CreateSupplierMaterialCommand": {
-        "type": "object",
-        "properties": {
-          "supplierId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "materialId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "price": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "deliveryDays": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateTaskCommand": {
         "type": "object",
         "properties": {
@@ -4528,11 +4542,19 @@
             "type": "string",
             "format": "uuid"
           },
+          "supplierName": {
+            "type": "string",
+            "nullable": true
+          },
           "materialId": {
             "type": "string",
             "format": "uuid"
           },
-          "price": {
+          "materialName": {
+            "type": "string",
+            "nullable": true
+          },
+          "priceUnit": {
             "type": "number",
             "format": "double",
             "nullable": true
@@ -4542,7 +4564,7 @@
             "format": "int32",
             "nullable": true
           },
-          "note": {
+          "description": {
             "type": "string",
             "nullable": true
           },
@@ -4553,6 +4575,34 @@
           "updatedAt": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SupplierMaterialToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "supplierId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "materialId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "priceUnit": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "deliveryDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -4699,38 +4749,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "UpdateSupplierMaterialCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "supplierId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "materialId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "price": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "deliveryDays": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "note": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
       },
       "UpdateTaskCommand": {
         "type": "object",

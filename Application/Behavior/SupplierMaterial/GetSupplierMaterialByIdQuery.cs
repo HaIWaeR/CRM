@@ -1,21 +1,25 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.SupplierMaterial;
 
 namespace Application.Behavior.SupplierMaterial
 {
-    public class GetSupplierMaterialByIdQuery : IRequest<SupplierMaterialEntity?>
+    public class GetSupplierMaterialByIdQuery : IRequest<SupplierMaterialDto>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetSupplierMaterialByIdQueryHandler(ISupplierMaterialRepository repository) : IRequestHandler<GetSupplierMaterialByIdQuery, SupplierMaterialEntity?>
+    public class GetSupplierMaterialByIdQueryHandler(ISupplierMaterialRepository repository) : IRequestHandler<GetSupplierMaterialByIdQuery, SupplierMaterialDto>
     {
-        public async Task<SupplierMaterialEntity?> Handle(GetSupplierMaterialByIdQuery query, CancellationToken cancellationToken)
+        public async Task<SupplierMaterialDto> Handle(GetSupplierMaterialByIdQuery query, CancellationToken cancellationToken)
         {
-            SupplierMaterialEntity? item = await repository.GetByIdAsync(query.Id) ?? throw new Exception($"Связь с ID {query.Id} не найдена");
+            SupplierMaterialEntity? supplierMaterial = await repository.GetByIdAsync(query.Id)
+                ?? throw new KeyNotFoundException($"Запись с ID {query.Id} не найдена");
 
-            return item;
+            SupplierMaterialDto result = supplierMaterial.Adapt<SupplierMaterialDto>();
+            return result;
         }
     }
 }

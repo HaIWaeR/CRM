@@ -1367,8 +1367,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "Application.Behavior.SupplierMaterial.CreateSupplierMaterialCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.SupplierMaterial.SupplierMaterialToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
@@ -1391,10 +1391,36 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "supplierId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "materialId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "minPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "maxDeliveryDays",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.SupplierMaterial.SupplierMaterialDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Shared.DTOs.SupplierMaterial.SupplierMaterialDto, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1420,7 +1446,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.SupplierMaterial.SupplierMaterialDto",
+        "Type": "Shared.DTOs.SupplierMaterial.SupplierMaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1444,14 +1470,14 @@
         "IsRequired": true
       },
       {
-        "Name": "command",
-        "Type": "Application.Behavior.SupplierMaterial.UpdateSupplierMaterialCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.SupplierMaterial.SupplierMaterialToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.SupplierMaterial.SupplierMaterialDto",
+        "Type": "Shared.DTOs.SupplierMaterial.SupplierMaterialDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
