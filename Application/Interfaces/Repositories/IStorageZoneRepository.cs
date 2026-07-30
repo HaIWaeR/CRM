@@ -27,5 +27,8 @@ namespace Application.Interfaces.Repositories
         // Проверка связей
         Task<bool> HasStockItemsAsync(Guid storageZoneId);
         Task<bool> HasAnyStockItemsForWarehouseAsync(Guid warehouseId);
+
+        // Обновление статуса зоны
+        Task UpdateZoneStatusAsync(Guid storageZoneId);
     }
 }

@@ -21,7 +21,7 @@ namespace Application.Interfaces.Repositories
         Task<List<UserEntity>> GetFilteredAsync(
             string? searchTerm = null,
             UserRole? role = null,
-            bool? isActive = null,
+            UserStatus? status = null,
             Guid? branchId = null);
 
         // Проверка связей

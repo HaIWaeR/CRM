@@ -38,27 +38,6 @@ namespace Application.UnitTests.User.Validators
             result.ShouldNotHaveValidationErrorFor(x => x.Name);
         }
 
-        // Role
-        [Fact]
-        public void Validate_RoleIsInvalid_ShouldHaveError()
-        {
-            UpdateUserCommand command = new UpdateUserCommand { Role = (UserRole)999 };
-            TestValidationResult<UpdateUserCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.Role);
-        }
-
-        [Theory]
-        [InlineData(UserRole.Admin)]
-        [InlineData(UserRole.Developer)]
-        [InlineData(UserRole.Reader)]
-        [InlineData(UserRole.Owner)]
-        public void Validate_RoleIsValid_ShouldNotHaveError(UserRole role)
-        {
-            UpdateUserCommand command = new UpdateUserCommand { Role = role };
-            TestValidationResult<UpdateUserCommand> result = validator.TestValidate(command);
-            result.ShouldNotHaveValidationErrorFor(x => x.Role);
-        }
-
         // Phone
         [Theory]
         [InlineData("+7 (999) 123-45-67")]

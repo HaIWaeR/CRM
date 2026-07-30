@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using MediatR;
 
 namespace Application.Behavior.Task
 {
@@ -12,6 +12,9 @@ namespace Application.Behavior.Task
     {
         public async Task<bool> Handle(DeleteTaskCommand command, CancellationToken cancellationToken)
         {
+            if (!await repository.ExistsAsync(command.Id))
+                throw new KeyNotFoundException($"Задача с ID {command.Id} не найдена");
+
             await repository.DeleteAsync(command.Id);
             return true;
         }

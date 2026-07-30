@@ -210,8 +210,8 @@
         "IsRequired": false
       },
       {
-        "Name": "isActive",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -339,8 +339,8 @@
         "IsRequired": true
       },
       {
-        "Name": "isActive",
-        "Type": "System.Boolean",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -401,8 +401,8 @@
         "IsRequired": false
       },
       {
-        "Name": "isActive",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -520,8 +520,8 @@
         "IsRequired": true
       },
       {
-        "Name": "isActive",
-        "Type": "System.Boolean",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -547,7 +547,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "Shared.DTOs.Order.OrderToCreateOrUpdateDto",
+        "Type": "Shared.DTOs.Order.OrderCreateDto",
         "IsRequired": true
       }
     ],
@@ -655,7 +655,7 @@
       },
       {
         "Name": "dto",
-        "Type": "Shared.DTOs.Order.OrderToCreateOrUpdateDto",
+        "Type": "Shared.DTOs.Order.OrderUpdateDto",
         "IsRequired": true
       }
     ],
@@ -773,8 +773,8 @@
         "IsRequired": false
       },
       {
-        "Name": "isActive",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -902,8 +902,8 @@
         "IsRequired": true
       },
       {
-        "Name": "isActive",
-        "Type": "System.Boolean",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1558,8 +1558,8 @@
         "IsRequired": false
       },
       {
-        "Name": "isActive",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Name": "supplierStatus",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1682,8 +1682,39 @@
         "IsRequired": true
       },
       {
-        "Name": "isActive",
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
         "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.SuppliersController",
+    "Method": "ChangeSupplierTypeAsync",
+    "RelativePath": "api/Suppliers/{id}/type",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "supplierType",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1708,8 +1739,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Task.CreateTaskCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Task.TaskToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
@@ -1732,10 +1763,51 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "searchTerm",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "clientId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "orderId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "priority",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromDeadline",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "toDeadline",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[WebApi.DTO.Task.TaskDto, WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Shared.DTOs.Task.TaskDto, Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1761,7 +1833,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Task.TaskDto",
+        "Type": "Shared.DTOs.Task.TaskDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1785,14 +1857,14 @@
         "IsRequired": true
       },
       {
-        "Name": "command",
-        "Type": "Application.Behavior.Task.UpdateTaskCommand",
+        "Name": "dto",
+        "Type": "Shared.DTOs.Task.TaskToCreateOrUpdateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApi.DTO.Task.TaskDto",
+        "Type": "Shared.DTOs.Task.TaskDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1813,6 +1885,99 @@
       {
         "Name": "id",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.TasksController",
+    "Method": "AssignTaskToUserAsync",
+    "RelativePath": "api/Tasks/{id}/assign",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.TasksController",
+    "Method": "ChangeTaskPriorityAsync",
+    "RelativePath": "api/Tasks/{id}/priority",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "priority",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.TasksController",
+    "Method": "ChangeTaskStatusAsync",
+    "RelativePath": "api/Tasks/{id}/status",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -1873,8 +2038,8 @@
         "IsRequired": false
       },
       {
-        "Name": "isActive",
-        "Type": "System.Nullable\u00601[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": false
       },
       {
@@ -1980,6 +2145,37 @@
   },
   {
     "ContainingType": "WebApi.Controllers.UsersController",
+    "Method": "ChangeUserRoleAsync",
+    "RelativePath": "api/Users/{id}/role",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi.Controllers.UsersController",
     "Method": "ChangeUserStatusAsync",
     "RelativePath": "api/Users/{id}/status",
     "HttpMethod": "PATCH",
@@ -1992,8 +2188,8 @@
         "IsRequired": true
       },
       {
-        "Name": "isActive",
-        "Type": "System.Boolean",
+        "Name": "status",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

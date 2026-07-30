@@ -18,6 +18,7 @@ namespace Application.Behavior.Material
         public Domain.Enums.UnitMeasurement UnitMeasurement { get; set; }
         public string? Description { get; set; }
         public string? AdditionInformation { get; set; }
+        public Dictionary<string, string>? Attributes { get; set; }
     }
 
     public class UpdateMaterialCommandHandler(IMaterialRepository repository) : IRequestHandler<UpdateMaterialCommand, MaterialDto>

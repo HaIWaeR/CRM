@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +19,7 @@ namespace Persistence.Configurations
             builder.Property(x => x.Telegram).HasMaxLength(50);
             builder.Property(x => x.Address).HasMaxLength(300);
             builder.Property(x => x.Notes).HasMaxLength(500);
-            builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true);
+            builder.Property(x => x.Status).IsRequired().HasDefaultValue(ClientStatus.Active);
             builder.Property(x => x.CreatedAt).IsRequired();
             builder.Property(x => x.UpdatedAt).IsRequired(false);
         }

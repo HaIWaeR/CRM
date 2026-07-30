@@ -1,5 +1,6 @@
-﻿using Domain.Entities;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
@@ -11,6 +12,11 @@ namespace Persistence.Repositories
         {
             await context.StockItems.AddAsync(stockItem);
             await context.SaveChangesAsync();
+
+            if (stockItem.StorageZoneId.HasValue)
+            {
+                await UpdateZoneStatusAsync(stockItem.StorageZoneId.Value);
+            }
         }
 
         public async Task<List<StockItemEntity>> GetAllAsync()
@@ -25,15 +31,43 @@ namespace Persistence.Repositories
 
         public async Task<StockItemEntity> UpdateAsync(StockItemEntity stockItem)
         {
+            Guid? oldZoneId = await context.StockItems
+                .Where(x => x.Id == stockItem.Id)
+                .Select(x => x.StorageZoneId)
+                .FirstOrDefaultAsync();
+
             context.StockItems.Update(stockItem);
             await context.SaveChangesAsync();
+
+            if (oldZoneId.HasValue)
+            {
+                await UpdateZoneStatusAsync(oldZoneId.Value);
+            }
+
+            if (stockItem.StorageZoneId.HasValue && stockItem.StorageZoneId != oldZoneId)
+            {
+                await UpdateZoneStatusAsync(stockItem.StorageZoneId.Value);
+            }
+
             return stockItem;
         }
 
         public async Task DeleteAsync(Guid id)
         {
-            context.StockItems.Remove(new StockItemEntity { Id = id });
-            await context.SaveChangesAsync();
+            var stockItem = await context.StockItems
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (stockItem != null && stockItem.StorageZoneId.HasValue)
+            {
+                context.StockItems.Remove(stockItem);
+                await context.SaveChangesAsync();
+                await UpdateZoneStatusAsync(stockItem.StorageZoneId.Value);
+            }
+            else
+            {
+                context.StockItems.Remove(new StockItemEntity { Id = id });
+                await context.SaveChangesAsync();
+            }
         }
 
         // Дополнительные методы 
@@ -70,6 +104,11 @@ namespace Persistence.Repositories
             stockItem.LastUpdate = DateTime.UtcNow;
 
             await context.SaveChangesAsync();
+
+            if (stockItem.StorageZoneId.HasValue)
+            {
+                await UpdateZoneStatusAsync(stockItem.StorageZoneId.Value);
+            }
         }
 
         public async Task RemoveQuantityAsync(Guid id, int quantity)
@@ -85,6 +124,11 @@ namespace Persistence.Repositories
             stockItem.LastUpdate = DateTime.UtcNow;
 
             await context.SaveChangesAsync();
+
+            if (stockItem.StorageZoneId.HasValue)
+            {
+                await UpdateZoneStatusAsync(stockItem.StorageZoneId.Value);
+            }
         }
 
         // Фильтрация
@@ -142,6 +186,36 @@ namespace Persistence.Repositories
         public async Task<bool> HasAnyStockItemsForStorageZoneAsync(Guid storageZoneId)
         {
             return await context.StockItems.AnyAsync(x => x.StorageZoneId == storageZoneId);
+        }
+
+        // Обновление статуса зоны
+        private async Task UpdateZoneStatusAsync(Guid storageZoneId)
+        {
+            var zone = await context.Storages
+                .Include(x => x.StockItems)
+                .FirstOrDefaultAsync(x => x.Id == storageZoneId);
+
+            if (zone == null)
+                return;
+
+            if (!zone.MaxCapacity.HasValue || zone.MaxCapacity.Value == 0)
+            {
+                zone.Status = StorageZoneStatus.Empty;
+            }
+            else
+            {
+                int totalQuantity = zone.StockItems?.Sum(x => x.Quantity) ?? 0;
+
+                if (totalQuantity == 0)
+                    zone.Status = StorageZoneStatus.Empty;
+                else if (totalQuantity >= zone.MaxCapacity.Value)
+                    zone.Status = StorageZoneStatus.FullyOccupied;
+                else
+                    zone.Status = StorageZoneStatus.PartiallyOccupied;
+            }
+
+            zone.UpdatedAt = DateTime.UtcNow;
+            await context.SaveChangesAsync();
         }
     }
 }

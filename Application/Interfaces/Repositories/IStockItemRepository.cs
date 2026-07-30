@@ -1,17 +1,17 @@
-﻿    using Domain.Entities;
+﻿using Domain.Entities;
 
 namespace Application.Interfaces.Repositories
 {
     public interface IStockItemRepository
     {
-        // CRUD 
+        // CRUD
         Task AddAsync(StockItemEntity stockItem);
         Task<List<StockItemEntity>> GetAllAsync();
         Task<StockItemEntity?> GetByIdAsync(Guid id);
         Task<StockItemEntity> UpdateAsync(StockItemEntity stockItem);
         Task DeleteAsync(Guid id);
 
-        // Дополнительныt методы 
+        // Дополнительные методы
         Task<bool> ExistsAsync(Guid id);
         Task<List<StockItemEntity>> GetByProductIdAsync(Guid productId);
         Task<List<StockItemEntity>> GetByMaterialIdAsync(Guid materialId);
@@ -27,7 +27,7 @@ namespace Application.Interfaces.Repositories
             int? minQuantity = null,
             int? maxQuantity = null);
 
-        // Проверки связей 
+        // Проверка связей
         Task<bool> HasAnyStockItemsForProductAsync(Guid productId);
         Task<bool> HasAnyStockItemsForMaterialAsync(Guid materialId);
         Task<bool> HasAnyStockItemsForWarehouseAsync(Guid warehouseId);

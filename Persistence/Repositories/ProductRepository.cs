@@ -53,7 +53,7 @@ namespace Persistence.Repositories
         public async Task<List<ProductEntity>> GetFilteredAsync(
             string? searchTerm = null,
             string? category = null,
-            bool? isActive = null,
+            ProductStatus? status = null,
             bool? isService = null,
             decimal? minPrice = null,
             decimal? maxPrice = null)
@@ -73,8 +73,8 @@ namespace Persistence.Repositories
             if (!string.IsNullOrWhiteSpace(category))
                 query = query.Where(x => x.Category == category);
 
-            if (isActive.HasValue)
-                query = query.Where(x => x.IsActive == isActive.Value);
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
 
             if (isService.HasValue)
                 query = query.Where(x => x.IsService == isService.Value);

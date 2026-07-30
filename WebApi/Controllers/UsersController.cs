@@ -22,14 +22,14 @@ namespace WebApi.Controllers
         public async Task<List<UserDto>> GetAllUsersAsync(
             [FromQuery] string? searchTerm = null,
             [FromQuery] UserRole? role = null,
-            [FromQuery] bool? isActive = null,
+            [FromQuery] UserStatus? status = null,
             [FromQuery] Guid? branchId = null)
         {
             GetAllUsersQuery query = new GetAllUsersQuery
             {
                 SearchTerm = searchTerm,
                 Role = role,
-                IsActive = isActive,
+                Status = status,
                 BranchId = branchId
             };
 
@@ -57,12 +57,22 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<bool> ChangeUserStatusAsync(Guid id, [FromBody] bool isActive)
+        public async Task<bool> ChangeUserStatusAsync(Guid id, [FromBody] UserStatus status)
         {
             return await mediator.Send(new ChangeUserStatusCommand
             {
                 Id = id,
-                IsActive = isActive
+                Status = status
+            });
+        }
+
+        [HttpPatch("{id}/role")]
+        public async Task<bool> ChangeUserRoleAsync(Guid id, [FromBody] UserRole role)
+        {
+            return await mediator.Send(new ChangeUserRoleCommand
+            {
+                Id = id,
+                Role = role
             });
         }
     }

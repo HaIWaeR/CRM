@@ -11,7 +11,7 @@ namespace Application.Behavior.Product
     {
         public string? SearchTerm { get; set; }
         public string? Category { get; set; }
-        public bool? IsActive { get; set; }
+        public ProductStatus? Status { get; set; }
         public bool? IsService { get; set; }
         public decimal? MinPrice { get; set; }
         public decimal? MaxPrice { get; set; }
@@ -24,7 +24,7 @@ namespace Application.Behavior.Product
             List<ProductEntity> products = await repository.GetFilteredAsync(
                 query.SearchTerm,
                 query.Category,
-                query.IsActive,
+                query.Status,
                 query.IsService,
                 query.MinPrice,
                 query.MaxPrice);

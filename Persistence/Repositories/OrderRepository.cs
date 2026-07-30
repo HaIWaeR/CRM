@@ -34,38 +34,24 @@ namespace Persistence.Repositories
 
         public async Task DeleteAsync(Guid id)
         {
-            context.Orders.Remove(new OrderEntity { Id = id });
-            await context.SaveChangesAsync();
+            var order = await context.Orders
+                .Include(x => x.OrderItems)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (order != null)
+            {
+                context.OrderItems.RemoveRange(order.OrderItems);
+                context.Orders.Remove(order);
+                await context.SaveChangesAsync();
+            }
         }
 
-        // Дополнительные методы 
-
+        // Дополнительные методы
         public async Task<bool> ExistsAsync(Guid id)
         {
             return await context.Orders.AnyAsync(x => x.Id == id);
         }
 
-        public async Task<OrderEntity?> GetByOrderNumberAsync(string orderNumber)
-        {
-            return await context.Orders.FirstOrDefaultAsync(x => x.OrderNumber == orderNumber);
-        }
-
-        public async Task<bool> IsOrderNumberUniqueAsync(string orderNumber, Guid? excludeId = null)
-        {
-            IQueryable<OrderEntity> query = context.Orders
-                .Where(x => x.OrderNumber == orderNumber);
-
-            if (excludeId.HasValue)
-                query = query.Where(x => x.Id != excludeId.Value);
-
-            return !await query.AnyAsync();
-        }
-
-        public async Task AddOrderItemAsync(OrderItemEntity orderItem)
-        {
-            await context.OrderItems.AddAsync(orderItem);
-            await context.SaveChangesAsync();
-        }
         public async Task<List<OrderItemEntity>> GetOrderItemsByOrderIdAsync(Guid orderId)
         {
             return await context.OrderItems
@@ -74,8 +60,7 @@ namespace Persistence.Repositories
                 .ToListAsync();
         }
 
-        // Фильтрация 
-
+        // Фильтрация
         public async Task<List<OrderEntity>> GetFilteredAsync(
            string? searchTerm = null,
            OrderStatus? status = null,
@@ -114,7 +99,7 @@ namespace Persistence.Repositories
             return await query.ToListAsync();
         }
 
-        // Статистика 
+        // Статистика
         public async Task<int> GetCountByStatusAsync(OrderStatus status)
         {
             return await context.Orders

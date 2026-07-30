@@ -1,4 +1,6 @@
-﻿namespace WebApi.DTO.Product
+﻿using Domain.Enums;
+
+namespace WebApi.DTO.Product
 {
     public class ProductDto
     {
@@ -9,7 +11,7 @@
         public string? Article { get; set; }
         public string? Description { get; set; }
         public Dictionary<string, string>? Attributes { get; set; }
-        public bool IsActive { get; set; }
+        public ProductStatus Status { get; set; }
         public bool IsService { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

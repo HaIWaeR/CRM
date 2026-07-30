@@ -99,6 +99,106 @@ namespace Application.UnitTests.Material.Validators
             result.ShouldNotHaveValidationErrorFor(x => x.PriceUnit);
         }
 
+        // Attributes
+        [Fact]
+        public void Validate_AttributesExceedsMaxCount_ShouldHaveError()
+        {
+            var attributes = new Dictionary<string, string>();
+            for (int i = 0; i < 21; i++)
+                attributes.Add($"Key{i}", $"Value{i}");
+
+            UpdateMaterialCommand command = new UpdateMaterialCommand
+            {
+                Attributes = attributes,
+                Name = "Тестовый материал",
+                UnitMeasurement = UnitMeasurement.Piece
+            };
+            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.Attributes);
+        }
+
+        [Fact]
+        public void Validate_AttributesKeyExceedsMaxLength_ShouldHaveError()
+        {
+            var attributes = new Dictionary<string, string>
+    {
+        { new string('a', 51), "value" }
+    };
+
+            UpdateMaterialCommand command = new UpdateMaterialCommand
+            {
+                Attributes = attributes,
+                Name = "Тестовый материал",
+                UnitMeasurement = UnitMeasurement.Piece
+            };
+            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.Attributes);
+        }
+
+        [Fact]
+        public void Validate_AttributesValueExceedsMaxLength_ShouldHaveError()
+        {
+            var attributes = new Dictionary<string, string>
+    {
+        { "key", new string('a', 201) }
+    };
+
+            UpdateMaterialCommand command = new UpdateMaterialCommand
+            {
+                Attributes = attributes,
+                Name = "Тестовый материал",
+                UnitMeasurement = UnitMeasurement.Piece
+            };
+            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
+            result.ShouldHaveValidationErrorFor(x => x.Attributes);
+        }
+
+        [Fact]
+        public void Validate_AttributesIsValid_ShouldNotHaveError()
+        {
+            var attributes = new Dictionary<string, string>
+    {
+        { "Цвет", "чёрный" },
+        { "Размер", "XL" },
+        { "Материал", "стеклопластик" }
+    };
+
+            UpdateMaterialCommand command = new UpdateMaterialCommand
+            {
+                Attributes = attributes,
+                Name = "Сетка москитная",
+                UnitMeasurement = UnitMeasurement.SquareMeter
+            };
+            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
+            result.ShouldNotHaveValidationErrorFor(x => x.Attributes);
+        }
+
+        [Fact]
+        public void Validate_AttributesIsNull_ShouldNotHaveError()
+        {
+            UpdateMaterialCommand command = new UpdateMaterialCommand
+            {
+                Attributes = null,
+                Name = "Тестовый материал",
+                UnitMeasurement = UnitMeasurement.Piece
+            };
+            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
+            result.ShouldNotHaveValidationErrorFor(x => x.Attributes);
+        }
+
+        [Fact]
+        public void Validate_AttributesIsEmpty_ShouldNotHaveError()
+        {
+            UpdateMaterialCommand command = new UpdateMaterialCommand
+            {
+                Attributes = new Dictionary<string, string>(),
+                Name = "Тестовый материал",
+                UnitMeasurement = UnitMeasurement.Piece
+            };
+            TestValidationResult<UpdateMaterialCommand> result = validator.TestValidate(command);
+            result.ShouldNotHaveValidationErrorFor(x => x.Attributes);
+        }
+
         // Weight
         [Fact]
         public void Validate_WeightIsNegative_ShouldHaveError()

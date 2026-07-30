@@ -1,6 +1,7 @@
 ﻿using Application.Helpers;
 using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Mapster;
 using MediatR;
 
@@ -16,6 +17,7 @@ namespace Application.Behavior.Material
         public Domain.Enums.UnitMeasurement UnitMeasurement { get; set; }
         public string? Description { get; set; }
         public string? AdditionInformation { get; set; }
+        public Dictionary<string, string>? Attributes { get; set; }
     }
 
     public class CreateMaterialCommandHandler(IMaterialRepository repository) : IRequestHandler<CreateMaterialCommand, Guid>
@@ -35,7 +37,7 @@ namespace Application.Behavior.Material
             MaterialEntity material = command.Adapt<MaterialEntity>();
             material.Id = Guid.NewGuid();
             material.CreatedAt = DateTime.UtcNow;
-            material.IsActive = true;
+            material.Status = MaterialStatus.Active;
 
             await repository.AddAsync(material);    
             return material.Id;

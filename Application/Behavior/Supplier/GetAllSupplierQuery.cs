@@ -11,7 +11,7 @@ namespace Application.Behavior.Supplier
     {
         public string? SearchTerm { get; set; }
         public SupplierType? SupplierType { get; set; }
-        public bool? IsActive { get; set; }
+        public SupplierStatus? SupplierStatus { get; set; }
         public int? MinRating { get; set; }
         public int? MaxRating { get; set; }
     }
@@ -23,7 +23,7 @@ namespace Application.Behavior.Supplier
             List<SupplierEntity> suppliers = await repository.GetFilteredAsync(
                 query.SearchTerm,
                 query.SupplierType,
-                query.IsActive,
+                query.SupplierStatus,
                 query.MinRating,
                 query.MaxRating);
 

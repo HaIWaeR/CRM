@@ -263,7 +263,6 @@ namespace Application.UnitTests.Supplier.Validators
             {
                 Rating = 0,
                 Name = "ООО Тест",
-                SupplierType = SupplierType.Wholesale
             };
             TestValidationResult<CreateSupplierCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Rating);
@@ -276,7 +275,6 @@ namespace Application.UnitTests.Supplier.Validators
             {
                 Rating = 11,
                 Name = "ООО Тест",
-                SupplierType = SupplierType.Wholesale
             };
             TestValidationResult<CreateSupplierCommand> result = validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Rating);
@@ -292,7 +290,6 @@ namespace Application.UnitTests.Supplier.Validators
             {
                 Rating = rating,
                 Name = "ООО Тест",
-                SupplierType = SupplierType.Wholesale
             };
             TestValidationResult<CreateSupplierCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Rating);
@@ -305,40 +302,9 @@ namespace Application.UnitTests.Supplier.Validators
             {
                 Rating = null,
                 Name = "ООО Тест",
-                SupplierType = SupplierType.Wholesale
             };
             TestValidationResult<CreateSupplierCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Rating);
-        }
-
-        // SupplierType
-        [Fact]
-        public void Validate_SupplierTypeIsInvalid_ShouldHaveError()
-        {
-            CreateSupplierCommand command = new CreateSupplierCommand
-            {
-                SupplierType = (SupplierType)999,
-                Name = "ООО Тест"
-            };
-            TestValidationResult<CreateSupplierCommand> result = validator.TestValidate(command);
-            result.ShouldHaveValidationErrorFor(x => x.SupplierType);
-        }
-
-        [Theory]
-        [InlineData(SupplierType.Wholesale)]
-        [InlineData(SupplierType.Retail)]
-        [InlineData(SupplierType.Manufacturer)]
-        [InlineData(SupplierType.Distributors)]
-        [InlineData(SupplierType.Importers)]
-        public void Validate_SupplierTypeIsValid_ShouldNotHaveError(SupplierType supplierType)
-        {
-            CreateSupplierCommand command = new CreateSupplierCommand
-            {
-                SupplierType = supplierType,
-                Name = "ООО Тест"
-            };
-            TestValidationResult<CreateSupplierCommand> result = validator.TestValidate(command);
-            result.ShouldNotHaveValidationErrorFor(x => x.SupplierType);
         }
     }
 }

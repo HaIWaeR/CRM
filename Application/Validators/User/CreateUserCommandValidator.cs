@@ -12,9 +12,6 @@ namespace Application.Validators.User
                 .NotEmpty().WithMessage("Имя пользователя обязательно")
                 .MaximumLength(200).WithMessage("Максимум 200 символов");
 
-            RuleFor(x => x.Role)
-                .IsInEnum().WithMessage("Некорректная роль пользователя");
-
             RuleFor(x => x.Phone)
                 .Matches(@"^\+?[0-9\s\-\(\)]{10,20}$")
                 .WithMessage("Некорректный номер телефона")

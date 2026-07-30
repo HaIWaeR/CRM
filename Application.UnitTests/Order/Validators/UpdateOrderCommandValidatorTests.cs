@@ -1,7 +1,5 @@
-﻿using Application.Behavior.Order;
-using Application.Behavior.Orders;
+﻿using Application.Behavior.Orders;
 using Application.Validators.Order;
-using Domain.Enums;
 using FluentValidation.TestHelper;
 
 namespace Application.UnitTests.Order.Validators
@@ -34,7 +32,7 @@ namespace Application.UnitTests.Order.Validators
         [Fact]
         public void Validate_ServiceNameIsValid_ShouldNotHaveError()
         {
-            UpdateOrderCommand command = new UpdateOrderCommand { ServiceName = "Тайский массаж" };
+            UpdateOrderCommand command = new UpdateOrderCommand { ServiceName = "Монтаж москитной сетки" };
             TestValidationResult<UpdateOrderCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.ServiceName);
         }
@@ -52,7 +50,7 @@ namespace Application.UnitTests.Order.Validators
         [Fact]
         public void Validate_DescriptionIsValid_ShouldNotHaveError()
         {
-            UpdateOrderCommand command = new UpdateOrderCommand { Description = "Срочно" };
+            UpdateOrderCommand command = new UpdateOrderCommand { Description = "Срочный заказ" };
             TestValidationResult<UpdateOrderCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Description);
         }
@@ -78,7 +76,7 @@ namespace Application.UnitTests.Order.Validators
         [Fact]
         public void Validate_AddressIsValid_ShouldNotHaveError()
         {
-            UpdateOrderCommand command = new UpdateOrderCommand { Address = "Самара, Куйбышева 17" };
+            UpdateOrderCommand command = new UpdateOrderCommand { Address = "г. Москва, ул. Ленина, д. 1" };
             TestValidationResult<UpdateOrderCommand> result = validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Address);
         }

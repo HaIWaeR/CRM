@@ -1,6 +1,5 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Domain.Enums;
 using Mapster;
 using MediatR;
 using Shared.DTOs.Order;
@@ -13,8 +12,6 @@ namespace Application.Behavior.Orders
         public string ServiceName { get; set; } = string.Empty;
         public string? Description { get; set; }
         public string? Address { get; set; }
-        public Guid? ClientId { get; set; }
-        public Guid? BranchId { get; set; }
     }
 
     public class UpdateOrderCommandHandler(IOrderRepository repository) : IRequestHandler<UpdateOrderCommand, OrderDto>
@@ -24,7 +21,9 @@ namespace Application.Behavior.Orders
             OrderEntity? existing = await repository.GetByIdAsync(command.Id)
                 ?? throw new KeyNotFoundException($"Заказ с ID {command.Id} не найден");
 
-            command.Adapt(existing);
+            existing.ServiceName = command.ServiceName;
+            existing.Description = command.Description;
+            existing.Address = command.Address;
             existing.UpdatedAt = DateTime.UtcNow;
 
             await repository.UpdateAsync(existing);

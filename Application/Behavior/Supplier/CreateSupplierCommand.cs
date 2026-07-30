@@ -20,7 +20,6 @@ namespace Application.Behavior.Supplier
         public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
         public int? Rating { get; set; }
-        public SupplierType SupplierType { get; set; }
     }
 
     public class CreateSupplierCommandHandler(ISupplierRepository repository) : IRequestHandler<CreateSupplierCommand, Guid>
@@ -36,7 +35,8 @@ namespace Application.Behavior.Supplier
             SupplierEntity supplier = command.Adapt<SupplierEntity>();
             supplier.Id = Guid.NewGuid();
             supplier.CreatedAt = DateTime.UtcNow;
-            supplier.IsActive = true;
+            supplier.Status = SupplierStatus.Active;
+            supplier.Type = SupplierType.Wholesale;
             supplier.Phone = PhoneHelper.FormatPhone(command.Phone);
 
             await repository.AddAsync(supplier);

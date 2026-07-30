@@ -1,10 +1,8 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Domain.Enums;
 using Mapster;
 using MediatR;
 using Shared.DTOs.StorageZone;
-using System.Text.Json.Serialization;
 
 namespace Application.Behavior.StorageZone
 {
@@ -33,7 +31,12 @@ namespace Application.Behavior.StorageZone
                     throw new InvalidOperationException($"Код '{command.Code}' уже существует");
             }
 
-            command.Adapt(existing);
+            existing.Name = command.Name;
+            existing.Code = command.Code;
+            existing.MaxCapacity = command.MaxCapacity;
+            existing.Description = command.Description;
+            existing.IsDefault = command.IsDefault;
+            existing.WarehouseId = command.WarehouseId;
             existing.UpdatedAt = DateTime.UtcNow;
 
             await repository.UpdateAsync(existing);

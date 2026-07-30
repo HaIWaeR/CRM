@@ -1,4 +1,4 @@
-﻿namespace Shared.DTOs.Client
+﻿    namespace Shared.DTOs.Client
 {
     public class ClientToCreateOrUpdateDto
     {

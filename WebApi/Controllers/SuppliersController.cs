@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         public async Task<List<SupplierDto>> GetAllSuppliersAsync(
             [FromQuery] string? searchTerm = null,
             [FromQuery] SupplierType? supplierType = null,
-            [FromQuery] bool? isActive = null,
+            [FromQuery] SupplierStatus? supplierStatus= null,
             [FromQuery] int? minRating = null,
             [FromQuery] int? maxRating = null)
         {
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
             {
                 SearchTerm = searchTerm,
                 SupplierType = supplierType,
-                IsActive = isActive,
+                SupplierStatus = supplierStatus,
                 MinRating = minRating,
                 MaxRating = maxRating
             };
@@ -59,12 +59,22 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<bool> ChangeSupplierStatusAsync(Guid id, [FromBody] bool isActive)
+        public async Task<bool> ChangeSupplierStatusAsync(Guid id, [FromBody] SupplierStatus status)
         {
             return await mediator.Send(new ChangeSupplierStatusCommand
             {
                 Id = id,
-                IsActive = isActive
+                Status = status
+            });
+        }
+
+        [HttpPatch("{id}/type")]
+        public async Task<bool> ChangeSupplierTypeAsync(Guid id, [FromBody] SupplierType supplierType)
+        {
+            return await mediator.Send(new ChangeSupplierTypeCommand
+            {
+                Id = id,
+                SupplierType = supplierType
             });
         }
     }

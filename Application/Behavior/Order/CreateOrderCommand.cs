@@ -31,8 +31,7 @@ namespace Application.Behavior.Orders
             order.Status = OrderStatus.New;
             order.CreatedAt = DateTime.UtcNow;
             order.Price = 0;
-
-            await orderRepository.AddAsync(order);
+            order.OrderItems = new List<OrderItemEntity>();
 
             decimal totalPrice = 0;
 
@@ -49,16 +48,16 @@ namespace Application.Behavior.Orders
                     ProductId = item.ProductId,
                     Quantity = item.Quantity,
                     PriceAtOrder = product.Price,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = DateTime.UtcNow,
                 };
 
-                await orderRepository.AddOrderItemAsync(orderItem);
-
+                order.OrderItems.Add(orderItem);
                 totalPrice += orderItem.PriceAtOrder * orderItem.Quantity;
             }
 
             order.Price = totalPrice;
-            await orderRepository.UpdateAsync(order);
+
+            await orderRepository.AddAsync(order);
 
             return order.Id;
         }

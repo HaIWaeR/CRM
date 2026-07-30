@@ -21,7 +21,6 @@ namespace Application.Behavior.Supplier
         public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
         public int? Rating { get; set; }
-        public Domain.Enums.SupplierType SupplierType { get; set; }
     }
 
     public class UpdateSupplierCommandHandler(ISupplierRepository repository) : IRequestHandler<UpdateSupplierCommand, SupplierDto>

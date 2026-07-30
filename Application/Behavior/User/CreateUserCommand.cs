@@ -10,7 +10,6 @@ namespace Application.Behavior.User
     public class CreateUserCommand : IRequest<Guid>
     {
         public string Name { get; set; } = string.Empty;
-        public UserRole Role { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Description { get; set; }
@@ -36,7 +35,8 @@ namespace Application.Behavior.User
             UserEntity user = command.Adapt<UserEntity>();
             user.Id = Guid.NewGuid();
             user.CreatedAt = DateTime.UtcNow;
-            user.IsActive = true;
+            user.Role = UserRole.Reader;
+            user.Status = UserStatus.Active;
             user.Phone = PhoneHelper.FormatPhone(command.Phone);
 
             await repository.AddAsync(user);

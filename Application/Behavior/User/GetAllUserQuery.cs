@@ -11,7 +11,7 @@ namespace Application.Behavior.User
     {
         public string? SearchTerm { get; set; }
         public UserRole? Role { get; set; }
-        public bool? IsActive { get; set; }
+        public UserStatus? Status { get; set; }
         public Guid? BranchId { get; set; }
     }
 
@@ -22,7 +22,7 @@ namespace Application.Behavior.User
             List<UserEntity> users = await repository.GetFilteredAsync(
                 query.SearchTerm,
                 query.Role,
-                query.IsActive,
+                query.Status,
                 query.BranchId);
 
             List<UserDto> result = users.Adapt<List<UserDto>>();

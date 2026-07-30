@@ -12,8 +12,9 @@ namespace Shared.DTOs.Material
         public decimal Weight { get; set; }
         public Domain.Enums.UnitMeasurement UnitMeasurement { get; set; }
         public string? Description { get; set; }
-        public bool IsActive { get; set; }
+        public Dictionary<string, string>? Attributes { get; set; }
         public string? AdditionInformation { get; set; }
+        public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }

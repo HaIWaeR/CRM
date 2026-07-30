@@ -365,10 +365,10 @@
             }
           },
           {
-            "name": "isActive",
+            "name": "status",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "$ref": "#/components/schemas/ClientStatus"
             }
           },
           {
@@ -581,17 +581,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/ClientStatus"
               }
             },
             "text/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/ClientStatus"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/ClientStatus"
               }
             }
           }
@@ -690,10 +690,10 @@
             }
           },
           {
-            "name": "isActive",
+            "name": "status",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "$ref": "#/components/schemas/MaterialStatus"
             }
           },
           {
@@ -892,17 +892,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/MaterialStatus"
               }
             },
             "text/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/MaterialStatus"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/MaterialStatus"
               }
             }
           }
@@ -940,17 +940,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderToCreateOrUpdateDto"
+                "$ref": "#/components/schemas/OrderCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderToCreateOrUpdateDto"
+                "$ref": "#/components/schemas/OrderCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderToCreateOrUpdateDto"
+                "$ref": "#/components/schemas/OrderCreateDto"
               }
             }
           }
@@ -1124,17 +1124,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderToCreateOrUpdateDto"
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderToCreateOrUpdateDto"
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/OrderToCreateOrUpdateDto"
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             }
           }
@@ -1330,10 +1330,10 @@
             }
           },
           {
-            "name": "isActive",
+            "name": "status",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "$ref": "#/components/schemas/ProductStatus"
             }
           },
           {
@@ -1548,17 +1548,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/ProductStatus"
               }
             },
             "text/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/ProductStatus"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/ProductStatus"
               }
             }
           }
@@ -2689,10 +2689,10 @@
             }
           },
           {
-            "name": "isActive",
+            "name": "supplierStatus",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "$ref": "#/components/schemas/SupplierStatus"
             }
           },
           {
@@ -2900,17 +2900,76 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/SupplierStatus"
               }
             },
             "text/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/SupplierStatus"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/SupplierStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Suppliers/{id}/type": {
+      "patch": {
+        "tags": [
+          "Suppliers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierType"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierType"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SupplierType"
               }
             }
           }
@@ -2948,17 +3007,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskCommand"
+                "$ref": "#/components/schemas/TaskToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskCommand"
+                "$ref": "#/components/schemas/TaskToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateTaskCommand"
+                "$ref": "#/components/schemas/TaskToCreateOrUpdateDto"
               }
             }
           }
@@ -2992,6 +3051,69 @@
       "get": {
         "tags": [
           "Tasks"
+        ],
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "clientId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "orderId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "priority",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/TaskPriority"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/InstallTaskStatus"
+            }
+          },
+          {
+            "name": "fromDeadline",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "toDeadline",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -3084,17 +3206,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTaskCommand"
+                "$ref": "#/components/schemas/TaskToCreateOrUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTaskCommand"
+                "$ref": "#/components/schemas/TaskToCreateOrUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UpdateTaskCommand"
+                "$ref": "#/components/schemas/TaskToCreateOrUpdateDto"
               }
             }
           }
@@ -3137,6 +3259,186 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tasks/{id}/status": {
+      "patch": {
+        "tags": [
+          "Tasks"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstallTaskStatus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstallTaskStatus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstallTaskStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tasks/{id}/priority": {
+      "patch": {
+        "tags": [
+          "Tasks"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskPriority"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskPriority"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskPriority"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Tasks/{id}/assign": {
+      "patch": {
+        "tags": [
+          "Tasks"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -3231,10 +3533,10 @@
             }
           },
           {
-            "name": "isActive",
+            "name": "status",
             "in": "query",
             "schema": {
-              "type": "boolean"
+              "$ref": "#/components/schemas/UserStatus"
             }
           },
           {
@@ -3434,17 +3736,76 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/UserStatus"
               }
             },
             "text/json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/UserStatus"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "boolean"
+                "$ref": "#/components/schemas/UserStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/role": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRole"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRole"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRole"
               }
             }
           }
@@ -3843,9 +4204,6 @@
             "type": "string",
             "nullable": true
           },
-          "status": {
-            "$ref": "#/components/schemas/BranchStatus"
-          },
           "contactPhone": {
             "type": "string",
             "nullable": true
@@ -3885,6 +4243,9 @@
             "format": "date-time",
             "nullable": true
           },
+          "status": {
+            "$ref": "#/components/schemas/ClientStatus"
+          },
           "phone": {
             "type": "string",
             "nullable": true
@@ -3901,9 +4262,6 @@
             "type": "integer",
             "format": "int64",
             "nullable": true
-          },
-          "isActive": {
-            "type": "boolean"
           },
           "lastActivityAt": {
             "type": "string",
@@ -3929,6 +4287,75 @@
           }
         },
         "additionalProperties": false
+      },
+      "ClientInfoDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telegram": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientInfoForTaskDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telegram": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientStatus": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ClientToCreateOrUpdateDto": {
         "type": "object",
@@ -3968,33 +4395,6 @@
           },
           "notes": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateTaskCommand": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/TaskStatus"
-          },
-          "clientId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid",
             "nullable": true
           }
         },
@@ -4045,12 +4445,19 @@
             "type": "string",
             "nullable": true
           },
-          "isActive": {
-            "type": "boolean"
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
           },
           "additionInformation": {
             "type": "string",
             "nullable": true
+          },
+          "isActive": {
+            "type": "boolean"
           },
           "createdAt": {
             "type": "string",
@@ -4063,6 +4470,16 @@
           }
         },
         "additionalProperties": false
+      },
+      "MaterialStatus": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "MaterialToCreateOrUpdateDto": {
         "type": "object",
@@ -4096,6 +4513,48 @@
           },
           "additionInformation": {
             "type": "string",
+            "nullable": true
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderCreateDto": {
+        "type": "object",
+        "properties": {
+          "serviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "branchId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "orderItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderItemRequestDto"
+            },
             "nullable": true
           }
         },
@@ -4150,21 +4609,37 @@
             "format": "date-time",
             "nullable": true
           },
-          "clientId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
           "branchId": {
             "type": "string",
             "format": "uuid",
             "nullable": true
+          },
+          "client": {
+            "$ref": "#/components/schemas/ClientInfoDto"
           },
           "orderItems": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/OrderItemRequestDto"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderInfoForTaskDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "number": {
+            "type": "string",
+            "nullable": true
+          },
+          "serviceName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -4195,7 +4670,7 @@
         "type": "integer",
         "format": "int32"
       },
-      "OrderToCreateOrUpdateDto": {
+      "OrderUpdateDto": {
         "type": "object",
         "properties": {
           "serviceName": {
@@ -4208,23 +4683,6 @@
           },
           "address": {
             "type": "string",
-            "nullable": true
-          },
-          "clientId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "branchId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "orderItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/OrderItemRequestDto"
-            },
             "nullable": true
           }
         },
@@ -4264,8 +4722,8 @@
             },
             "nullable": true
           },
-          "isActive": {
-            "type": "boolean"
+          "status": {
+            "$ref": "#/components/schemas/ProductStatus"
           },
           "isService": {
             "type": "boolean"
@@ -4281,6 +4739,15 @@
           }
         },
         "additionalProperties": false
+      },
+      "ProductStatus": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "ProductToCreateOrUpdateDto": {
         "type": "object",
@@ -4484,12 +4951,6 @@
             "type": "string",
             "nullable": true
           },
-          "zoneType": {
-            "$ref": "#/components/schemas/StorageZoneType"
-          },
-          "status": {
-            "$ref": "#/components/schemas/StorageZoneStatus"
-          },
           "maxCapacity": {
             "type": "integer",
             "format": "int32",
@@ -4569,9 +5030,6 @@
             "type": "string",
             "nullable": true
           },
-          "isActive": {
-            "type": "boolean"
-          },
           "rating": {
             "type": "integer",
             "format": "int32",
@@ -4579,6 +5037,9 @@
           },
           "supplierType": {
             "$ref": "#/components/schemas/SupplierType"
+          },
+          "supplierStatus": {
+            "$ref": "#/components/schemas/SupplierStatus"
           },
           "createdAt": {
             "type": "string",
@@ -4669,6 +5130,15 @@
         },
         "additionalProperties": false
       },
+      "SupplierStatus": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "SupplierToCreateOrUpdateDto": {
         "type": "object",
         "properties": {
@@ -4719,9 +5189,6 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
-          },
-          "supplierType": {
-            "$ref": "#/components/schemas/SupplierType"
           }
         },
         "additionalProperties": false
@@ -4752,17 +5219,25 @@
             "type": "string",
             "nullable": true
           },
+          "priority": {
+            "$ref": "#/components/schemas/TaskPriority"
+          },
           "status": {
             "$ref": "#/components/schemas/InstallTaskStatus"
           },
-          "clientId": {
+          "completedAt": {
             "type": "string",
-            "format": "uuid",
+            "format": "date-time",
             "nullable": true
           },
-          "userId": {
+          "assignedAt": {
             "type": "string",
-            "format": "uuid",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           },
           "createdAt": {
@@ -4771,24 +5246,64 @@
           },
           "updatedAt": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserInfoForTaskDto"
+          },
+          "order": {
+            "$ref": "#/components/schemas/OrderInfoForTaskDto"
+          },
+          "client": {
+            "$ref": "#/components/schemas/ClientInfoForTaskDto"
           }
         },
         "additionalProperties": false
       },
-      "TaskStatus": {
+      "TaskPriority": {
         "enum": [
-          0,
           1,
           2,
           3,
-          4,
-          5,
-          6,
-          7
+          4
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "TaskToCreateOrUpdateDto": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "deadline": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "orderId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "UnitMeasurement": {
         "enum": [
@@ -4811,37 +5326,6 @@
         "type": "integer",
         "format": "int32"
       },
-      "UpdateTaskCommand": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "$ref": "#/components/schemas/TaskStatus"
-          },
-          "clientId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "UserDto": {
         "type": "object",
         "properties": {
@@ -4856,8 +5340,8 @@
           "role": {
             "$ref": "#/components/schemas/UserRole"
           },
-          "isActive": {
-            "type": "boolean"
+          "status": {
+            "$ref": "#/components/schemas/UserStatus"
           },
           "phone": {
             "type": "string",
@@ -4897,7 +5381,39 @@
         },
         "additionalProperties": false
       },
+      "UserInfoForTaskDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UserRole": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "UserStatus": {
         "enum": [
           1,
           2,
@@ -4913,9 +5429,6 @@
           "name": {
             "type": "string",
             "nullable": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/UserRole"
           },
           "phone": {
             "type": "string",

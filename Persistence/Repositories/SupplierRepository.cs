@@ -59,7 +59,7 @@ namespace Persistence.Repositories
         public async Task<List<SupplierEntity>> GetFilteredAsync(
             string? searchTerm = null,
             SupplierType? supplierType = null,
-            bool? isActive = null,
+            SupplierStatus? status = null,
             int? minRating = null,
             int? maxRating = null)
         {
@@ -78,10 +78,10 @@ namespace Persistence.Repositories
             }
 
             if (supplierType.HasValue)
-                query = query.Where(x => x.SupplierType == supplierType.Value);
+                query = query.Where(x => x.Type == supplierType.Value);
 
-            if (isActive.HasValue)
-                query = query.Where(x => x.IsActive == isActive.Value);
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
 
             if (minRating.HasValue)
                 query = query.Where(x => x.Rating >= minRating.Value);

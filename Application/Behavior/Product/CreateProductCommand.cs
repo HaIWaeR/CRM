@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Mapster;
 using MediatR;
 
@@ -29,7 +30,7 @@ namespace Application.Behavior.Product
 
             ProductEntity product = command.Adapt<ProductEntity>();
             product.Id = Guid.NewGuid();
-            product.IsActive = true;
+            product.Status = ProductStatus.Active;
             product.CreatedAt = DateTime.UtcNow;
 
             await repository.AddAsync(product);

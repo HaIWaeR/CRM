@@ -1,8 +1,9 @@
-﻿using MediatR;
+﻿using Application.Behavior.Product;
+using Domain.Enums;
+using Mapster;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DTO.Product;
-using Application.Behavior.Product;
-using Mapster;
 
 namespace WebApi.Controllers
 {
@@ -21,7 +22,7 @@ namespace WebApi.Controllers
         public async Task<List<ProductDto>> GetAllProductsAsync(
             [FromQuery] string? searchTerm = null,
             [FromQuery] string? category = null,
-            [FromQuery] bool? isActive = null,
+            [FromQuery] ProductStatus? status = null,
             [FromQuery] bool? isService = null,
             [FromQuery] decimal? minPrice = null,
             [FromQuery] decimal? maxPrice = null)
@@ -30,7 +31,7 @@ namespace WebApi.Controllers
             {
                 SearchTerm = searchTerm,
                 Category = category,
-                IsActive = isActive,
+                Status = status,
                 IsService = isService,
                 MinPrice = minPrice,
                 MaxPrice = maxPrice
@@ -60,12 +61,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<bool> ChangeProductStatusAsync(Guid id, [FromBody] bool isActive)
+        public async Task<bool> ChangeProductStatusAsync(Guid id, [FromBody] ProductStatus status)
         {
             return await mediator.Send(new ChangeProductStatusCommand
             {
                 Id = id,
-                IsActive = isActive
+                Status = status
             });
         }
     }

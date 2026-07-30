@@ -6,7 +6,6 @@ namespace Application.Interfaces.Repositories
 {
     public interface IOrderRepository
     {
-
         // CRUD
         Task AddAsync(OrderEntity order);
         Task<List<OrderEntity>> GetAllAsync();
@@ -14,15 +13,11 @@ namespace Application.Interfaces.Repositories
         Task<OrderEntity> UpdateAsync(OrderEntity order);
         Task DeleteAsync(Guid id);
 
-
-        // Дополнительные методы 
+        // Дополнительные методы
         Task<bool> ExistsAsync(Guid id);
-        Task<OrderEntity?> GetByOrderNumberAsync(string orderNumber);
-        Task<bool> IsOrderNumberUniqueAsync(string orderNumber, Guid? excludeId = null);
-        Task AddOrderItemAsync(OrderItemEntity orderItem);
         Task<List<OrderItemEntity>> GetOrderItemsByOrderIdAsync(Guid orderId);
 
-        // Фильтрация 
+        // Фильтрация
         Task<List<OrderEntity>> GetFilteredAsync(
             string? searchTerm = null,
             OrderStatus? status = null,
@@ -31,7 +26,7 @@ namespace Application.Interfaces.Repositories
             DateTime? fromDate = null,
             DateTime? toDate = null);
 
-        // Статистика 
+        // Статистика
         Task<int> GetCountByStatusAsync(OrderStatus status);
     }
 }

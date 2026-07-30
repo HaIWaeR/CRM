@@ -12,7 +12,7 @@ namespace WebApi.Controllers
     public class OrdersController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
-        public async Task<Guid> CreateOrderAsync([FromBody] OrderToCreateOrUpdateDto dto)
+        public async Task<Guid> CreateOrderAsync([FromBody] OrderCreateDto dto)
         {
             CreateOrderCommand command = dto.Adapt<CreateOrderCommand>();
             return await mediator.Send(command);
@@ -47,7 +47,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<OrderDto> UpdateOrderAsync(Guid id, [FromBody] OrderToCreateOrUpdateDto dto)
+        public async Task<OrderDto> UpdateOrderAsync(Guid id, [FromBody] OrderUpdateDto dto)
         {
             UpdateOrderCommand command = dto.Adapt<UpdateOrderCommand>();
             command.Id = id;

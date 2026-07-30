@@ -7,6 +7,14 @@ namespace Application.Validators.Material
     {
         public UpdateMaterialCommandValidator()
         {
+            RuleFor(x => x.Attributes)
+                .Must(x => x == null || x.Count <= 20)
+                .WithMessage("Максимум 20 атрибутов")
+                .Must(x => x == null || x.All(kv => kv.Key.Length <= 50))
+                .WithMessage("Длина ключа не более 50 символов")
+                .Must(x => x == null || x.All(kv => kv.Value.Length <= 200))
+                .WithMessage("Длина значения не более 200 символов");
+
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("Название материала обязательно")
                 .MaximumLength(200).WithMessage("Максимум 200 символов");

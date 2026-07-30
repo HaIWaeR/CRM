@@ -16,12 +16,16 @@ namespace Persistence.Repositories
 
         public async Task<List<StorageZoneEntity>> GetAllAsync()
         {
-            return await context.Storages.ToListAsync();
+            return await context.Storages
+                .Include(x => x.StockItems)
+                .ToListAsync();
         }
 
         public async Task<StorageZoneEntity?> GetByIdAsync(Guid id)
         {
-            return await context.Storages.FindAsync(id);
+            return await context.Storages
+                .Include(x => x.StockItems)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<StorageZoneEntity> UpdateAsync(StorageZoneEntity storageZone)
@@ -63,7 +67,9 @@ namespace Persistence.Repositories
             StorageZoneStatus? status = null,
             bool? isDefault = null)
         {
-            IQueryable<StorageZoneEntity> query = context.Storages.AsQueryable();
+            IQueryable<StorageZoneEntity> query = context.Storages
+                .Include(x => x.StockItems)
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
@@ -99,6 +105,36 @@ namespace Persistence.Repositories
         public async Task<bool> HasAnyStockItemsForWarehouseAsync(Guid warehouseId)
         {
             return await context.StockItems.AnyAsync(x => x.WarehouseId == warehouseId);
+        }
+
+        // Обновление статуса зоны (добавлен)
+        public async Task UpdateZoneStatusAsync(Guid storageZoneId)
+        {
+            var zone = await context.Storages
+                .Include(x => x.StockItems)
+                .FirstOrDefaultAsync(x => x.Id == storageZoneId);
+
+            if (zone == null)
+                return;
+
+            if (!zone.MaxCapacity.HasValue || zone.MaxCapacity.Value == 0)
+            {
+                zone.Status = StorageZoneStatus.Empty;
+            }
+            else
+            {
+                int totalQuantity = zone.StockItems?.Sum(x => x.Quantity) ?? 0;
+
+                if (totalQuantity == 0)
+                    zone.Status = StorageZoneStatus.Empty;
+                else if (totalQuantity >= zone.MaxCapacity.Value)
+                    zone.Status = StorageZoneStatus.FullyOccupied;
+                else
+                    zone.Status = StorageZoneStatus.PartiallyOccupied;
+            }
+
+            zone.UpdatedAt = DateTime.UtcNow;
+            await context.SaveChangesAsync();
         }
     }
 }

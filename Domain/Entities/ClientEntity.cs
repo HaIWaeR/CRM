@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities
+﻿using Domain.Enums;
+
+namespace Domain.Entities
 {
     public class ClientEntity
     {
@@ -13,7 +15,7 @@
         public string? Telegram { get; set; }
         public long? TelegramId {  get; set; }
 
-        public bool IsActive { get; set; }
+        public ClientStatus Status { get; set; } 
         public DateTime? LastActivityAt { get; set; }
 
         public string? Address { get; set; }

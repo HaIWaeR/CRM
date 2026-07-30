@@ -13,7 +13,7 @@ namespace Persistence.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).IsRequired().HasMaxLength(200);
             builder.Property(x => x.Code).HasMaxLength(50);
-            builder.Property(x => x.ZoneType).IsRequired();
+            builder.Property(x => x.ZoneType).IsRequired().HasDefaultValue(StorageZoneType.None);
             builder.Property(x => x.Status).IsRequired().HasDefaultValue(StorageZoneStatus.Empty);
             builder.Property(x => x.MaxCapacity);
             builder.Property(x => x.Description).HasMaxLength(500);

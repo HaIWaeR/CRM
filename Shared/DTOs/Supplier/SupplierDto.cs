@@ -15,9 +15,9 @@ namespace Shared.DTOs.Supplier
         public string? Website { get; set; }
         public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
-        public bool IsActive { get; set; }
         public int? Rating { get; set; }
         public SupplierType SupplierType { get; set; }
+        public SupplierStatus SupplierStatus { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }

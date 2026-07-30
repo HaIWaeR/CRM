@@ -17,9 +17,9 @@ namespace Domain.Entities
         public string? Website { get; set; }
         public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
-        public bool IsActive { get; set; }
+        public SupplierStatus Status { get; set; }
         public int? Rating { get; set; }
-        public SupplierType SupplierType { get; set; }
+        public SupplierType Type { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 

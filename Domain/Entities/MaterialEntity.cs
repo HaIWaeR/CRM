@@ -10,8 +10,9 @@ namespace Domain.Entities
         public decimal PriceUnit { get; set; }
         public decimal Weight { get; set; }
         public UnitMeasurement UnitMeasurement {get; set; }
-        public bool IsActive { get; set; }
+        public MaterialStatus Status { get; set; }
         public string? Description { get; set; }
+        public Dictionary<string, string>? Attributes { get; set; }
         public string? AdditionInformation { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

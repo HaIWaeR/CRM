@@ -1,6 +1,7 @@
 ﻿using Application.Helpers;
 using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Mapster;
 using MediatR;
 
@@ -54,7 +55,7 @@ namespace Application.Behavior.Client
             client.Phone = PhoneHelper.FormatPhone(command.Phone);
             client.Id = Guid.NewGuid();
             client.CreatedAt = DateTime.UtcNow;
-            client.IsActive = true;
+            client.Status = ClientStatus.Active;
 
             await repository.AddAsync(client);
             return client.Id;

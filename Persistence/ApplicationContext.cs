@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Supporting;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Configurations;
 
@@ -39,7 +40,7 @@ namespace Persistence
             modelBuilder.ApplyConfiguration(new WarehouseRoomConfiguration());
             modelBuilder.ApplyConfiguration(new SupplierConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
-
+            modelBuilder.ApplyConfiguration(new TaskConfiguration());
         }
     }
 }

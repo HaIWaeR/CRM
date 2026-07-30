@@ -1,33 +1,41 @@
-﻿using MediatR;
+﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
-using Application.Interfaces.Repositories;
+using Mapster;
+using MediatR;
+using Shared.DTOs.Task;
 
 namespace Application.Behavior.Task
 {
-    public class UpdateTaskCommand : IRequest<TaskEntity?>
+    public class UpdateTaskCommand : IRequest<TaskDto>
     {
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string? Description { get; set; }
-        public TaskStatus Status { get; set; }
+        public DateTime? AssignedAt { get; set; }
+        public DateTime? Deadline { get; set; }
+        public Guid? OrderId { get; set; }
         public Guid? ClientId { get; set; }
-        public Guid? UserId { get; set; }
     }
 
-    public class UpdateTaskCommandHandler(ITaskRepository repository) : IRequestHandler<UpdateTaskCommand, TaskEntity?>
+    public class UpdateTaskCommandHandler(ITaskRepository repository) : IRequestHandler<UpdateTaskCommand, TaskDto>
     {
-        public async Task<TaskEntity?> Handle(UpdateTaskCommand command, CancellationToken cancellationToken)
+        public async Task<TaskDto> Handle(UpdateTaskCommand command, CancellationToken cancellationToken)
         {
-            TaskEntity? task = await repository.GetByIdAsync(command.Id) ?? throw new Exception($"Задача с ID {command.Id} не найдена");
-            task.Title = command.Title;
-            task.Description = command.Description;
-            task.Status = command.Status;
-            task.ClientId = command.ClientId;
-            task.UserId = command.UserId;
-            task.UpdatedAt = DateTime.UtcNow;
-            await repository.UpdateAsync(task);
+            TaskEntity? existing = await repository.GetByIdAsync(command.Id)
+                ?? throw new KeyNotFoundException($"Задача с ID {command.Id} не найдена");
 
-            return task;
+            existing.Title = command.Title;
+            existing.Description = command.Description;
+            existing.AssignedAt = command.AssignedAt;
+            existing.Deadline = command.Deadline;
+            existing.OrderId = command.OrderId;
+            existing.ClientId = command.ClientId;
+            existing.UpdatedAt = DateTime.UtcNow;
+
+            await repository.UpdateAsync(existing);
+
+            TaskDto result = existing.Adapt<TaskDto>();
+            return result;
         }
     }
 }

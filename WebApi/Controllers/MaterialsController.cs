@@ -1,4 +1,5 @@
 ﻿using Application.Behavior.Material;
+using Domain.Enums;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,14 +22,14 @@ namespace WebApi.Controllers
         public async Task<List<MaterialDto>> GetAllMaterialsAsync(
             [FromQuery] string? searchTerm = null,
             [FromQuery] string? categoryCode = null,
-            [FromQuery] bool? isActive = null,
+            [FromQuery] MaterialStatus? status = null,
             [FromQuery] string? article = null)
         {
             GetAllMaterialsQuery query = new GetAllMaterialsQuery
             {
                 SearchTerm = searchTerm,
                 CategoryCode = categoryCode,
-                IsActive = isActive,
+                Status = status,
                 Article = article
             };
 
@@ -58,12 +59,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<bool> ChangeMaterialStatusAsync(Guid id, [FromBody] bool isActive)
+        public async Task<bool> ChangeMaterialStatusAsync(Guid id, [FromBody] MaterialStatus status)
         {
             return await mediator.Send(new ChangeMaterialStatusCommand
             {
                 Id = id,
-                IsActive = isActive
+                Status = status
             });
         }
     }

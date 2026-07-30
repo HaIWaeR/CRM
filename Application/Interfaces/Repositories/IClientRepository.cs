@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces.Repositories
@@ -21,7 +22,7 @@ namespace Application.Interfaces.Repositories
         // Фильтрация 
         Task<List<ClientEntity>> GetFilteredAsync(
             string? searchTerm = null,
-            bool? isActive = null,
+            ClientStatus? status = null,
             string? phone = null,
             string? email = null,
             string? telegram = null);

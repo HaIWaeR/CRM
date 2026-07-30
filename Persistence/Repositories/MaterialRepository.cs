@@ -1,5 +1,6 @@
-﻿using Domain.Entities;
-using Application.Interfaces.Repositories;
+﻿using Application.Interfaces.Repositories;
+using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
@@ -60,7 +61,7 @@ namespace Persistence.Repositories
         public async Task<List<MaterialEntity>> GetFilteredAsync(
             string? searchTerm = null,
             string? categoryCode = null,
-            bool? isActive = null,
+            MaterialStatus? status = null,
             string? article = null)
         {
             IQueryable<MaterialEntity> query = context.Materials.AsQueryable();
@@ -78,8 +79,8 @@ namespace Persistence.Repositories
             if (!string.IsNullOrWhiteSpace(categoryCode))
                 query = query.Where(x => x.CategoryCode == categoryCode);
 
-            if (isActive.HasValue)
-                query = query.Where(x => x.IsActive == isActive.Value);
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
 
             if (!string.IsNullOrWhiteSpace(article))
                 query = query.Where(x => x.Article.ToLower() == article.ToLower());

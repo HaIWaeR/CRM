@@ -1,5 +1,4 @@
 ﻿using Application.Behavior.StorageZone;
-using Domain.Enums;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,8 +21,8 @@ namespace WebApi.Controllers
         public async Task<List<StorageZoneDto>> GetAllStorageZonesAsync(
             [FromQuery] string? searchTerm = null,
             [FromQuery] Guid? warehouseId = null,
-            [FromQuery] StorageZoneType? zoneType = null,
-            [FromQuery] StorageZoneStatus? status = null,
+            [FromQuery] Domain.Enums.StorageZoneType? zoneType = null,
+            [FromQuery] Domain.Enums.StorageZoneStatus? status = null,
             [FromQuery] bool? isDefault = null)
         {
             GetAllStorageZonesQuery query = new GetAllStorageZonesQuery
@@ -59,7 +58,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<bool> ChangeStorageZoneStatusAsync(Guid id, [FromBody] StorageZoneStatus status)
+        public async Task<bool> ChangeStorageZoneStatusAsync(Guid id, [FromBody] Domain.Enums.StorageZoneStatus status)
         {
             return await mediator.Send(new ChangeStorageZoneStatusCommand
             {
@@ -69,7 +68,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/type")]
-        public async Task<bool> ChangeStorageZoneTypeAsync(Guid id, [FromBody] StorageZoneType zoneType)
+        public async Task<bool> ChangeStorageZoneTypeAsync(Guid id, [FromBody] Domain.Enums.StorageZoneType zoneType)
         {
             return await mediator.Send(new ChangeStorageZoneTypeCommand
             {

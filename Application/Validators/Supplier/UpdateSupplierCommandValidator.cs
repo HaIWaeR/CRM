@@ -56,9 +56,6 @@ namespace Application.Validators.Supplier
             RuleFor(x => x.Rating)
                 .InclusiveBetween(1, 10).WithMessage("Рейтинг должен быть от 1 до 10")
                 .When(x => x.Rating.HasValue);
-
-            RuleFor(x => x.SupplierType)
-                .IsInEnum().WithMessage("Некорректный тип поставщика");
         }
     }
 }

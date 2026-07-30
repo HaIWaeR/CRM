@@ -26,9 +26,9 @@ namespace Persistence.Configurations
                     v => System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, string>>(v, (System.Text.Json.JsonSerializerOptions?)null)
                 );
             builder.Property(x => x.Description).HasMaxLength(500);
-            builder.Property(x => x.IsActive).IsRequired().HasDefaultValue(true);
+            builder.Property(x => x.Status).IsRequired().HasDefaultValue(SupplierStatus.Active);
             builder.Property(x => x.Rating);
-            builder.Property(x => x.SupplierType).IsRequired().HasDefaultValue(SupplierType.Wholesale);
+            builder.Property(x => x.Type).IsRequired().HasDefaultValue(SupplierType.Wholesale);
             builder.Property(x => x.CreatedAt).IsRequired();
             builder.Property(x => x.UpdatedAt);
         }

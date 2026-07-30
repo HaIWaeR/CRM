@@ -1,5 +1,5 @@
 ﻿using Application.Behavior.Client;
-using Domain.Entities;
+using Domain.Enums;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<List<ClientDto>> GetAllClientsAsync(
             [FromQuery] string? searchTerm = null,
-            [FromQuery] bool? isActive = null,
+            [FromQuery] ClientStatus? status = null,
             [FromQuery] string? phone = null,
             [FromQuery] string? email = null,
             [FromQuery] string? telegram = null)
@@ -29,7 +29,7 @@ namespace WebApi.Controllers
             GetAllClientsQuery query = new GetAllClientsQuery
             {
                 SearchTerm = searchTerm,
-                IsActive = isActive,
+                Status = status,
                 Phone = phone,
                 Email = email,
                 Telegram = telegram
@@ -59,12 +59,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPatch("{id}/status")]
-        public async Task<bool> ChangeClientStatusAsync(Guid id, [FromBody] bool isActive)
+        public async Task<bool> ChangeClientStatusAsync(Guid id, [FromBody] ClientStatus status)
         {
             return await mediator.Send(new ChangeClientStatusCommand
             {
                 Id = id,
-                IsActive = isActive
+                Status = status
             });
         }
     }

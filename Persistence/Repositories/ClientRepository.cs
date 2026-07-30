@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
@@ -70,7 +71,7 @@ namespace Persistence.Repositories
         }
         public async Task<List<ClientEntity>> GetFilteredAsync(
             string? searchTerm = null,
-            bool? isActive = null,
+            ClientStatus? status = null,
             string? phone = null,
             string? email = null,
             string? telegram = null)
@@ -89,8 +90,8 @@ namespace Persistence.Repositories
                 );
             }
 
-            if (isActive.HasValue)
-                query = query.Where(x => x.IsActive == isActive.Value);
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
 
             if (!string.IsNullOrWhiteSpace(phone))
                 query = query.Where(x => x.Phone != null && x.Phone == phone);

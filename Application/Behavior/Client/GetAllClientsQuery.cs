@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Mapster;
 using MediatR;
 using Shared.DTOs.Client;
@@ -9,7 +10,7 @@ namespace Application.Behavior.Client
     public class GetAllClientsQuery : IRequest<List<ClientDto>>
     {
         public string? SearchTerm { get; set; }
-        public bool? IsActive { get; set; }
+        public ClientStatus? Status { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
         public string? Telegram { get; set; }
@@ -20,7 +21,7 @@ namespace Application.Behavior.Client
         {
             List<ClientEntity> clients = await repository.GetFilteredAsync(
                 query.SearchTerm,
-                query.IsActive,
+                query.Status,
                 query.Phone,
                 query.Email,
                 query.Telegram);

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 
 namespace Application.Interfaces.Repositories
 {
@@ -20,7 +21,7 @@ namespace Application.Interfaces.Repositories
         Task<List<MaterialEntity>> GetFilteredAsync(
             string? searchTerm = null,
             string? categoryCode = null,
-            bool? isActive = null,
+            MaterialStatus? status = null,
             string? article = null);
 
         // Проверка связей

@@ -1,7 +1,7 @@
-﻿using Application.Interfaces.Repositories;
-using Domain.Entities;
-using Domain.Enums;
+﻿using Domain.Entities;
+using Application.Interfaces.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Domain.Enums;
 
 namespace Persistence.Repositories
 {
@@ -70,7 +70,7 @@ namespace Persistence.Repositories
         public async Task<List<UserEntity>> GetFilteredAsync(
             string? searchTerm = null,
             UserRole? role = null,
-            bool? isActive = null,
+            UserStatus? status = null,
             Guid? branchId = null)
         {
             IQueryable<UserEntity> query = context.Users.AsQueryable();
@@ -89,8 +89,8 @@ namespace Persistence.Repositories
             if (role.HasValue)
                 query = query.Where(x => x.Role == role.Value);
 
-            if (isActive.HasValue)
-                query = query.Where(x => x.IsActive == isActive.Value);
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
 
             if (branchId.HasValue)
                 query = query.Where(x => x.BranchId == branchId.Value);

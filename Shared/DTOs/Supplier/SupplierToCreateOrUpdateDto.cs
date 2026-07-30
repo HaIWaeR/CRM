@@ -15,6 +15,5 @@ namespace Shared.DTOs.Supplier
         public Dictionary<string, string>? BankDetails { get; set; }
         public string? Description { get; set; }
         public int? Rating { get; set; }
-        public SupplierType SupplierType { get; set; }
     }
 }

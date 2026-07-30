@@ -11,7 +11,7 @@ namespace Domain.Entities
         public string? Article { get; set; }
         public string? Description { get; set; }
         public Dictionary<string, string>? Attributes { get; set; }
-        public bool IsActive { get; set; }
+        public ProductStatus Status { get; set; }
         public bool IsService { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }

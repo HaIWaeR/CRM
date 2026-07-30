@@ -20,7 +20,7 @@ namespace Application.Interfaces.Repositories
         Task<List<SupplierEntity>> GetFilteredAsync(
             string? searchTerm = null,
             SupplierType? supplierType = null,
-            bool? isActive = null,
+            SupplierStatus? supplierStatus = null,
             int? minRating = null,
             int? maxRating = null);
 
