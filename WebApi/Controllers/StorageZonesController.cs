@@ -1,15 +1,18 @@
 ﻿using Application.Behavior.StorageZone;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.StorageZone;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class StorageZonesController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateStorageZoneAsync([FromBody] StorageZoneToCreateOrUpdateDto dto)
         {
@@ -43,6 +46,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetStorageZoneByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<StorageZoneDto> UpdateStorageZoneAsync(Guid id, [FromBody] StorageZoneToCreateOrUpdateDto dto)
         {
@@ -51,12 +55,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteStorageZoneAsync(Guid id)
         {
             return await mediator.Send(new DeleteStorageZoneCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeStorageZoneStatusAsync(Guid id, [FromBody] Domain.Enums.StorageZoneStatus status)
         {
@@ -67,6 +73,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/type")]
         public async Task<bool> ChangeStorageZoneTypeAsync(Guid id, [FromBody] Domain.Enums.StorageZoneType zoneType)
         {

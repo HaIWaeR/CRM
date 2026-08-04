@@ -4,13 +4,16 @@ using Application.Behavior.StockItem;
 using Domain.Entities;
 using Shared.DTOs.StockItem;
 using Mapster;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class StockItemsController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateStockItemAsync([FromBody] StockItemToCreateOrUpdateDto dto)
         {
@@ -46,6 +49,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetStockItemByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<StockItemDto> UpdateStockItemAsync(Guid id, [FromBody] StockItemToCreateOrUpdateDto dto)
         {
@@ -54,12 +58,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteStockItemAsync(Guid id)
         {
             return await mediator.Send(new DeleteStockItemCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/add")]
         public async Task<bool> AddQuantityAsync(Guid id, [FromBody] RemoveAndAddStockQuantityDto dto)
         {
@@ -70,6 +76,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/remove")]
         public async Task<bool> RemoveQuantityAsync(Guid id, [FromBody] RemoveAndAddStockQuantityDto dto)
         {

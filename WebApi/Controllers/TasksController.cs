@@ -2,15 +2,18 @@
 using Domain.Enums;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Task;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TasksController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateTaskAsync([FromBody] TaskToCreateOrUpdateDto dto)
         {
@@ -50,6 +53,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetTaskByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<TaskDto> UpdateTaskAsync(Guid id, [FromBody] TaskToCreateOrUpdateDto dto)
         {
@@ -58,12 +62,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteTaskAsync(Guid id)
         {
             return await mediator.Send(new DeleteTaskCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeTaskStatusAsync(Guid id, [FromBody] InstallTaskStatus status)
         {
@@ -74,6 +80,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/priority")]
         public async Task<bool> ChangeTaskPriorityAsync(Guid id, [FromBody] TaskPriority priority)
         {
@@ -84,6 +91,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/assign")]
         public async Task<bool> AssignTaskToUserAsync(Guid id, [FromBody] Guid userId)
         {

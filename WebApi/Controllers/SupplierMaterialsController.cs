@@ -1,15 +1,18 @@
 ﻿using Application.Behavior.SupplierMaterial;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.SupplierMaterial;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SupplierMaterialsController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateSupplierMaterialAsync([FromBody] SupplierMaterialToCreateOrUpdateDto dto)
         {
@@ -43,6 +46,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetSupplierMaterialByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<SupplierMaterialDto> UpdateSupplierMaterialAsync(Guid id, [FromBody] SupplierMaterialToCreateOrUpdateDto dto)
         {
@@ -51,6 +55,7 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteSupplierMaterialAsync(Guid id)
         {

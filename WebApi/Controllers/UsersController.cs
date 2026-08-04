@@ -2,15 +2,18 @@
 using Domain.Enums;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.User;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateUserAsync([FromBody] UserToCreateOrUpdateDto dto)
         {
@@ -42,6 +45,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetUserByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<UserDto> UpdateUserAsync(Guid id, [FromBody] UserToCreateOrUpdateDto dto)
         {
@@ -50,12 +54,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteUserAsync(Guid id)
         {
             return await mediator.Send(new DeleteUserCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeUserStatusAsync(Guid id, [FromBody] UserStatus status)
         {
@@ -66,6 +72,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpPatch("{id}/role")]
         public async Task<bool> ChangeUserRoleAsync(Guid id, [FromBody] UserRole role)
         {

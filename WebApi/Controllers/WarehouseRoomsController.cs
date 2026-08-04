@@ -2,15 +2,18 @@
 using Domain.Enums;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.WarehouseRoom;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class WarehouseRoomsController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateWarehouseRoomAsync([FromBody] WarehouseRoomToCreateOrUpdateDto dto)
         {
@@ -40,6 +43,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetWarehouseRoomByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<WarehouseRoomDto?> UpdateWarehouseRoomAsync(Guid id, [FromBody] WarehouseRoomToCreateOrUpdateDto dto)
         {
@@ -48,12 +52,13 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteWarehouseRoomAsync(Guid id)
         {
             return await mediator.Send(new DeleteWarehouseRoomCommand { Id = id });
         }
-
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeWarehouseRoomStatusAsync(Guid id, [FromBody] WarehouseStatus status)
         {

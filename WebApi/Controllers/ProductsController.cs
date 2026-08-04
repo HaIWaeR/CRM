@@ -2,15 +2,18 @@
 using Domain.Enums;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.DTO.Product;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductsController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateProductAsync([FromBody] ProductToCreateOrUpdateDto dto)
         {
@@ -46,6 +49,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetProductByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<ProductDto> UpdateProductAsync(Guid id, [FromBody] ProductToCreateOrUpdateDto dto)
         {
@@ -54,12 +58,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteProductAsync(Guid id)
         {
             return await mediator.Send(new DeleteProductCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeProductStatusAsync(Guid id, [FromBody] ProductStatus status)
         {

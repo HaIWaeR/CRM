@@ -132,3 +132,10 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\r
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\BCrypt-Net-Next.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

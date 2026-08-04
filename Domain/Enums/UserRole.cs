@@ -3,8 +3,7 @@
     public enum UserRole
     {
         Admin = 1,     // Админ
-        Developer = 2, // Разработчик
-        Reader = 3,    // Смотрящий
-        Owner = 4      // Создатель
+        Reader = 2,    // Читатель
+        Owner = 3      // Создатель
     }
 }

@@ -2,15 +2,18 @@
 using Application.Behavior.Orders;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Order;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class OrdersController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateOrderAsync([FromBody] OrderCreateDto dto)
         {
@@ -46,6 +49,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetOrderByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<OrderDto> UpdateOrderAsync(Guid id, [FromBody] OrderUpdateDto dto)
         {
@@ -54,12 +58,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteOrderAsync(Guid id)
         {
             return await mediator.Send(new DeleteOrderCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeOrderStatusAsync(Guid id, [FromBody] Domain.Enums.OrderStatus status)
         {

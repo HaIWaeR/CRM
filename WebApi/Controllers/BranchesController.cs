@@ -1,15 +1,18 @@
 ﻿using Application.Behavior.Branch;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Branch;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BranchController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateBranchAsync([FromBody] BranchToCreateOrUpdateDto dto)
         {
@@ -38,6 +41,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetBranchByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<BranchDto> UpdateBranchAsync(Guid id, [FromBody] BranchToCreateOrUpdateDto dto)
         {
@@ -46,12 +50,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteBranchAsync(Guid id)
         {
             return await mediator.Send(new DeleteBranchCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeBranchStatusAsync(Guid id, [FromBody] Domain.Enums.BranchStatus status)
         {

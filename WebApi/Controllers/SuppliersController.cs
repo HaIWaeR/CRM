@@ -2,15 +2,18 @@
 using Domain.Enums;
 using Mapster;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Shared.DTOs.Supplier;
 
 namespace WebApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class SuppliersController(IMediator mediator) : ControllerBase
     {
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateSupplierAsync([FromBody] SupplierToCreateOrUpdateDto dto)
         {
@@ -44,6 +47,7 @@ namespace WebApi.Controllers
             return await mediator.Send(new GetSupplierByIdQuery { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPut("{id}")]
         public async Task<SupplierDto> UpdateSupplierAsync(Guid id, [FromBody] SupplierToCreateOrUpdateDto dto)
         {
@@ -52,12 +56,14 @@ namespace WebApi.Controllers
             return await mediator.Send(command);
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpDelete("{id}")]
         public async Task<bool> DeleteSupplierAsync(Guid id)
         {
             return await mediator.Send(new DeleteSupplierCommand { Id = id });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/status")]
         public async Task<bool> ChangeSupplierStatusAsync(Guid id, [FromBody] SupplierStatus status)
         {
@@ -68,6 +74,7 @@ namespace WebApi.Controllers
             });
         }
 
+        [Authorize(Roles = "Owner, Admin")]
         [HttpPatch("{id}/type")]
         public async Task<bool> ChangeSupplierTypeAsync(Guid id, [FromBody] SupplierType supplierType)
         {

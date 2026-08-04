@@ -66,6 +66,12 @@ namespace Persistence.Repositories
             return !await query.AnyAsync();
         }
 
+        public async Task<UserEntity?> GetByEmailAsync(string email)
+        {
+            return await context.Users
+                .FirstOrDefaultAsync(x => x.Email != null && x.Email.ToLower() == email.ToLower());
+        }
+
         // Фильтрация
         public async Task<List<UserEntity>> GetFilteredAsync(
             string? searchTerm = null,
