@@ -1,17 +1,22 @@
 ﻿using Application.Behavior.SupplierMaterial;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Shared.DTOs.Pagination;
 using Shared.DTOs.SupplierMaterial;
 
 namespace WebApi.Controllers
 {
+
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class SupplierMaterialsController(IMediator mediator) : ControllerBase
+    public class SupplierMaterialsController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateSupplierMaterialAsync([FromBody] SupplierMaterialToCreateOrUpdateDto dto)
@@ -21,15 +26,20 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<SupplierMaterialDto>> GetAllSupplierMaterialsAsync(
+        public async Task<PaginatedResult<SupplierMaterialDto>> GetAllSupplierMaterialsAsync(
+            [FromQuery] int page = 1,
             [FromQuery] Guid? supplierId = null,
             [FromQuery] Guid? materialId = null,
             [FromQuery] decimal? minPrice = null,
             [FromQuery] decimal? maxPrice = null,
             [FromQuery] int? maxDeliveryDays = null)
         {
+            int size = _paginationSettings.EntitySizes.SupplierMaterials;
+
             GetAllSupplierMaterialsQuery query = new GetAllSupplierMaterialsQuery
             {
+                Page = page,
+                Size = size,
                 SupplierId = supplierId,
                 MaterialId = materialId,
                 MinPrice = minPrice,

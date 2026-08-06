@@ -4,11 +4,14 @@ using Domain.Enums;
 using Mapster;
 using MediatR;
 using Shared.DTOs.Task;
+using Shared.DTOs.Pagination;
 
 namespace Application.Behavior.Task
 {
-    public class GetAllTasksQuery : IRequest<List<TaskDto>>
+    public class GetAllTasksQuery : IRequest<PaginatedResult<TaskDto>>
     {
+        public int Page { get; set; } = 1;
+        public int Size { get; set; } = 20;
         public string? SearchTerm { get; set; }
         public Guid? UserId { get; set; }
         public Guid? ClientId { get; set; }
@@ -20,13 +23,12 @@ namespace Application.Behavior.Task
     }
 
     public class GetAllTasksQueryHandler(
-            ITaskRepository taskRepository,
-            IClientRepository clientRepository,
-            IOrderRepository orderRepository,
-            IUserRepository userRepository)
-        : IRequestHandler<GetAllTasksQuery, List<TaskDto>>
+        ITaskRepository taskRepository,
+        IClientRepository clientRepository,
+        IOrderRepository orderRepository,
+        IUserRepository userRepository) : IRequestHandler<GetAllTasksQuery, PaginatedResult<TaskDto>>
     {
-        public async Task<List<TaskDto>> Handle(GetAllTasksQuery query, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<TaskDto>> Handle(GetAllTasksQuery query, CancellationToken cancellationToken)
         {
             List<TaskEntity> tasks = await taskRepository.GetFilteredAsync(
                 query.SearchTerm,
@@ -36,7 +38,33 @@ namespace Application.Behavior.Task
                 query.Priority,
                 query.Status,
                 query.FromDeadline,
+                query.ToDeadline,
+                query.Page,
+                query.Size);
+
+            int totalCount = await taskRepository.GetTotalCountAsync(
+                query.SearchTerm,
+                query.UserId,
+                query.ClientId,
+                query.OrderId,
+                query.Priority,
+                query.Status,
+                query.FromDeadline,
                 query.ToDeadline);
+
+            int totalPages = (int)Math.Ceiling(totalCount / (double)query.Size);
+
+            if (query.Page > totalPages && totalPages > 0)
+            {
+                return new PaginatedResult<TaskDto>
+                {
+                    Items = new List<TaskDto>(),
+                    TotalCount = totalCount,
+                    Page = query.Page,
+                    Size = query.Size,
+                    TotalPages = totalPages
+                };
+            }
 
             List<TaskDto> result = new List<TaskDto>();
 
@@ -74,7 +102,14 @@ namespace Application.Behavior.Task
                 result.Add(taskDto);
             }
 
-            return result;
+            return new PaginatedResult<TaskDto>
+            {
+                Items = result,
+                TotalCount = totalCount,
+                Page = query.Page,
+                Size = query.Size,
+                TotalPages = totalPages
+            };
         }
     }
 }

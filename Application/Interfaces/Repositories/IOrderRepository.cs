@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Supporting;
 using Domain.Enums;
+using System.Drawing;
 
 namespace Application.Interfaces.Repositories
 {
@@ -17,8 +18,19 @@ namespace Application.Interfaces.Repositories
         Task<bool> ExistsAsync(Guid id);
         Task<List<OrderItemEntity>> GetOrderItemsByOrderIdAsync(Guid orderId);
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         Task<List<OrderEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            OrderStatus? status = null,
+            Guid? clientId = null,
+            Guid? branchId = null,
+            DateTime? fromDate = null,
+            DateTime? toDate = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             OrderStatus? status = null,
             Guid? clientId = null,

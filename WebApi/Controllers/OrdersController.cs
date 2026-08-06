@@ -1,18 +1,23 @@
 ﻿using Application.Behavior.Order;
 using Application.Behavior.Orders;
+using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Shared.DTOs.Order;
+using Shared.DTOs.Pagination;
 
 namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class OrdersController(IMediator mediator) : ControllerBase
+    public class OrdersController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateOrderAsync([FromBody] OrderCreateDto dto)
@@ -22,16 +27,21 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<OrderDto>> GetAllOrdersAsync(
+        public async Task<PaginatedResult<OrderDto>> GetAllOrdersAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
-            [FromQuery] Domain.Enums.OrderStatus? status = null,
+            [FromQuery] OrderStatus? status = null,
             [FromQuery] Guid? clientId = null,
             [FromQuery] Guid? branchId = null,
             [FromQuery] DateTime? fromDate = null,
             [FromQuery] DateTime? toDate = null)
         {
+            int size = _paginationSettings.EntitySizes.Orders;
+
             GetAllOrdersQuery query = new GetAllOrdersQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 Status = status,
                 ClientId = clientId,

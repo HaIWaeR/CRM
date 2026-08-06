@@ -37,9 +37,11 @@ namespace Application.Behavior.Auth
                     throw new InvalidOperationException($"Пользователь с телефоном '{command.Phone}' уже существует");
             }
 
+            bool hasUsers = await userRepository.HasAnyUserAsync();
+
             UserEntity user = command.Adapt<UserEntity>();
             user.Id = Guid.NewGuid();
-            user.Role = UserRole.Reader;
+            user.Role = hasUsers ? UserRole.Reader : UserRole.Owner;
             user.Status = UserStatus.Active;
             user.PasswordHash = jwtService.HashPassword(command.Password);
             user.CreatedAt = DateTime.UtcNow;

@@ -1,9 +1,12 @@
 ﻿using Application.Behavior.User;
 using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Shared.DTOs.Pagination;
 using Shared.DTOs.User;
 
 namespace WebApi.Controllers
@@ -11,8 +14,9 @@ namespace WebApi.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController(IMediator mediator) : ControllerBase
+    public class UsersController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateUserAsync([FromBody] UserToCreateOrUpdateDto dto)
@@ -22,14 +26,19 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<UserDto>> GetAllUsersAsync(
+        public async Task<PaginatedResult<UserDto>> GetAllUsersAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
             [FromQuery] UserRole? role = null,
             [FromQuery] UserStatus? status = null,
             [FromQuery] Guid? branchId = null)
         {
+            int size = _paginationSettings.EntitySizes.Users;
+
             GetAllUsersQuery query = new GetAllUsersQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 Role = role,
                 Status = status,

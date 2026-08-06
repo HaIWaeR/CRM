@@ -16,8 +16,18 @@ namespace Application.Interfaces.Repositories
         Task<bool> ChangeBranchStatusAsync(Guid id, BranchStatus status);
         Task<bool> ExistsAsync(Guid id);
 
-        // Фильтрация
-        Task<List<BranchEntity>> GetFilteredAsync(string? searchTerm = null, BranchStatus? status = null);
+        // Фильтрация с пагинацией
+        Task<List<BranchEntity>> GetFilteredAsync(
+            string? searchTerm = null, 
+            BranchStatus? status = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее колличество записей
+        Task<int> GetTotalCountAsync(
+            string? searchTerm = null,
+            BranchStatus? status = null);
+
 
         // Проверка связей
         Task<bool> HasUsersAsync(Guid branchId);

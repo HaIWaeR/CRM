@@ -7,6 +7,7 @@ namespace Persistence.Repositories
 {
     public class BranchRepository(ApplicationContext context) : IBranchRepository
     {
+        // CRUD
         public async Task AddAsync(BranchEntity branch)
         {
             await context.Branches.AddAsync(branch);
@@ -48,12 +49,18 @@ namespace Persistence.Repositories
             return await context.SaveChangesAsync() > 0;
         }
 
+        // Дополнительные методы
         public async Task<bool> ExistsAsync(Guid id)
         {
             return await context.Branches.AnyAsync(b => b.Id == id);
         }
 
-        public async Task<List<BranchEntity>> GetFilteredAsync(string? searchTerm = null, BranchStatus? status = null)
+        // Фильтрация с пагинацией
+        public async Task<List<BranchEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            BranchStatus? status = null,
+            int page = 1,
+            int size = 10)
         {
             IQueryable<BranchEntity> query = context.Branches.AsQueryable();
 
@@ -69,9 +76,35 @@ namespace Persistence.Repositories
             if (status.HasValue)
                 query = query.Where(b => b.Status == status.Value);
 
-            return await query.ToListAsync();
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
         }
 
+        // Общее количество записей
+        public async Task<int> GetTotalCountAsync(
+            string? searchTerm = null,
+            BranchStatus? status = null)
+        {
+            IQueryable<BranchEntity> query = context.Branches.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim();
+                query = query.Where(b =>
+                    b.Name.Contains(search) ||
+                    b.Address.Contains(search)
+                );
+            }
+
+            if (status.HasValue)
+                query = query.Where(b => b.Status == status.Value);
+
+            return await query.CountAsync();
+        }
+
+        // Проверка связей
         public async Task<bool> HasUsersAsync(Guid branchId)
         {
             return await context.Users.AnyAsync(u => u.BranchId == branchId);

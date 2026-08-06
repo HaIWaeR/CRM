@@ -1,18 +1,22 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Application.Behavior.StockItem;
+﻿using Application.Behavior.StockItem;
 using Domain.Entities;
-using Shared.DTOs.StockItem;
+using Domain.Settings;
 using Mapster;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Shared.DTOs.Pagination;
+using Shared.DTOs.StockItem;
 
 namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class StockItemsController(IMediator mediator) : ControllerBase
+    public class StockItemsController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateStockItemAsync([FromBody] StockItemToCreateOrUpdateDto dto)
@@ -22,7 +26,8 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<StockItemDto>> GetAllStockItemsAsync(
+        public async Task<PaginatedResult<StockItemDto>> GetAllStockItemsAsync(
+            [FromQuery] int page = 1,
             [FromQuery] Guid? productId = null,
             [FromQuery] Guid? materialId = null,
             [FromQuery] Guid? warehouseId = null,
@@ -30,8 +35,12 @@ namespace WebApi.Controllers
             [FromQuery] int? minQuantity = null,
             [FromQuery] int? maxQuantity = null)
         {
+            int size = _paginationSettings.EntitySizes.StockItems;
+
             GetAllStockItemsQuery query = new GetAllStockItemsQuery
             {
+                Page = page,
+                Size = size,
                 ProductId = productId,
                 MaterialId = materialId,
                 WarehouseId = warehouseId,

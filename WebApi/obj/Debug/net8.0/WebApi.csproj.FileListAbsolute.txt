@@ -1,3 +1,12 @@
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.AssemblyReference.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfoInputs.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\appsettings.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\libman.json
@@ -7,6 +16,7 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\W
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.runtimeconfig.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\WebApi.pdb
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\BCrypt-Net-Next.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Humanizer.dll
@@ -14,7 +24,9 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\M
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Mapster.Core.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\MediatR.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\MediatR.Contracts.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -33,6 +45,8 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\M
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Mono.TextTemplating.dll
@@ -48,6 +62,8 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\S
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.Composition.TypedParts.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -108,15 +124,6 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\A
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Persistence.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Shared.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Domain.pdb
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.AssemblyReference.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rpswa.dswa.cache.json
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfoInputs.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.AssemblyInfo.cs
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.csproj.CoreCompileInputs.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.sourcelink.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -132,10 +139,3 @@ C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\r
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\obj\Debug\net8.0\ref\WebApi.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\BCrypt-Net-Next.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.Formats.Asn1.dll
-C:\Users\argument\OneDrive\Рабочий стол\CRM\WebApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

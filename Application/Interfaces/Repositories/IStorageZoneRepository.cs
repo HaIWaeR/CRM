@@ -16,8 +16,18 @@ namespace Application.Interfaces.Repositories
         Task<bool> ExistsAsync(Guid id);
         Task<bool> IsCodeUniqueAsync(string code, Guid? excludeId = null);
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         Task<List<StorageZoneEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            Guid? warehouseId = null,
+            StorageZoneType? zoneType = null,
+            StorageZoneStatus? status = null,
+            bool? isDefault = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             Guid? warehouseId = null,
             StorageZoneType? zoneType = null,

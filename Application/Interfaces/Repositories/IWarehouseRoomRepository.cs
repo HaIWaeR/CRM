@@ -19,6 +19,14 @@ namespace Application.Interfaces.Repositories
         Task<List<WarehouseRoomEntity>> GetFilteredAsync(
             string? searchTerm = null,
             Guid? branchId = null,
+            WarehouseStatus? status = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
+            string? searchTerm = null,
+            Guid? branchId = null,
             WarehouseStatus? status = null);
 
         // Проверка связей

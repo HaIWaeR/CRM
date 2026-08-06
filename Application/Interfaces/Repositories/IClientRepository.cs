@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Domain.Enums;
-using System.Threading.Tasks;
 
 namespace Application.Interfaces.Repositories
 {
@@ -19,8 +18,18 @@ namespace Application.Interfaces.Repositories
         Task<bool> IsEmailUniqueAsync(string email, Guid? excludeId = null);
         Task<bool> IsTelegramUniqueAsync(string telegramId, Guid? excludeId = null);
 
-        // Фильтрация 
+        // Фильтрация с пагинацией
         Task<List<ClientEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            ClientStatus? status = null,
+            string? phone = null,
+            string? email = null,
+            string? telegram = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             ClientStatus? status = null,
             string? phone = null,

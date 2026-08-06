@@ -1,9 +1,12 @@
 ﻿using Application.Behavior.Task;
 using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Shared.DTOs.Pagination;
 using Shared.DTOs.Task;
 
 namespace WebApi.Controllers
@@ -11,8 +14,9 @@ namespace WebApi.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class TasksController(IMediator mediator) : ControllerBase
+    public class TasksController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateTaskAsync([FromBody] TaskToCreateOrUpdateDto dto)
@@ -22,7 +26,8 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<TaskDto>> GetAllTasksAsync(
+        public async Task<PaginatedResult<TaskDto>> GetAllTasksAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
             [FromQuery] Guid? userId = null,
             [FromQuery] Guid? clientId = null,
@@ -32,8 +37,12 @@ namespace WebApi.Controllers
             [FromQuery] DateTime? fromDeadline = null,
             [FromQuery] DateTime? toDeadline = null)
         {
+            int size = _paginationSettings.EntitySizes.Tasks;
+
             GetAllTasksQuery query = new GetAllTasksQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 UserId = userId,
                 ClientId = clientId,

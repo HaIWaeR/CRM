@@ -131,8 +131,49 @@ namespace Persistence.Repositories
             }
         }
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         public async Task<List<StockItemEntity>> GetFilteredAsync(
+            Guid? productId = null,
+            Guid? materialId = null,
+            Guid? warehouseId = null,
+            Guid? storageZoneId = null,
+            int? minQuantity = null,
+            int? maxQuantity = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<StockItemEntity> query = context.StockItems
+                .Include(x => x.Warehouse)
+                .Include(x => x.StorageZone)
+                .Include(x => x.Product)
+                .Include(x => x.Material);
+
+            if (productId.HasValue)
+                query = query.Where(x => x.ProductId == productId.Value);
+
+            if (materialId.HasValue)
+                query = query.Where(x => x.MaterialId == materialId.Value);
+
+            if (warehouseId.HasValue)
+                query = query.Where(x => x.WarehouseId == warehouseId.Value);
+
+            if (storageZoneId.HasValue)
+                query = query.Where(x => x.StorageZoneId == storageZoneId.Value);
+
+            if (minQuantity.HasValue)
+                query = query.Where(x => x.Quantity >= minQuantity.Value);
+
+            if (maxQuantity.HasValue)
+                query = query.Where(x => x.Quantity <= maxQuantity.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
             Guid? productId = null,
             Guid? materialId = null,
             Guid? warehouseId = null,
@@ -164,7 +205,7 @@ namespace Persistence.Repositories
             if (maxQuantity.HasValue)
                 query = query.Where(x => x.Quantity <= maxQuantity.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
 
         // Проверка связей

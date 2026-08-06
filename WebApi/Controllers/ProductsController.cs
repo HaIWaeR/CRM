@@ -1,9 +1,12 @@
 ﻿using Application.Behavior.Product;
 using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Shared.DTOs.Pagination;
 using WebApi.DTO.Product;
 
 namespace WebApi.Controllers
@@ -11,8 +14,9 @@ namespace WebApi.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController(IMediator mediator) : ControllerBase
+    public class ProductsController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateProductAsync([FromBody] ProductToCreateOrUpdateDto dto)
@@ -22,7 +26,8 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<ProductDto>> GetAllProductsAsync(
+        public async Task<PaginatedResult<ProductDto>> GetAllProductsAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
             [FromQuery] string? category = null,
             [FromQuery] ProductStatus? status = null,
@@ -30,8 +35,12 @@ namespace WebApi.Controllers
             [FromQuery] decimal? minPrice = null,
             [FromQuery] decimal? maxPrice = null)
         {
+            int size = _paginationSettings.EntitySizes.Products;
+
             GetAllProductsQuery query = new GetAllProductsQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 Category = category,
                 Status = status,

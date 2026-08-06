@@ -17,8 +17,17 @@ namespace Application.Interfaces.Repositories
         Task<bool> IsArticleUniqueAsync(string article, Guid? excludeId = null);
         Task<MaterialEntity?> GetByArticleAsync(string article);
 
-        // Фильтрация 
+        // Фильтрация с пагинацией
         Task<List<MaterialEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            string? categoryCode = null,
+            MaterialStatus? status = null,
+            string? article = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             string? categoryCode = null,
             MaterialStatus? status = null,

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 
 namespace Application.Interfaces.Repositories
 {
@@ -18,8 +19,19 @@ namespace Application.Interfaces.Repositories
         Task AddQuantityAsync(Guid id, int quantity);
         Task RemoveQuantityAsync(Guid id, int quantity);
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         Task<List<StockItemEntity>> GetFilteredAsync(
+            Guid? productId = null,
+            Guid? materialId = null,
+            Guid? warehouseId = null,
+            Guid? storageZoneId = null,
+            int? minQuantity = null,
+            int? maxQuantity = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             Guid? productId = null,
             Guid? materialId = null,
             Guid? warehouseId = null,

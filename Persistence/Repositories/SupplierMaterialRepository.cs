@@ -48,9 +48,44 @@ namespace Persistence.Repositories
         {
             return await context.SupplierMaterials.AnyAsync(x => x.Id == id);
         }
-
-        // Фильтрация
+        
+        // Фильтрация с пагинацией
         public async Task<List<SupplierMaterialEntity>> GetFilteredAsync(
+            Guid? supplierId = null,
+            Guid? materialId = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            int? maxDeliveryDays = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<SupplierMaterialEntity> query = context.SupplierMaterials
+                .Include(x => x.Supplier)
+                .Include(x => x.Material);
+
+            if (supplierId.HasValue)
+                query = query.Where(x => x.SupplierId == supplierId.Value);
+
+            if (materialId.HasValue)
+                query = query.Where(x => x.MaterialId == materialId.Value);
+
+            if (minPrice.HasValue)
+                query = query.Where(x => x.PriceUnit >= minPrice.Value);
+
+            if (maxPrice.HasValue)
+                query = query.Where(x => x.PriceUnit <= maxPrice.Value);
+
+            if (maxDeliveryDays.HasValue)
+                query = query.Where(x => x.DeliveryDays <= maxDeliveryDays.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
             Guid? supplierId = null,
             Guid? materialId = null,
             decimal? minPrice = null,
@@ -76,7 +111,7 @@ namespace Persistence.Repositories
             if (maxDeliveryDays.HasValue)
                 query = query.Where(x => x.DeliveryDays <= maxDeliveryDays.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
 
         // Проверка связей
@@ -84,7 +119,6 @@ namespace Persistence.Repositories
         {
             return await context.SupplierMaterials.AnyAsync(x => x.SupplierId == supplierId);
         }
-
         public async Task<bool> HasSupplierMaterialsForMaterialAsync(Guid materialId)
         {
             return await context.SupplierMaterials.AnyAsync(x => x.MaterialId == materialId);

@@ -44,8 +44,40 @@ namespace Persistence.Repositories
             return await context.Warehouses.AnyAsync(x => x.Id == id);
         }
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         public async Task<List<WarehouseRoomEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            Guid? branchId = null,
+            WarehouseStatus? status = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<WarehouseRoomEntity> query = context.Warehouses.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    x.Address.ToLower().Contains(search) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (branchId.HasValue)
+                query = query.Where(x => x.BranchId == branchId.Value);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее количество записей
+        public async Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             Guid? branchId = null,
             WarehouseStatus? status = null)
@@ -68,7 +100,7 @@ namespace Persistence.Repositories
             if (status.HasValue)
                 query = query.Where(x => x.Status == status.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
 
         // Проверка связей

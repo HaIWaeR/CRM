@@ -49,8 +49,52 @@ namespace Persistence.Repositories
                 .FirstOrDefaultAsync(x => x.Article != null && x.Article == article);
         }
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         public async Task<List<ProductEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            string? category = null,
+            ProductStatus? status = null,
+            bool? isService = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<ProductEntity> query = context.Products.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    (x.Article != null && x.Article.ToLower().Contains(search)) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (!string.IsNullOrWhiteSpace(category))
+                query = query.Where(x => x.Category == category);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (isService.HasValue)
+                query = query.Where(x => x.IsService == isService.Value);
+
+            if (minPrice.HasValue)
+                query = query.Where(x => x.Price >= minPrice.Value);
+
+            if (maxPrice.HasValue)
+                query = query.Where(x => x.Price <= maxPrice.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             string? category = null,
             ProductStatus? status = null,
@@ -85,7 +129,7 @@ namespace Persistence.Repositories
             if (maxPrice.HasValue)
                 query = query.Where(x => x.Price <= maxPrice.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
 
         // Проверка связе

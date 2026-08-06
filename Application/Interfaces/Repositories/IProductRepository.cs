@@ -16,8 +16,19 @@ namespace Application.Interfaces.Repositories
         Task<bool> ExistsAsync(Guid id);
         Task<ProductEntity?> GetByArticleAsync(string article);
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         Task<List<ProductEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            string? category = null,
+            ProductStatus? status = null,
+            bool? isService = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             string? category = null,
             ProductStatus? status = null,

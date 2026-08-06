@@ -16,8 +16,18 @@ namespace Application.Interfaces.Repositories
         Task<bool> ExistsAsync(Guid id);
         Task<bool> IsInnUniqueAsync(string inn, Guid? excludeId = null);
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         Task<List<SupplierEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            SupplierType? supplierType = null,
+            SupplierStatus? supplierStatus = null,
+            int? minRating = null,
+            int? maxRating = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             SupplierType? supplierType = null,
             SupplierStatus? supplierStatus = null,

@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 
 namespace Application.Interfaces.Repositories
 {
@@ -14,8 +15,18 @@ namespace Application.Interfaces.Repositories
         // Дополнительные методы
         Task<bool> ExistsAsync(Guid id);
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         Task<List<SupplierMaterialEntity>> GetFilteredAsync(
+            Guid? supplierId = null,
+            Guid? materialId = null,
+            decimal? minPrice = null,
+            decimal? maxPrice = null,
+            int? maxDeliveryDays = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
             Guid? supplierId = null,
             Guid? materialId = null,
             decimal? minPrice = null,

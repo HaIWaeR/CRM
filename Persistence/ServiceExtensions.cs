@@ -37,6 +37,8 @@ namespace Persistence
             });
             services.AddScoped<IJwtService, JwtService>();
 
+            services.Configure<PaginationSettings>(configuration.GetSection("Pagination"));
+
             return services;
         }
     }

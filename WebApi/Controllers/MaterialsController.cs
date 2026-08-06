@@ -1,18 +1,22 @@
 ﻿using Application.Behavior.Material;
 using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Shared.DTOs.Material;
+using Shared.DTOs.Pagination;
 
 namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class MaterialsController(IMediator mediator) : ControllerBase
+    public class MaterialsController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateMaterialAsync([FromBody] MaterialToCreateOrUpdateDto dto)
@@ -22,14 +26,19 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<MaterialDto>> GetAllMaterialsAsync(
+        public async Task<PaginatedResult<MaterialDto>> GetAllMaterialsAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
             [FromQuery] string? categoryCode = null,
             [FromQuery] MaterialStatus? status = null,
             [FromQuery] string? article = null)
         {
+            int size = _paginationSettings.EntitySizes.Materials;
+
             GetAllMaterialsQuery query = new GetAllMaterialsQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 CategoryCode = categoryCode,
                 Status = status,

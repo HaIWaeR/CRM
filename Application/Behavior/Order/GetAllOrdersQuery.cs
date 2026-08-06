@@ -4,11 +4,14 @@ using Domain.Enums;
 using Mapster;
 using MediatR;
 using Shared.DTOs.Order;
+using Shared.DTOs.Pagination;
 
 namespace Application.Behavior.Orders
 {
-    public class GetAllOrdersQuery : IRequest<List<OrderDto>>
+    public class GetAllOrdersQuery : IRequest<PaginatedResult<OrderDto>>
     {
+        public int Page { get; set; } = 1;
+        public int Size { get; set; } = 10;
         public string? SearchTerm { get; set; }
         public OrderStatus? Status { get; set; }
         public Guid? ClientId { get; set; }
@@ -17,10 +20,11 @@ namespace Application.Behavior.Orders
         public DateTime? ToDate { get; set; }
     }
 
-    public class GetAllOrdersQueryHandler(IOrderRepository orderRepository, IClientRepository clientRepository) 
-        : IRequestHandler<GetAllOrdersQuery, List<OrderDto>>
+    public class GetAllOrdersQueryHandler(
+        IOrderRepository orderRepository,
+        IClientRepository clientRepository) : IRequestHandler<GetAllOrdersQuery, PaginatedResult<OrderDto>>
     {
-        public async Task<List<OrderDto>> Handle(GetAllOrdersQuery query, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<OrderDto>> Handle(GetAllOrdersQuery query, CancellationToken cancellationToken)
         {
             List<OrderEntity> orders = await orderRepository.GetFilteredAsync(
                 query.SearchTerm,
@@ -28,7 +32,31 @@ namespace Application.Behavior.Orders
                 query.ClientId,
                 query.BranchId,
                 query.FromDate,
+                query.ToDate,
+                query.Page,
+                query.Size);
+
+            int totalCount = await orderRepository.GetTotalCountAsync(
+                query.SearchTerm,
+                query.Status,
+                query.ClientId,
+                query.BranchId,
+                query.FromDate,
                 query.ToDate);
+
+            int totalPages = (int)Math.Ceiling(totalCount / (double)query.Size);
+
+            if (query.Page > totalPages && totalPages > 0)
+            {
+                return new PaginatedResult<OrderDto>
+                {
+                    Items = new List<OrderDto>(),
+                    TotalCount = totalCount,
+                    Page = query.Page,
+                    Size = query.Size,
+                    TotalPages = totalPages
+                };
+            }
 
             List<OrderDto> result = new List<OrderDto>();
 
@@ -50,8 +78,14 @@ namespace Application.Behavior.Orders
                 result.Add(orderDto);
             }
 
-            return result;
+            return new PaginatedResult<OrderDto>
+            {
+                Items = result,
+                TotalCount = totalCount,
+                Page = query.Page,
+                Size = query.Size,
+                TotalPages = totalPages
+            };
         }
     }
 }
-

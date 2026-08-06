@@ -60,8 +60,52 @@ namespace Persistence.Repositories
                 .ToListAsync();
         }
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         public async Task<List<OrderEntity>> GetFilteredAsync(
+           string? searchTerm = null,
+           OrderStatus? status = null,
+           Guid? clientId = null,
+           Guid? branchId = null,
+           DateTime? fromDate = null,
+           DateTime? toDate = null,
+           int page = 1,
+           int size = 20)
+        {
+            IQueryable<OrderEntity> query = context.Orders.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.OrderNumber.ToLower().Contains(search) ||
+                    x.ServiceName.ToLower().Contains(search) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (clientId.HasValue)
+                query = query.Where(x => x.ClientId == clientId.Value);
+
+            if (branchId.HasValue)
+                query = query.Where(x => x.BranchId == branchId.Value);
+
+            if (fromDate.HasValue)
+                query = query.Where(x => x.CreatedAt >= fromDate.Value);
+
+            if (toDate.HasValue)
+                query = query.Where(x => x.CreatedAt <= toDate.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
            string? searchTerm = null,
            OrderStatus? status = null,
            Guid? clientId = null,
@@ -96,8 +140,9 @@ namespace Persistence.Repositories
             if (toDate.HasValue)
                 query = query.Where(x => x.CreatedAt <= toDate.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
+
 
         // Статистика
         public async Task<int> GetCountByStatusAsync(OrderStatus status)

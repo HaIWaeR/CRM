@@ -1,18 +1,22 @@
 ﻿using Application.Behavior.WarehouseRoom;
 using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.DTOs.Pagination;
 using Shared.DTOs.WarehouseRoom;
+using Microsoft.Extensions.Options;
 
 namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class WarehouseRoomsController(IMediator mediator) : ControllerBase
+    public class WarehouseRoomsController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateWarehouseRoomAsync([FromBody] WarehouseRoomToCreateOrUpdateDto dto)
@@ -22,13 +26,18 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<WarehouseRoomDto>> GetAllWarehouseRoomsAsync(
+        public async Task<PaginatedResult<WarehouseRoomDto>> GetAllWarehouseRoomsAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
             [FromQuery] Guid? branchId = null,
             [FromQuery] WarehouseStatus? status = null)
         {
+            int size = _paginationSettings.EntitySizes.WarehouseRooms;
+
             GetAllWarehouseRoomsQuery query = new GetAllWarehouseRoomsQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 BranchId = branchId,
                 Status = status

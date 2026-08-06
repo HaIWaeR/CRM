@@ -71,9 +71,50 @@ namespace Persistence.Repositories
             return await context.Users
                 .FirstOrDefaultAsync(x => x.Email != null && x.Email.ToLower() == email.ToLower());
         }
+        public async Task<bool> HasAnyUserAsync()
+        {
+            return await context.Users.AnyAsync();
+        }
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         public async Task<List<UserEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            UserRole? role = null,
+            UserStatus? status = null,
+            Guid? branchId = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<UserEntity> query = context.Users.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    (x.Email != null && x.Email.ToLower().Contains(search)) ||
+                    (x.Phone != null && x.Phone.Contains(search)) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (role.HasValue)
+                query = query.Where(x => x.Role == role.Value);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (branchId.HasValue)
+                query = query.Where(x => x.BranchId == branchId.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее количество записей
+        public async Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             UserRole? role = null,
             UserStatus? status = null,
@@ -101,7 +142,7 @@ namespace Persistence.Repositories
             if (branchId.HasValue)
                 query = query.Where(x => x.BranchId == branchId.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
 
         // Проверка связей

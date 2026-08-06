@@ -59,8 +59,50 @@ namespace Persistence.Repositories
             return !await query.AnyAsync();
         }
 
-        // Фильтрация
+        // Фильтрация с пагинацией
         public async Task<List<StorageZoneEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            Guid? warehouseId = null,
+            StorageZoneType? zoneType = null,
+            StorageZoneStatus? status = null,
+            bool? isDefault = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<StorageZoneEntity> query = context.Storages
+                .Include(x => x.StockItems)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    (x.Code != null && x.Code.ToLower().Contains(search)) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (warehouseId.HasValue)
+                query = query.Where(x => x.WarehouseId == warehouseId.Value);
+
+            if (zoneType.HasValue)
+                query = query.Where(x => x.ZoneType == zoneType.Value);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (isDefault.HasValue)
+                query = query.Where(x => x.IsDefault == isDefault.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             Guid? warehouseId = null,
             StorageZoneType? zoneType = null,
@@ -93,8 +135,9 @@ namespace Persistence.Repositories
             if (isDefault.HasValue)
                 query = query.Where(x => x.IsDefault == isDefault.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
+
 
         // Проверка связей
         public async Task<bool> HasStockItemsAsync(Guid storageZoneId)
@@ -110,7 +153,7 @@ namespace Persistence.Repositories
         // Обновление статуса зоны (добавлен)
         public async Task UpdateZoneStatusAsync(Guid storageZoneId)
         {
-            var zone = await context.Storages
+            StorageZoneEntity? zone = await context.Storages
                 .Include(x => x.StockItems)
                 .FirstOrDefaultAsync(x => x.Id == storageZoneId);
 

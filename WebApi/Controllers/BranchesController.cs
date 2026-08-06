@@ -1,17 +1,23 @@
 ﻿using Application.Behavior.Branch;
+using Domain.Enums;
+using Domain.Settings;
 using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Shared.DTOs.Branch;
+using Shared.DTOs.Pagination;
 
 namespace WebApi.Controllers
 {
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class BranchController(IMediator mediator) : ControllerBase
+    public class BranchController(IMediator mediator, IOptions<PaginationSettings> paginationOptions) : ControllerBase
     {
+        private readonly PaginationSettings _paginationSettings = paginationOptions.Value;
+
         [Authorize(Roles = "Owner, Admin")]
         [HttpPost]
         public async Task<Guid> CreateBranchAsync([FromBody] BranchToCreateOrUpdateDto dto)
@@ -21,18 +27,22 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<List<BranchDto>> GetAllBranchesAsync(
+        public async Task<PaginatedResult<BranchDto>> GetAllBranchesAsync(
+            [FromQuery] int page = 1,
             [FromQuery] string? searchTerm = null,
-            [FromQuery] Domain.Enums.BranchStatus? status = null)
+            [FromQuery] BranchStatus? status = null)
         {
+            int size = _paginationSettings.EntitySizes.Branches;
+
             GetAllBranchesQuery query = new GetAllBranchesQuery
             {
+                Page = page,
+                Size = size,
                 SearchTerm = searchTerm,
                 Status = status
             };
 
-            List<BranchDto> result = await mediator.Send(query);
-            return result;
+            return await mediator.Send(query);
         }
 
         [HttpGet("{id}")]

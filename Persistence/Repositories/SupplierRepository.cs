@@ -61,6 +61,48 @@ namespace Persistence.Repositories
             SupplierType? supplierType = null,
             SupplierStatus? status = null,
             int? minRating = null,
+            int? maxRating = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<SupplierEntity> query = context.Suppliers.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    (x.Inn != null && x.Inn.ToLower().Contains(search)) ||
+                    (x.Address != null && x.Address.ToLower().Contains(search)) ||
+                    (x.ContactPerson != null && x.ContactPerson.ToLower().Contains(search)) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (supplierType.HasValue)
+                query = query.Where(x => x.Type == supplierType.Value);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (minRating.HasValue)
+                query = query.Where(x => x.Rating >= minRating.Value);
+
+            if (maxRating.HasValue)
+                query = query.Where(x => x.Rating <= maxRating.Value);
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
+            string? searchTerm = null,
+            SupplierType? supplierType = null,
+            SupplierStatus? status = null,
+            int? minRating = null,
             int? maxRating = null)
         {
             IQueryable<SupplierEntity> query = context.Suppliers.AsQueryable();
@@ -89,7 +131,7 @@ namespace Persistence.Repositories
             if (maxRating.HasValue)
                 query = query.Where(x => x.Rating <= maxRating.Value);
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
 
         // Проверка связей

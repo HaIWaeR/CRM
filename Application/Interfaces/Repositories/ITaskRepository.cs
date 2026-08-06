@@ -24,6 +24,19 @@ namespace Application.Interfaces.Repositories
             TaskPriority? priority = null,
             InstallTaskStatus? status = null,
             DateTime? fromDeadline = null,
+            DateTime? toDeadline = null,
+            int page = 1,
+            int size = 20);
+
+        // Общее количество записей
+        Task<int> GetTotalCountAsync(
+            string? searchTerm = null,
+            Guid? userId = null,
+            Guid? clientId = null,
+            Guid? orderId = null,
+            TaskPriority? priority = null,
+            InstallTaskStatus? status = null,
+            DateTime? fromDeadline = null,
             DateTime? toDeadline = null);
 
         // Проверка связей

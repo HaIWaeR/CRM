@@ -57,8 +57,44 @@ namespace Persistence.Repositories
             return !await query.AnyAsync();
         }
 
-        // Фильтрация 
+        // Фильтрация с пагинацией
         public async Task<List<MaterialEntity>> GetFilteredAsync(
+            string? searchTerm = null,
+            string? categoryCode = null,
+            MaterialStatus? status = null,
+            string? article = null,
+            int page = 1,
+            int size = 20)
+        {
+            IQueryable<MaterialEntity> query = context.Materials.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(searchTerm))
+            {
+                string search = searchTerm.Trim().ToLower();
+                query = query.Where(x =>
+                    x.Name.ToLower().Contains(search) ||
+                    x.Article.ToLower().Contains(search) ||
+                    (x.Description != null && x.Description.ToLower().Contains(search))
+                );
+            }
+
+            if (!string.IsNullOrWhiteSpace(categoryCode))
+                query = query.Where(x => x.CategoryCode == categoryCode);
+
+            if (status.HasValue)
+                query = query.Where(x => x.Status == status.Value);
+
+            if (!string.IsNullOrWhiteSpace(article))
+                query = query.Where(x => x.Article.ToLower() == article.ToLower());
+
+            return await query
+                .Skip((page - 1) * size)
+                .Take(size)
+                .ToListAsync();
+        }
+
+        // Общее колличество записей
+        public async Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             string? categoryCode = null,
             MaterialStatus? status = null,
@@ -85,8 +121,9 @@ namespace Persistence.Repositories
             if (!string.IsNullOrWhiteSpace(article))
                 query = query.Where(x => x.Article.ToLower() == article.ToLower());
 
-            return await query.ToListAsync();
+            return await query.CountAsync();
         }
+
 
         // Проверка связей 
 
