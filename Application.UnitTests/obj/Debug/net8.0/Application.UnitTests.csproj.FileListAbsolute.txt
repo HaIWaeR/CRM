@@ -1,7 +1,0 @@
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\bin\Debug\net8.0\CoverletSourceRootsMapping_Application.UnitTests
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\obj\Debug\net8.0\Application.UnitTests.csproj.AssemblyReference.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\obj\Debug\net8.0\Application.UnitTests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\obj\Debug\net8.0\Application.UnitTests.AssemblyInfoInputs.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\obj\Debug\net8.0\Application.UnitTests.AssemblyInfo.cs
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\obj\Debug\net8.0\Application.UnitTests.csproj.CoreCompileInputs.cache
-C:\Users\argument\OneDrive\Рабочий стол\CRM\Application.UnitTests\obj\Debug\net8.0\Application.UnitTests.sourcelink.json

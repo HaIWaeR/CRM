@@ -8,12 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
+using Persistence.Seeders;
 
 namespace WebApi
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -106,6 +107,11 @@ namespace WebApi
             {
                 ApplicationContext context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
                 context.Database.Migrate();
+
+                if (app.Environment.IsDevelopment())
+                {
+                    await TesterSeeder.SeedAsync(scope.ServiceProvider);
+                }
             }
 
             app.Run();

@@ -38,6 +38,9 @@ namespace Persistence
             services.AddScoped<IJwtService, JwtService>();
 
             services.Configure<PaginationSettings>(configuration.GetSection("Pagination"));
+            // Временный овнер для интеграционного тестирования
+            services.Configure<PaginationSettings>(configuration.GetSection("Pagination"));
+            services.Configure<SeedTesterSettings>(configuration.GetSection("SeedTester"));
 
             return services;
         }

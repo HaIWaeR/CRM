@@ -1,0 +1,92 @@
+name: Integration tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+
+    # База данных PostgreSQL в контейнере на время работы пайплайна
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 123
+          POSTGRES_DB: CRM_DB
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    # Переменные окружения для API
+    env:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Host=localhost;Port=5432;Database=CRM_DB;Username=postgres;Password=123
+      SeedTester__Name: Tester
+      SeedTester__Email: tester@crm.local
+      SeedTester__Password: Tester123!
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Start API
+        run: dotnet run --project WebApi/WebApi.csproj --no-build --configuration Release --urls http://localhost:5000 > api.log 2>&1 &
+
+      - name: Wait for API
+        run: |
+          for i in {1..30}; do
+            if curl -s -o /dev/null http://localhost:5000/swagger/index.html; then
+              echo "API is up"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "API did not start"
+          cat api.log
+          exit 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Run Postman tests
+        run: |
+          newman run tests/postman/Finali.postman_collection.json \
+            --env-var "Host=http://localhost:5000" \
+            --reporters cli,htmlextra \
+            --reporter-htmlextra-export newman-report.html
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report
+          path: newman-report.html
+
+      - name: Show API log on failure
+        if: failure()
+        run: cat api.log

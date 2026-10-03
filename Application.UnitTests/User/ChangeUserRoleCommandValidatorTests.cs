@@ -11,7 +11,7 @@ namespace Application.UnitTests.User.Validators
 
         [Theory]
         [InlineData(UserRole.Admin)]
-        [InlineData(UserRole.Developer)]
+        [InlineData(UserRole.Owner)]
         [InlineData(UserRole.Reader)]
         public void Validate_RoleIsValid_ShouldNotHaveError(UserRole role)
         {

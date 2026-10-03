@@ -1,0 +1,602 @@
+{
+  "info": {
+    "_postman_id": "e3c9235d-17e1-4e07-aca0-5523ea145952",
+    "name": "Finali",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58052686",
+    "_collection_link": "https://go.postman.co/collection/58052686-e3c9235d-17e1-4e07-aca0-5523ea145952?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "New Request",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response contains token\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData).property(\"token\");\r\n    pm.expect(jsonData.token).a(\"string\");\r\n    pm.expect(jsonData.token).not.empty;\r\n});\r\n\r\nconst jsonData = pm.response.json();\r\npm.collectionVariables.set(\"token\", jsonData.token);\r\n\r\n"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"{{testerEmail}}\",\r\n  \"password\": \"{{testerPassword}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Auth/login",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Clients",
+      "item": [
+        {
+          "name": "Создать клиента",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 или 201\r\npm.test(\"Status code is 200 or 201\", function () {\r\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// В ответе строка\r\npm.test(\"Response is a string\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).a(\"string\");\r\n});\r\n\r\n// Строка является корректным GUID\r\npm.test(\"Response is a valid GUID\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);\r\n});\r\n\r\n// GUID не пустой (не из одних нулей)\r\npm.test(\"GUID is not empty\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).not.eql(\"00000000-0000-0000-0000-000000000000\");\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\n// Сохранить id и все отправленные данные для следующих запросов\r\nconst clientId = pm.response.json();\r\nconst sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\npm.collectionVariables.set(\"clientId\", clientId);\r\npm.collectionVariables.set(\"clientSent\", JSON.stringify(sent));"
+                ]
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Уникальный телефон в формате +7922XXXXXXX\r\npm.variables.set(\"clientPhone\", \"+7922\" + String(Date.now()).slice(-7));\r\n\r\n// Уникальный email в формате имя.фамилияXXXXXX@mail.ru\r\npm.variables.set(\"clientEmail\", \"vitalik.papkov\" + String(Date.now()).slice(-6) + \"@mail.ru\");\r\n\r\n// Вывод итогового тела запроса в консоль\r\nconsole.log(pm.variables.replaceIn(pm.request.body.raw));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"Виталий\",\n  \"lastName\": \"Папков\",\n  \"middleName\": \"Максимович\",\n  \"birthDate\": \"2005-08-05T01:22:59.622Z\",\n  \"phone\": \"{{clientPhone}}\",\n  \"email\": \"{{clientEmail}}\",\n  \"telegram\": \"@haiwaer\",\n  \"address\": \"Ленина 17, кв 20\",\n  \"notes\": \"Постоянный клиент, получает скидку\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Clients",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Clients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Получение всех клиентов",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// Ответ содержит все поля пагинации\r\npm.test(\"Response has pagination fields\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData).property(\"items\");\r\n    pm.expect(jsonData).property(\"totalCount\");\r\n    pm.expect(jsonData).property(\"page\");\r\n    pm.expect(jsonData).property(\"size\");\r\n    pm.expect(jsonData).property(\"totalPages\");\r\n});\r\n\r\n// Поля пагинации имеют правильный тип\r\npm.test(\"Pagination field types are correct\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData.items).an(\"array\");\r\n    pm.expect(jsonData.totalCount).a(\"number\");\r\n    pm.expect(jsonData.page).a(\"number\");\r\n    pm.expect(jsonData.size).a(\"number\");\r\n    pm.expect(jsonData.totalPages).a(\"number\");\r\n});\r\n\r\n// Список клиентов не пустой\r\npm.test(\"Items array is not empty\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.items).lengthOf.above(0);\r\n});\r\n\r\n// На странице не больше клиентов, чем размер страницы\r\npm.test(\"Items count does not exceed page size\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.items.length).to.be.at.most(jsonData.size);\r\n});\r\n\r\n// Количество страниц посчитано правильно\r\npm.test(\"Total pages is calculated correctly\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.totalPages).to.eql(Math.ceil(jsonData.totalCount / jsonData.size));\r\n});\r\n\r\n// У каждого клиента есть все нужные поля\r\npm.test(\"Each client has required fields\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    jsonData.items.forEach(function (client) {\r\n        pm.expect(client).property(\"id\");\r\n        pm.expect(client).property(\"firstName\");\r\n        pm.expect(client).property(\"lastName\");\r\n        pm.expect(client).property(\"middleName\");\r\n        pm.expect(client).property(\"birthDate\");\r\n        pm.expect(client).property(\"status\");\r\n        pm.expect(client).property(\"phone\");\r\n        pm.expect(client).property(\"email\");\r\n        pm.expect(client).property(\"telegram\");\r\n        pm.expect(client).property(\"address\");\r\n        pm.expect(client).property(\"notes\");\r\n        pm.expect(client).property(\"createdAt\");\r\n    });\r\n});\r\n\r\n// Правильный тип данных у обязательных полей\r\npm.test(\"Field types are correct\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    jsonData.items.forEach(function (client, index) {\r\n        pm.expect(client.id, `client at index ${index}`).a(\"string\");\r\n        pm.expect(client.firstName, `client at index ${index}`).a(\"string\");\r\n        pm.expect(client.lastName, `client at index ${index}`).a(\"string\");\r\n        pm.expect(client.birthDate, `client at index ${index}`).a(\"string\");\r\n        pm.expect(client.status, `client at index ${index}`).a(\"number\");\r\n        pm.expect(client.phone, `client at index ${index}`).a(\"string\");\r\n        pm.expect(client.email, `client at index ${index}`).a(\"string\");\r\n        pm.expect(client.createdAt, `client at index ${index}`).a(\"string\");\r\n    });\r\n});\r\n\r\n// Созданный в POST клиент есть в списке\r\npm.test(\"Created client is in the list\", function () {\r\n    const jsonData = pm.response.json();\r\n    const clientId = pm.collectionVariables.get(\"clientId\");\r\n\r\n    const found = jsonData.items.some(function (client) {\r\n        return client.id === clientId;\r\n    });\r\n\r\n    pm.expect(found).to.be.true;\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Clients",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Clients"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Получение клиента по Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// Это один объект, а не массив\r\npm.test(\"Response is a single object\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).a(\"object\");\r\n    pm.expect(jsonData).not.an(\"array\");\r\n});\r\n\r\n// Id совпадает с запрошенным\r\npm.test(\"Returned id matches requested id\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.id).to.eql(pm.collectionVariables.get(\"clientId\"));\r\n});\r\n\r\n// ФИО совпадает с отправленным\r\npm.test(\"Full name matches sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"clientSent\"));\r\n\r\n    pm.expect(jsonData.firstName).to.eql(sent.firstName);\r\n    pm.expect(jsonData.lastName).to.eql(sent.lastName);\r\n    pm.expect(jsonData.middleName).to.eql(sent.middleName);\r\n});\r\n\r\n// Дата рождения совпадает с отправленной\r\npm.test(\"Birth date matches sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"clientSent\"));\r\n\r\n    pm.expect(new Date(jsonData.birthDate).getTime()).to.eql(new Date(sent.birthDate).getTime());\r\n});\r\n\r\n// Телефон совпадает с отправленным (сравниваем только цифры, сервер форматирует номер)\r\npm.test(\"Phone matches sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"clientSent\"));\r\n\r\n    pm.expect(jsonData.phone.replace(/\\D/g, \"\")).to.eql(sent.phone.replace(/\\D/g, \"\"));\r\n});\r\n\r\n// Контактные данные совпадают с отправленными\r\npm.test(\"Contacts match sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"clientSent\"));\r\n\r\n    pm.expect(jsonData.email).to.eql(sent.email);\r\n    pm.expect(jsonData.telegram).to.eql(sent.telegram);\r\n    pm.expect(jsonData.address).to.eql(sent.address);\r\n    pm.expect(jsonData.notes).to.eql(sent.notes);\r\n});\r\n\r\n// Новому клиенту выставлен статус по умолчанию\r\npm.test(\"New client has default status\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.status).to.eql(1);\r\n});\r\n\r\n// Дата создания заполнена, а дата изменения пустая\r\npm.test(\"Created date is set and updated date is empty\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData.createdAt).a(\"string\");\r\n    pm.expect(new Date(jsonData.createdAt).toString()).not.eql(\"Invalid Date\");\r\n    pm.expect(jsonData.updatedAt).to.be.null;\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{Host}}/api/Clients/{{clientId}}",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Clients",
+                "{{clientId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Перезаписать клиента",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Новый уникальный телефон в формате +7922XXXXXXX\r\npm.variables.set(\"clientPhoneUpdated\", \"+7922\" + String(Date.now()).slice(-7));\r\n\r\n// Новый уникальный email в формате имя.фамилияXXXXXX@gmail.com\r\npm.variables.set(\"clientEmailUpdated\", \"don.hose\" + String(Date.now()).slice(-6) + \"@gmail.com\");"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// Id не изменился (клиент обновлён, а не создан новый)\r\npm.test(\"Id did not change\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.id).to.eql(pm.collectionVariables.get(\"clientId\"));\r\n});\r\n\r\n// ФИО изменилось на отправленное\r\npm.test(\"Full name was updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.firstName).to.eql(sent.firstName);\r\n    pm.expect(jsonData.lastName).to.eql(sent.lastName);\r\n    pm.expect(jsonData.middleName).to.eql(sent.middleName);\r\n});\r\n\r\n// Дата рождения изменилась на отправленную\r\npm.test(\"Birth date was updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(new Date(jsonData.birthDate).getTime()).to.eql(new Date(sent.birthDate).getTime());\r\n});\r\n\r\n// Телефон изменился на отправленный (сравниваем только цифры)\r\npm.test(\"Phone was updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.phone.replace(/\\D/g, \"\")).to.eql(sent.phone.replace(/\\D/g, \"\"));\r\n});\r\n\r\n// Контактные данные изменились на отправленные\r\npm.test(\"Contacts were updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.email).to.eql(sent.email);\r\n    pm.expect(jsonData.telegram).to.eql(sent.telegram);\r\n    pm.expect(jsonData.address).to.eql(sent.address);\r\n    pm.expect(jsonData.notes).to.eql(sent.notes);\r\n});\r\n\r\n// Статус клиента не изменился (PUT не меняет статус)\r\npm.test(\"Status did not change\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.status).to.eql(1);\r\n});\r\n\r\n// Дата изменения заполнилась и она позже даты создания\r\npm.test(\"Updated date is set and later than created date\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData.updatedAt).a(\"string\");\r\n    pm.expect(new Date(jsonData.updatedAt).getTime()).to.be.above(new Date(jsonData.createdAt).getTime());\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\n// Сохранить новые данные для проверки в следующем запросе\r\nconst updated = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\npm.collectionVariables.set(\"clientUpdated\", JSON.stringify(updated));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"firstName\": \"Дон\",\r\n  \"lastName\": \"Хосе\",\r\n  \"middleName\": \"Эскобаро\",\r\n  \"birthDate\": \"2010-10-03T01:32:40.667Z\",\r\n  \"phone\": \"{{clientPhoneUpdated}}\",\r\n  \"email\": \"{{clientEmailUpdated}}\",\r\n  \"telegram\": \"@hose\",\r\n  \"address\": \"Апатитова 77, кв 20\",\r\n  \"notes\": \"Подозрительный клиент\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Clients/{{clientId}}",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Clients",
+                "{{clientId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Изменение статуса",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// В ответе логическое значение\r\npm.test(\"Response is a boolean\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).a(\"boolean\");\r\n});\r\n\r\n// Статус успешно изменён\r\npm.test(\"Status was changed successfully\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.be.true;\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "2",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Clients/{{clientId}}/status",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Clients",
+                "{{clientId}}",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Удаление клиента",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 или 204\r\npm.test(\"Status code is 200 or 204\", function () {\r\n    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r\n});\r\n\r\n// Если сервер вернул ответ, удаление прошло успешно\r\nif (pm.response.text()) {\r\n    pm.test(\"Delete was successful\", function () {\r\n        const jsonData = pm.response.json();\r\n        pm.expect(jsonData).to.be.true;\r\n    });\r\n}\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{Host}}/api/Clients/{{clientId}}",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Clients",
+                "{{clientId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Создать продукт",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const letters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\nconst prefix = letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];\r\n\r\nconst number = Math.floor(100 + Math.random() * 900);\r\n\r\npm.variables.set(\"productArticle\", prefix + \"-\" + number);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 или 201\r\npm.test(\"Status code is 200 or 201\", function () {\r\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// В ответе строка\r\npm.test(\"Response is a string\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).a(\"string\");\r\n});\r\n\r\n// Строка является корректным GUID\r\npm.test(\"Response is a valid GUID\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);\r\n});\r\n\r\n// GUID не пустой (не из одних нулей)\r\npm.test(\"GUID is not empty\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).not.eql(\"00000000-0000-0000-0000-000000000000\");\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\n// Сохранить id и все отправленные данные для следующих запросов\r\nconst productId = pm.response.json();\r\nconst sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\npm.collectionVariables.set(\"productId\", productId);\r\npm.collectionVariables.set(\"productSent\", JSON.stringify(sent));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Планшет\",\r\n  \"price\": 12000,\r\n  \"category\": \"Электроника\",\r\n  \"article\": \"{{productArticle}}\",\r\n  \"description\": \"Очень крутой дивайс\",\r\n  \"attributes\": {\r\n    \"additionalProp1\": \"Размер 20 на 30\",\r\n    \"additionalProp2\": \"Чёрный\",\r\n    \"additionalProp3\": \"Лагает\"\r\n  },\r\n  \"isService\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Products",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Получить продукты",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// Ответ содержит все поля пагинации\r\npm.test(\"Response has pagination fields\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData).property(\"items\");\r\n    pm.expect(jsonData).property(\"totalCount\");\r\n    pm.expect(jsonData).property(\"page\");\r\n    pm.expect(jsonData).property(\"size\");\r\n    pm.expect(jsonData).property(\"totalPages\");\r\n});\r\n\r\n// Поля пагинации имеют правильный тип\r\npm.test(\"Pagination field types are correct\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData.items).an(\"array\");\r\n    pm.expect(jsonData.totalCount).a(\"number\");\r\n    pm.expect(jsonData.page).a(\"number\");\r\n    pm.expect(jsonData.size).a(\"number\");\r\n    pm.expect(jsonData.totalPages).a(\"number\");\r\n});\r\n\r\n// Список продуктов не пустой\r\npm.test(\"Items array is not empty\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.items).lengthOf.above(0);\r\n});\r\n\r\n// На странице не больше продуктов, чем размер страницы\r\npm.test(\"Items count does not exceed page size\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.items.length).to.be.at.most(jsonData.size);\r\n});\r\n\r\n// Количество страниц посчитано правильно\r\npm.test(\"Total pages is calculated correctly\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.totalPages).to.eql(Math.ceil(jsonData.totalCount / jsonData.size));\r\n});\r\n\r\n// У каждого продукта есть все нужные поля\r\npm.test(\"Each product has required fields\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    jsonData.items.forEach(function (product) {\r\n        pm.expect(product).property(\"id\");\r\n        pm.expect(product).property(\"name\");\r\n        pm.expect(product).property(\"price\");\r\n        pm.expect(product).property(\"category\");\r\n        pm.expect(product).property(\"article\");\r\n        pm.expect(product).property(\"description\");\r\n        pm.expect(product).property(\"attributes\");\r\n        pm.expect(product).property(\"status\");\r\n        pm.expect(product).property(\"isService\");\r\n        pm.expect(product).property(\"createdAt\");\r\n    });\r\n});\r\n\r\n// Правильный тип данных у полей\r\npm.test(\"Field types are correct\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    jsonData.items.forEach(function (product, index) {\r\n        pm.expect(product.id, `product at index ${index}`).a(\"string\");\r\n        pm.expect(product.name, `product at index ${index}`).a(\"string\");\r\n        pm.expect(product.price, `product at index ${index}`).a(\"number\");\r\n        pm.expect(product.category, `product at index ${index}`).a(\"string\");\r\n        pm.expect(product.article, `product at index ${index}`).a(\"string\");\r\n        pm.expect(product.attributes, `product at index ${index}`).an(\"object\");\r\n        pm.expect(product.status, `product at index ${index}`).a(\"number\");\r\n        pm.expect(product.isService, `product at index ${index}`).a(\"boolean\");\r\n        pm.expect(product.createdAt, `product at index ${index}`).a(\"string\");\r\n    });\r\n});\r\n\r\n// Цена у всех продуктов не отрицательная\r\npm.test(\"Price is not negative\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    jsonData.items.forEach(function (product, index) {\r\n        pm.expect(product.price, `product at index ${index}`).to.be.at.least(0);\r\n    });\r\n});\r\n\r\n// Созданный в POST продукт есть в списке\r\npm.test(\"Created product is in the list\", function () {\r\n    const jsonData = pm.response.json();\r\n    const productId = pm.collectionVariables.get(\"productId\");\r\n\r\n    const found = jsonData.items.some(function (product) {\r\n        return product.id === productId;\r\n    });\r\n\r\n    pm.expect(found).to.be.true;\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{Host}}/api/Products",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Получить продукт по Id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// Это один объект, а не массив\r\npm.test(\"Response is a single object\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).a(\"object\");\r\n    pm.expect(jsonData).not.an(\"array\");\r\n});\r\n\r\n// Id совпадает с запрошенным\r\npm.test(\"Returned id matches requested id\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.id).to.eql(pm.collectionVariables.get(\"productId\"));\r\n});\r\n\r\n// Основные данные совпадают с отправленными\r\npm.test(\"Main data matches sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"productSent\"));\r\n\r\n    pm.expect(jsonData.name).to.eql(sent.name);\r\n    pm.expect(jsonData.category).to.eql(sent.category);\r\n    pm.expect(jsonData.article).to.eql(sent.article);\r\n    pm.expect(jsonData.description).to.eql(sent.description);\r\n});\r\n\r\n// Цена совпадает с отправленной\r\npm.test(\"Price matches sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"productSent\"));\r\n\r\n    pm.expect(jsonData.price).to.eql(sent.price);\r\n});\r\n\r\n// Признак услуги совпадает с отправленным\r\npm.test(\"IsService matches sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"productSent\"));\r\n\r\n    pm.expect(jsonData.isService).to.eql(sent.isService);\r\n});\r\n\r\n// Атрибуты совпадают с отправленными\r\npm.test(\"Attributes match sent data\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.collectionVariables.get(\"productSent\"));\r\n\r\n    pm.expect(jsonData.attributes).to.eql(sent.attributes);\r\n});\r\n\r\n// Новому продукту выставлен статус по умолчанию\r\npm.test(\"New product has default status\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.status).to.eql(1);\r\n});\r\n\r\n// Дата создания заполнена, а дата изменения пустая\r\npm.test(\"Created date is set and updated date is empty\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData.createdAt).a(\"string\");\r\n    pm.expect(new Date(jsonData.createdAt).toString()).not.eql(\"Invalid Date\");\r\n    pm.expect(jsonData.updatedAt).to.be.null;\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{Host}}/api/Products/{{productId}}",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Products",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Переписать продукт",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const letters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\nconst prefix = letters[Math.floor(Math.random() * 26)] + letters[Math.floor(Math.random() * 26)];\r\n\r\n// Три случайные цифры (от 100 до 999)\r\nconst number = Math.floor(100 + Math.random() * 900);\r\n// Новый уникальный артикул в формате XX-123\r\npm.variables.set(\"productArticleUpdated\", prefix + \"-\" + number);"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// Id не изменился (продукт обновлён, а не создан новый)\r\npm.test(\"Id did not change\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.id).to.eql(pm.collectionVariables.get(\"productId\"));\r\n});\r\n\r\n// Основные данные изменились на отправленные\r\npm.test(\"Main data was updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.name).to.eql(sent.name);\r\n    pm.expect(jsonData.category).to.eql(sent.category);\r\n    pm.expect(jsonData.article).to.eql(sent.article);\r\n    pm.expect(jsonData.description).to.eql(sent.description);\r\n});\r\n\r\n// Цена изменилась на отправленную\r\npm.test(\"Price was updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.price).to.eql(sent.price);\r\n});\r\n\r\n// Признак услуги изменился на отправленный\r\npm.test(\"IsService was updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.isService).to.eql(sent.isService);\r\n});\r\n\r\n// Атрибуты изменились на отправленные\r\npm.test(\"Attributes were updated\", function () {\r\n    const jsonData = pm.response.json();\r\n    const sent = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n\r\n    pm.expect(jsonData.attributes).to.eql(sent.attributes);\r\n});\r\n\r\n// Статус продукта не изменился (PUT не меняет статус)\r\npm.test(\"Status did not change\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData.status).to.eql(1);\r\n});\r\n\r\n// Дата изменения заполнилась и она позже даты создания\r\npm.test(\"Updated date is set and later than created date\", function () {\r\n    const jsonData = pm.response.json();\r\n\r\n    pm.expect(jsonData.updatedAt).a(\"string\");\r\n    pm.expect(new Date(jsonData.updatedAt).getTime()).to.be.above(new Date(jsonData.createdAt).getTime());\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});\r\n\r\n// Сохранить новые данные для проверки в следующем запросе, только если изменение прошло успешно\r\nif (pm.response.code === 200) {\r\n    const updated = JSON.parse(pm.variables.replaceIn(pm.request.body.raw));\r\n    pm.collectionVariables.set(\"productUpdated\", JSON.stringify(updated));\r\n}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Ноутбук\",\r\n  \"price\": 30000,\r\n  \"category\": \"Электроника\",\r\n  \"article\": \"{{productArticleUpdated}}\",\r\n  \"description\": \"Не леново и хорошо\",\r\n  \"attributes\": {\r\n    \"additionalProp1\": \"Серый\",\r\n    \"additionalProp2\": \"20 на 30 на 3\",\r\n    \"additionalProp3\": \"Вес 2 кг\"\r\n  },\r\n  \"isService\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Products/{{productId}}",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Products",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Изменение статуса продукта",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 OK\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\n// Это json\r\npm.test(\"Response is valid JSON\", function () {\r\n    pm.response.to.have.json;\r\n});\r\n\r\n// В ответе логическое значение\r\npm.test(\"Response is a boolean\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).a(\"boolean\");\r\n});\r\n\r\n// Статус успешно изменён\r\npm.test(\"Status was changed successfully\", function () {\r\n    const jsonData = pm.response.json();\r\n    pm.expect(jsonData).to.be.true;\r\n});\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "2",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Host}}/api/Products/{{productId}}/status",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Products",
+                "{{productId}}",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Удаление продукта",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Статус 200 или 204\r\npm.test(\"Status code is 200 or 204\", function () {\r\n    pm.expect(pm.response.code).to.be.oneOf([200, 204]);\r\n});\r\n\r\n// Если сервер вернул ответ, удаление прошло успешно\r\nif (pm.response.text()) {\r\n    pm.test(\"Delete was successful\", function () {\r\n        const jsonData = pm.response.json();\r\n        pm.expect(jsonData).to.be.true;\r\n    });\r\n}\r\n\r\n// Замер скорости ответа на запрос\r\npm.test(\"Response time is less than 500ms\", function () {\r\n    pm.expect(pm.response.responseTime).to.be.below(2000);\r\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{Host}}/api/Products/{{productId}}",
+              "host": [
+                "{{Host}}"
+              ],
+              "path": [
+                "api",
+                "Products",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "Host",
+      "value": ""
+    },
+    {
+      "key": "testerEmail",
+      "value": ""
+    },
+    {
+      "key": "testerPassword",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "clientPhone",
+      "value": ""
+    },
+    {
+      "key": "clientEmail",
+      "value": ""
+    },
+    {
+      "key": "clientId",
+      "value": ""
+    },
+    {
+      "key": "clientFirstName",
+      "value": ""
+    },
+    {
+      "key": "clientLastName",
+      "value": ""
+    },
+    {
+      "key": "clientTelegram",
+      "value": ""
+    },
+    {
+      "key": "clientSent",
+      "value": ""
+    },
+    {
+      "key": "clientUpdated",
+      "value": ""
+    },
+    {
+      "key": "productId",
+      "value": ""
+    },
+    {
+      "key": "productSent",
+      "value": ""
+    },
+    {
+      "key": "productUpdated",
+      "value": ""
+    },
+    {
+      "key": "orderId",
+      "value": ""
+    },
+    {
+      "key": "orderSent",
+      "value": ""
+    }
+  ]
+}
