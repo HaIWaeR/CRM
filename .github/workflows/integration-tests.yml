@@ -77,6 +77,8 @@ jobs:
         run: |
           newman run tests/postman/Finali.postman_collection.json \
             --env-var "Host=http://localhost:5000" \
+            --env-var "testerEmail=tester@crm.local" \
+            --env-var "testerPassword=Tester123!" \
             --reporters cli,htmlextra \
             --reporter-htmlextra-export newman-report.html
 
