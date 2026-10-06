@@ -7,22 +7,49 @@ using Shared.DTOs.Client;
 
 namespace Application.Behavior.Client;
 
+/// <summary>
+/// Команда на полное обновление данных клиента. Возвращает обновлённого клиента.
+/// </summary>
+/// <remarks>
+/// Работает как полная замена (PUT): поля, переданные пустыми, будут очищены.
+/// Статус клиента этой командой не меняется — для этого есть <see cref="ChangeClientStatusCommand"/>.
+/// Перед обработкой проверяется <see cref="Validators.Client.UpdateClientCommandValidator"/>;
+/// при ошибках выбрасывается <see cref="FluentValidation.ValidationException"/>.
+/// </remarks>
 public class UpdateClientCommand : IRequest<ClientDto>
 {
+
     public Guid Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string? LastName { get; set; } = string.Empty;
     public string? MiddleName { get; set; }
     public DateTime? BirthDate { get; set; }
+    /// <inheritdoc cref="ClientToCreateOrUpdateDto.Phone"/>
     public string? Phone { get; set; }
+    /// <inheritdoc cref="ClientToCreateOrUpdateDto.Email"/>
     public string? Email { get; set; }
+    /// <inheritdoc cref="ClientToCreateOrUpdateDto.Telegram"/>
     public string? Telegram { get; set; }
     public string? Address { get; set; }
     public string? Notes { get; set; }
 }
-
+/// <summary>
+/// Обработчик <see cref="UpdateClientCommand"/>: проверяет существование клиента
+/// и уникальность контактов, затем перезаписывает его данные.
+/// </summary>
+/// <param name="repository">Репозиторий клиентов.</param>
 public class UpdateClientCommandHandler(IClientRepository repository) : IRequestHandler<UpdateClientCommand, ClientDto>
 {
+    /// <summary>
+    /// Обновляет данные клиента и устанавливает <see cref="ClientEntity.UpdatedAt"/>.
+    /// </summary>
+    /// <param name="command">Новые данные клиента и его Id.</param>
+    /// <param name="cancellationToken">Токен отмены операции.</param>
+    /// <returns>Клиент после обновления.</returns>
+    /// <exception cref="KeyNotFoundException">Клиент с указанным Id не найден.</exception>
+    /// <exception cref="InvalidOperationException">
+    /// Не указан ни один контакт, либо телефон, Email или Telegram заняты другим клиентом.
+    /// </exception>
     public async Task<ClientDto> Handle(UpdateClientCommand command, CancellationToken cancellationToken)
     {
         ClientEntity? existing = await repository.GetByIdAsync(command.Id)

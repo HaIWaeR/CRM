@@ -1,13 +1,20 @@
 ﻿using Domain.Entities;
 using Domain.Entities.Supporting;
-using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Configurations;
 
 namespace Persistence
 {
+    /// <summary>
+    /// Контекст EF Core для работы с базой данных CRM (PostgreSQL).
+    /// Содержит наборы всех сущностей и применяет их конфигурации.
+    /// </summary>
     public class ApplicationContext : DbContext
     {
+        /// <summary>
+        /// Создаёт контекст с параметрами подключения, заданными при регистрации в DI.
+        /// </summary>
+        /// <param name="options">Параметры контекста, включая строку подключения <c>DefaultConnection</c>.</param>
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }

@@ -6,6 +6,10 @@ namespace Application.Validators.Client
 {
     public class UpdateClientCommandValidator : AbstractValidator<UpdateClientCommand>
     {
+        /// <summary>
+        /// Задаёт правила: обязательное имя, ограничения длины, формат телефона, Email и Telegram,
+        /// дата рождения не в будущем, хотя бы один контакт.
+        /// </summary>
         public UpdateClientCommandValidator()
         {
             RuleFor(x => x.FirstName)

@@ -1,12 +1,35 @@
 ﻿namespace Application.Helpers
 {
+    /// <summary>
+    /// Вспомогательные методы для работы с номерами телефонов.
+    /// </summary>
     public static class PhoneHelper
     {
         /// <summary>
-        /// Приводит номер к формату +7 000 000 00 00 
+        /// Приводит российский номер к виду <c>+7 000 000 00 00</c>.
         /// </summary>
-        /// <param name="phone"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Из строки удаляются все символы, кроме цифр и <c>+</c>. Затем:
+        /// <list type="bullet">
+        /// <item>11 цифр с ведущей <c>8</c> — <c>8</c> заменяется на <c>+7</c>;</item>
+        /// <item>10 цифр — добавляется <c>+7</c>;</item>
+        /// <item><c>+7</c> и 10 цифр — только расставляются пробелы.</item>
+        /// </list>
+        /// Номер, не подходящий ни под одно правило (иностранный, неполный), возвращается
+        /// без форматирования — только цифры и <c>+</c>.
+        /// </remarks>
+        /// <param name="phone">Номер в произвольном формате; может быть <c>null</c> или пустым.</param>
+        /// <returns>
+        /// Отформатированный номер; номер из цифр без форматирования, если он не распознан как российский;
+        /// <c>null</c>, если строка пустая или в ней нет цифр.
+        /// </returns>
+        /// <example>
+        /// <code>
+        /// PhoneHelper.FormatPhone("8 (999) 123-45-67"); // "+7 999 123 45 67"
+        /// PhoneHelper.FormatPhone("9991234567");        // "+7 999 123 45 67"
+        /// PhoneHelper.FormatPhone("  ");                // null
+        /// </code>
+        /// </example>
         public static string? FormatPhone(string? phone)
         {
             if (string.IsNullOrWhiteSpace(phone))

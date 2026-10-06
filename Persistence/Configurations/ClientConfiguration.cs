@@ -5,8 +5,20 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Configurations
 {
+    /// <summary>
+    /// Настраивает отображение <see cref="ClientEntity"/> на таблицу <c>Clients</c>:
+    /// первичный ключ, обязательные поля и максимальную длину строк.
+    /// </summary>
+    /// <remarks>
+    /// Ограничения длины совпадают с правилами валидаторов команд Client,
+    /// поэтому при изменении одного нужно менять и другое.
+    /// </remarks>
     public class ClientConfiguration : IEntityTypeConfiguration<ClientEntity>
     {
+        /// <summary>
+        /// Применяет настройки сущности клиента к модели EF Core.
+        /// </summary>
+        /// <param name="builder">Построитель конфигурации сущности, передаётся EF Core.</param>
         public void Configure(EntityTypeBuilder<ClientEntity> builder)
         {
             builder.ToTable("Clients");

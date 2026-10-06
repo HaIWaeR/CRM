@@ -5,28 +5,38 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories
 {
+    /// <summary>
+    /// Реализация <see cref="IClientRepository"/> на EF Core для PostgreSQL.
+    /// </summary>
+    /// <param name="context">Контекст БД; передаётся через DI с временем жизни Scoped.</param>
     public class ClientRepository(ApplicationContext context) : IClientRepository
     {
         // CRUD
+
+        /// <inheritdoc/>
         public async Task AddAsync(ClientEntity client)
         {
             await context.Clients.AddAsync(client);
             await context.SaveChangesAsync();
         }
+        /// <inheritdoc/>
         public async Task<List<ClientEntity>> GetAllAsync()
         {
             return await context.Clients.ToListAsync();
         }
+        /// <inheritdoc/>
         public async Task<ClientEntity?> GetByIdAsync(Guid id)
         {
             return await context.Clients.FindAsync(id);
         }
+        /// <inheritdoc/>
         public async Task<ClientEntity> UpdateAsync(ClientEntity client)
         {
             context.Clients.Update(client);
             await context.SaveChangesAsync();
             return client;
         }
+        /// <inheritdoc/>
         public async Task DeleteAsync(Guid id)
         {
             context.Clients.Remove(new ClientEntity { Id = id });
@@ -34,11 +44,13 @@ namespace Persistence.Repositories
         }
         
         // Дополнительные методы
+        /// <inheritdoc/>
         public async Task<bool> ExistsAsync(Guid id)
         {
             return await context.Clients.AnyAsync(x => x.Id == id);
         }
 
+        /// <inheritdoc/>
         public async Task<bool> IsPhoneUniqueAsync(string phone, Guid? excludeId = null)
         {
             IQueryable<ClientEntity> query = context.Clients
@@ -50,6 +62,7 @@ namespace Persistence.Repositories
             return !await query.AnyAsync();
         }
 
+        /// <inheritdoc/>
         public async Task<bool> IsEmailUniqueAsync(string email, Guid? excludeId = null)
         {
             IQueryable<ClientEntity> query = context.Clients
@@ -61,6 +74,7 @@ namespace Persistence.Repositories
             return !await query.AnyAsync();
         }
 
+        /// <inheritdoc/>
         public async Task<bool> IsTelegramUniqueAsync(string telegram, Guid? excludeId = null)
         {
             IQueryable<ClientEntity> query = context.Clients
@@ -73,6 +87,7 @@ namespace Persistence.Repositories
         }
 
         // Фильтрация с пагинацией
+        /// <inheritdoc/>
         public async Task<List<ClientEntity>> GetFilteredAsync(
             string? searchTerm = null,
             ClientStatus? status = null,
@@ -115,6 +130,7 @@ namespace Persistence.Repositories
         }
 
         // Общее количество записей
+        /// <inheritdoc/>
         public async Task<int> GetTotalCountAsync(
             string? searchTerm = null,
             ClientStatus? status = null,
@@ -152,6 +168,7 @@ namespace Persistence.Repositories
         }
 
         // Проверка связей
+        /// <inheritdoc/>
         public async Task<bool> HasOrdersAsync(Guid clientId)
         {
             return await context.Orders.AnyAsync(x => x.ClientId == clientId);
