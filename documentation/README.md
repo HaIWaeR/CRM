@@ -1401,5 +1401,3 @@ namespace Application.Helpers
 }
 
 ```
-
-# Диаграмма последовательности
